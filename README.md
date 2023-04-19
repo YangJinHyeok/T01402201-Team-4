@@ -6,7 +6,7 @@
 |---|-----|--------------------------|-----------|
 | [GitHub](https://github.com/YangJinHyeok) | 양진혁 | 팀장 | |
 | [GitHub](https://github.com/HwangBBang)| 황병훈 | 팀원 | |
-| [GitHub]()| 최승혁 |  |  |
+| [GitHub]()| 최승엽 |  |  |
 | [GitHub]()| 정민 |  |  |
 
 

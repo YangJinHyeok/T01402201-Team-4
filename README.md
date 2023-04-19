@@ -1,3 +1,5 @@
+<!-- Touched by HwangBBang -->
+
 # GameProgramming
 오픈소스 4팀 프로젝트 저장소<br>
 
@@ -11,13 +13,13 @@
 
 # Tool we used
 
-<code><img title="C#" alt="c#" width="40px" 
+<code><img title="C#" alt="c#" width="60px" 
         src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-line.svg" />  </code>
-<code><img title="Unity" alt="unity" width="40px" 
+<code><img title="Unity" alt="unity" width="60px" 
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original-wordmark.svg" />  </code>
-<code><img title="GitHub" alt="github" width="40px" 
+<code><img title="GitHub" alt="github" width="60px" 
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"/>  </code>
-<code><img title="Git" alt="git" width="40px" 
+<code><img title="Git" alt="git" width="60px" 
         src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" /></code>
 
 ---

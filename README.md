@@ -6,10 +6,21 @@
 |---|-----|--------------------------|-----------|
 | [GitHub](https://github.com/YangJinHyeok) | 양진혁 | 팀장 | |
 | [GitHub](https://github.com/HwangBBang)| 황병훈 | 팀원 | |
-| [GitHub]()| 최승엽 |  |  |
-| [GitHub]()| 정민 |  |  |
+| [GitHub]()| 최승엽 | 팀원 |  |
+| [GitHub]()| 김정민 | 팀원 |  |
 
+# Tool we used
 
+<code><img title="C#" alt="c#" width="40px" 
+        src = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-line.svg" />  </code>
+<code><img title="Unity" alt="unity" width="40px" 
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/unity/unity-original-wordmark.svg" />  </code>
+<code><img title="GitHub" alt="github" width="40px" 
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg"/>  </code>
+<code><img title="Git" alt="git" width="40px" 
+        src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" /></code>
+
+---
 
 ## 4팀 사이드프로젝트를 소개합니다.
 

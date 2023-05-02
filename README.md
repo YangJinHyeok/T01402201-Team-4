@@ -8,7 +8,7 @@
 |---|-----|--------------------------|-----------|
 | [GitHub](https://github.com/YangJinHyeok) | 양진혁 | 팀장 | |
 | [GitHub](https://github.com/HwangBBang)| 황병훈 | 팀원 | |
-| [GitHub]()| 최승엽 | 팀원 |  |
+| [GitHub](https://github.com/seungyeobchoi)| 최승엽 | 팀원 |  |
 | [GitHub]()| 김정민 | 팀원 |  |
 
 # Tool we used

@@ -1,7 +1,7 @@
 <!-- Touched by HwangBBang -->
 
 # GameProgramming
-오픈소스 4팀 프로젝트 저장소<br>
+게임프로그래밍 4팀 프로젝트 저장소<br>
 
 #### 팀원
 |링크|이름|업무|개발스테이지|

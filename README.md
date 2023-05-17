@@ -4,12 +4,12 @@
 게임프로그래밍 4팀 프로젝트 저장소<br>
 
 #### 팀원
-|링크|이름|업무|개발스테이지|
+|링크|이름|업무|개발 파트|
 |---|-----|--------------------------|-----------|
-| [GitHub](https://github.com/YangJinHyeok) | 양진혁 | 팀장 | |
-| [GitHub](https://github.com/HwangBBang)| 황병훈 | 팀원 | |
-| [GitHub](https://github.com/seungyeobchoi)| 최승엽 | 팀원 |  |
-| [GitHub]()| 김정민 | 팀원 |  |
+| [GitHub](https://github.com/YangJinHyeok) | 양진혁 | 팀장 |캐릭터, 물풍선 |
+| [GitHub](https://github.com/HwangBBang)| 황병훈 | 팀원 |캐릭터, 물풍선 |
+| [GitHub](https://github.com/seungyeobchoi)| 최승엽 | 팀원 |몬스터, 아이템  |
+| [GitHub]()| 김정민 | 팀원 |몬스터, 아이템  |
 
 # Tool we used
 

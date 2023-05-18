@@ -11,8 +11,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Bomb
+  - Shadow
   - 
   - 
   - 
@@ -49,4 +49,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4291432863
+    locked: 0
+  - name: Shadow
+    uniqueID: 1054685567
+    locked: 0
+  - name: Bomb
+    uniqueID: 1460612415
     locked: 0

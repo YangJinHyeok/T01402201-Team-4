@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
-    private float Playerspeed = 10f;
+    private float Playerspeed = 5f;
     // Start is called before the first frame update
     void Start()
     {

@@ -68,6 +68,15 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetInteger("state", (int)state);
     }
+
+    private void PlayerAction(){
+        if(Input.GetKeyDown(KeyCode.Space)){ // + 물풍선 갯수 조건 해줘야함
+            MakeBomb();
+        }
+    }
+    private void MakeBomb(){
+        
+    }
     
 
 }

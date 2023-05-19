@@ -8,12 +8,16 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private float Playerspeed = 5f;
+    private GameObject Bazzi;
+    private GameObject prefab_obj;
     // Start is called before the first frame update
     void Start()
     {
+        Bazzi = GameObject.FindGameObjectWithTag("Bazzi");
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        prefab_obj = Resources.Load("Prefabs/Bomb") as GameObject;
     }
 
     // Update is called once per frame
@@ -21,9 +25,17 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerMove();
 
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
+            obj.name = "clone";
+            Vector2 pos = Bazzi.transform.position;
+            obj.transform.position = pos;
+        }
+
     }
 
-    private enum MovementState {down, right, up, left, downidle, rightidle, upidle, leftidle };
+    private enum MovementState { down, right, up, left, downidle, rightidle, upidle, leftidle };
     private void PlayerMove()
     {
 
@@ -41,7 +53,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(new Vector2(0, Playerspeed  * Time.deltaTime));
+            transform.Translate(new Vector2(0, Playerspeed * Time.deltaTime));
             state = MovementState.up;
         }
         if (Input.GetKey(KeyCode.DownArrow))
@@ -69,14 +81,5 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     }
 
-    private void PlayerAction(){
-        if(Input.GetKeyDown(KeyCode.Space)){ // + 물풍선 갯수 조건 해줘야함
-            MakeBomb();
-        }
-    }
-    private void MakeBomb(){
-        
-    }
-    
 
 }

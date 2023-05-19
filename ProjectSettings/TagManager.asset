@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Bazzi
   layers:
   - Default
   - TransparentFX
@@ -47,12 +48,12 @@ TagManager:
   - name: Terrain
     uniqueID: 3671390257
     locked: 0
-  - name: Player
-    uniqueID: 4291432863
-    locked: 0
   - name: Shadow
     uniqueID: 1054685567
     locked: 0
   - name: Bomb
     uniqueID: 1460612415
+    locked: 0
+  - name: Player
+    uniqueID: 4291432863
     locked: 0

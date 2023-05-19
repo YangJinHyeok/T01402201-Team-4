@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
+            obj.AddComponent<BoxCollider2D>();
             obj.name = "clone";
             Vector2 pos = Bazzi.transform.position;
             obj.transform.position = pos;

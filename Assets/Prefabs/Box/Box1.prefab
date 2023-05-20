@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3218993549265751977}
   - component: {fileID: 6739555520332110483}
+  - component: {fileID: 3139672066321476600}
   m_Layer: 3
   m_Name: Object1_1
   m_TagString: Untagged
@@ -72,7 +73,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -3534433
   m_SortingLayer: 2
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6e3cc5d6fefede04897371578ce08d20, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3139672066321476600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 713046934735336209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fb08138c42c841b93a0881e578481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3864375471908967727
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +107,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6364999889960358959}
   - component: {fileID: 92463984902649386}
+  - component: {fileID: 6116159948225734249}
   m_Layer: 3
   m_Name: Object1_2
   m_TagString: Untagged
@@ -168,6 +182,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6116159948225734249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3864375471908967727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fb08138c42c841b93a0881e578481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7434927907382239038
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,7 +209,7 @@ GameObject:
   - component: {fileID: 2703875905503616350}
   m_Layer: 3
   m_Name: Box1
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,8 +276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4294b22a05339c449068dded4f4089e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forcedTime: 0.5
-  boxMoveSpeed: 1
+  forcedTime: 0.4
+  boxMoveSpeed: 0.015
 --- !u!61 &2703875905503616350
 BoxCollider2D:
   m_ObjectHideFlags: 0

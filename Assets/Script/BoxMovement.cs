@@ -11,23 +11,45 @@ public class BoxMovement : MonoBehaviour
 {
     private bool isColliding = false;
     private bool isRound = true;
-    public float forcedTime = 1.5f;
+    [SerializeField] private float forcedTime = 0.4f;
+    [SerializeField] private float boxMoveSpeed = 0.015f;
     private float timer = 0.0f;
     private bool isPlayer = false;
+    private bool doMove = false;
     private Vector3 pushDirection;
+    private Vector3 currentPosition;
     private void Update()
     {
         if (isColliding)
         {
-            if (isPlayer && isMatchWithKey(pushDirection))
+            bool isPressing = isMatchWithKey(pushDirection);
+            if (isPlayer && isPressing && !doMove)
             {
                 if (timer > forcedTime)
                 {
                     timer = 0.0f;
-                    transform.position = moveBoxbyCharacter(transform.position, pushDirection);
+                    doMove = true;
                 }
-
                 timer += Time.deltaTime;
+            }
+
+            if (!isPressing)
+            {
+                timer = 0.0f;
+            }
+                
+        }
+
+        if (doMove)
+        {
+            isColliding = false;
+            transform.position =
+                Vector3.MoveTowards(transform.position, currentPosition + pushDirection, boxMoveSpeed);
+            if (currentPosition + pushDirection == transform.position)
+            {
+                doMove = false;
+                isColliding = true;
+                currentPosition = transform.position;
             }
         }
     }
@@ -38,18 +60,15 @@ public class BoxMovement : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             isPlayer = true;
+            currentPosition = transform.position;
             Vector2 direction = (other.transform.position - transform.position).normalized;
-            Debug.Log("direction : " + direction);
             Ray2D ray = new Ray2D(new Vector2(transform.position.x,transform.position.y), direction);
-            Debug.Log("ray : " + ray);
             RaycastHit2D raycastHit = 
                 Physics2D.Raycast(ray.origin, ray.direction, 0.01f, LayerMask.GetMask("Box"));
             if (raycastHit.collider != null)
             {
                 direction = raycastHit.normal;
-                Debug.Log("direction : " + direction);
                 Vector3 direction3D = raycastHit.transform.TransformDirection(direction.x, direction.y, 0);
-                Debug.Log("direction3D : " + direction3D);
 
                 if (Mathf.Abs(direction3D.x) < Mathf.Abs(direction3D.y))
                 {
@@ -78,13 +97,6 @@ public class BoxMovement : MonoBehaviour
     private Vector3 setRound(Vector3 position)
     {
         return new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), Mathf.Round(position.z));
-    }
-    
-    [SerializeField] private float boxMoveSpeed = 0.5f; 
-    
-    private Vector3 moveBoxbyCharacter(Vector3 original, Vector3 direction)
-    {
-        return Vector3.MoveTowards(original, original + direction, boxMoveSpeed);
     }
 
     private bool isMatchWithKey(Vector3 direction)

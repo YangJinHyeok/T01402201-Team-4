@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6567641759040272493}
   - component: {fileID: 8478218573266819050}
+  - component: {fileID: 4165073687994866297}
   m_Layer: 0
   m_Name: metal3-2
   m_TagString: Untagged
@@ -84,6 +85,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4165073687994866297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291957901255500073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fb08138c42c841b93a0881e578481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3874533068491365506
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +177,7 @@ GameObject:
   - component: {fileID: 3576462190940404627}
   - component: {fileID: 7477577163652197233}
   - component: {fileID: 2888966582798743216}
+  - component: {fileID: 2026618693649380037}
   m_Layer: 0
   m_Name: metal3
   m_TagString: Untagged
@@ -285,3 +299,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2026618693649380037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6013107758425140896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fb08138c42c841b93a0881e578481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

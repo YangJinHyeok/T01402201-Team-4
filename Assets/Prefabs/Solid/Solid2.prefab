@@ -78,6 +78,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6142841875223221617}
   - component: {fileID: 3090362204895040018}
+  - component: {fileID: 7543210457336178964}
   m_Layer: 0
   m_Name: metal2-2
   m_TagString: Untagged
@@ -152,6 +153,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7543210457336178964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4118535418628130724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fb08138c42c841b93a0881e578481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8457027822547525092
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +177,7 @@ GameObject:
   - component: {fileID: 6610992853874894103}
   - component: {fileID: 3675047774427307839}
   - component: {fileID: 7195105055739811234}
+  - component: {fileID: 8290855920048615580}
   m_Layer: 0
   m_Name: metal2
   m_TagString: Untagged
@@ -285,3 +299,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8290855920048615580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8457027822547525092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 547fb08138c42c841b93a0881e578481, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

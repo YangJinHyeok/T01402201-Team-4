@@ -1,10 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UIElements;
+
 
 
 public class BoxMovement : MonoBehaviour
@@ -78,7 +76,6 @@ public class BoxMovement : MonoBehaviour
                 {
                     pushDirection = new Vector3(direction3D.x, 0, 0).normalized;
                 }
-                Debug.Log("Hit : " + raycastHit.collider.name + ", pushDirection : " + pushDirection);
                 isColliding = true;
             }
             
@@ -87,18 +84,12 @@ public class BoxMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        Debug.Log("Exit");
         timer = 0.0f;
         isPlayer = false;
         isColliding = false;
         isRound = true;
     }
-
-    private Vector3 setRound(Vector3 position)
-    {
-        return new Vector3(Mathf.Round(position.x), Mathf.Round(position.y), Mathf.Round(position.z));
-    }
-
+    
     private bool isMatchWithKey(Vector3 direction)
     {
         if (Input.GetKey(KeyCode.UpArrow) && direction.Equals(new Vector3(0, 1, 0)))

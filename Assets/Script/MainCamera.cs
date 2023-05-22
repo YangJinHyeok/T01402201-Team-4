@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MainCamera : MonoBehaviour
 {
-    private Camera camera;
-
     private Transform character;
     // Start is called before the first frame update
     void Start()

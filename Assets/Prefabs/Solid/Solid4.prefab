@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 7228286936372368674}
   - component: {fileID: 6603030266806491413}
   - component: {fileID: 4981561397116263423}
+  - component: {fileID: 365254856153201098}
   m_Layer: 0
   m_Name: Solid4
-  m_TagString: Untagged
+  m_TagString: Solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -82,6 +83,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!210 &365254856153201098
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1717076460490398673}
+  m_Enabled: 1
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &6190956173818281246
 GameObject:
   m_ObjectHideFlags: 0

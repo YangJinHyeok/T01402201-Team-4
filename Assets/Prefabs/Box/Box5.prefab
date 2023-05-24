@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2160205312465455743}
   - component: {fileID: 5023922352784682473}
   - component: {fileID: 4643061972222790660}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object5_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 6457708715595305571}
   - component: {fileID: 6664986222172745628}
   - component: {fileID: 3143585334321282646}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object5_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,9 +205,11 @@ GameObject:
   - component: {fileID: 8601746437591156873}
   - component: {fileID: 8337303813663445917}
   - component: {fileID: 4670067258704710340}
-  m_Layer: 0
+  - component: {fileID: 4001396496246330036}
+  - component: {fileID: 6428505148856983355}
+  m_Layer: 3
   m_Name: Box5
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -241,10 +243,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_Mass: 100
+  m_LinearDrag: 1000000
+  m_AngularDrag: 1000000
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -276,3 +278,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!210 &4001396496246330036
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077520103190451278}
+  m_Enabled: 1
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+--- !u!114 &6428505148856983355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8077520103190451278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a40564d1acdff14e8d6f22908b4be3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

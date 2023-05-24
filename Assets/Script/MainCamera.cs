@@ -15,6 +15,7 @@ public class MainCamera : MonoBehaviour
 
 
     public Vector3 offset;
+    public bool initEnd = false;
     void Update()
     {
         /*
@@ -22,8 +23,10 @@ public class MainCamera : MonoBehaviour
          *  몬스터 스폰 할 때 스폰 하는 몬스터 보여줌
          * 이후 플레이어에게로 화면 고정
          */
-    
-        Vector3 position = character.position;
-        transform.position = new Vector3(position.x + offset.x, position.y + offset.y, offset.z);
+        if (initEnd)
+        {
+            Vector3 position = character.position;
+            transform.position = new Vector3(position.x + offset.x, position.y + offset.y, offset.z);
+        }
     }
 }

@@ -10,11 +10,11 @@ public class IsometricSpriteRenderer : MonoBehaviour
     private void Start()
     {
         renderer = GetComponent<Renderer>();
-        renderer.sortingOrder = (int)(transform.position.y * -10);
+        renderer.sortingOrder = (int)(transform.position.y * -100);
     }
 
     void Update()
     {
-        renderer.sortingOrder = (int)(transform.position.y * -10);
+        renderer.sortingOrder = (int)(transform.position.y * -100);
     }
 }

@@ -108,9 +108,10 @@ GameObject:
   - component: {fileID: 568637473623786746}
   - component: {fileID: -7544537126001086103}
   - component: {fileID: 6550927078151610843}
+  - component: {fileID: 2125040787070093856}
   m_Layer: 0
   m_Name: Solid3
-  m_TagString: Untagged
+  m_TagString: Solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +180,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!210 &2125040787070093856
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3874533068491365506}
+  m_Enabled: 1
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
+  m_SortingOrder: 0
 --- !u!1 &6013107758425140896
 GameObject:
   m_ObjectHideFlags: 0

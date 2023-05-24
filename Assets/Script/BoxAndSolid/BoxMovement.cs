@@ -8,7 +8,6 @@ using UnityEngine;
 public class BoxMovement : MonoBehaviour
 {
     private bool isColliding = false;
-    private bool isRound = true;
     [SerializeField] private float forcedTime = 0.4f;
     [SerializeField] private float boxMoveSpeed = 0.015f;
     private float timer = 0.0f;
@@ -21,29 +20,37 @@ public class BoxMovement : MonoBehaviour
         if (isColliding)
         {
             bool isPressing = isMatchWithKey(pushDirection);
-            if (isPlayer && isPressing && !doMove)
+            Collider2D[] colliders = 
+                Physics2D.OverlapCircleAll(
+                    new Vector2(transform.position.x + pushDirection.x, transform.position.y + pushDirection.y),
+                    0.1f);
+            
+            if (isPlayer && isPressing && !doMove && (colliders.Length < 1))
             {
                 if (timer > forcedTime)
                 {
                     timer = 0.0f;
                     doMove = true;
                 }
-                timer += Time.deltaTime;
+                else
+                {
+                    timer += Time.deltaTime;
+                }
             }
-
-            if (!isPressing)
+            else
             {
                 timer = 0.0f;
             }
-                
         }
 
         if (doMove)
         {
             isColliding = false;
+            Vector3 roundPosition = new Vector3(Mathf.Round(currentPosition.x + pushDirection.x), 
+                Mathf.Round(currentPosition.y + pushDirection.y), 0);
             transform.position =
-                Vector3.MoveTowards(transform.position, currentPosition + pushDirection, boxMoveSpeed);
-            if (currentPosition + pushDirection == transform.position)
+                Vector3.MoveTowards(transform.position, roundPosition, boxMoveSpeed);
+            if (roundPosition == transform.position)
             {
                 doMove = false;
                 isColliding = true;
@@ -54,31 +61,40 @@ public class BoxMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        isRound = false;
         if (other.gameObject.CompareTag("Player"))
         {
             isPlayer = true;
             currentPosition = transform.position;
-            Vector2 direction = (other.transform.position - transform.position).normalized;
-            Ray2D ray = new Ray2D(new Vector2(transform.position.x,transform.position.y), direction);
-            RaycastHit2D raycastHit = 
-                Physics2D.Raycast(ray.origin, ray.direction, 0.01f, LayerMask.GetMask("Box"));
-            if (raycastHit.collider != null)
-            {
-                direction = raycastHit.normal;
-                Vector3 direction3D = raycastHit.transform.TransformDirection(direction.x, direction.y, 0);
+        }
+    }
 
-                if (Mathf.Abs(direction3D.x) < Mathf.Abs(direction3D.y))
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player") && !doMove)
+        {
+            isColliding = true;
+            float distance = Vector3.Distance(other.transform.position, transform.position);
+            Vector2 contactPoint = other.GetContact(0).point;
+            Vector3 contactPosition = new Vector3(contactPoint.x, contactPoint.y, 0);
+            Vector3 direction = (transform.position - contactPosition).normalized;
+            
+            if (distance < 1.0f)
+            {
+                if (Mathf.Abs(direction.x) < Mathf.Abs(direction.y))
                 {
-                    pushDirection = new Vector3(0, direction3D.y, 0).normalized;
+                    pushDirection = new Vector3(0, direction.y, 0).normalized;
                 }
-                else if (Mathf.Abs(direction3D.x) > Mathf.Abs(direction3D.y))
+                else if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
                 {
-                    pushDirection = new Vector3(direction3D.x, 0, 0).normalized;
+                    pushDirection = new Vector3(direction.x, 0, 0).normalized;
                 }
                 isColliding = true;
             }
-            
+            else
+            {
+                timer = 0.0f;
+                isColliding = false;                
+            }
         }
     }
 
@@ -87,7 +103,6 @@ public class BoxMovement : MonoBehaviour
         timer = 0.0f;
         isPlayer = false;
         isColliding = false;
-        isRound = true;
     }
     
     private bool isMatchWithKey(Vector3 direction)

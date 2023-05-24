@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 4560321335209089271}
   - component: {fileID: 3002191407656355935}
   - component: {fileID: 1354608098524274887}
-  m_Layer: 0
+  - component: {fileID: 7863479724273487880}
+  - component: {fileID: 2048378574513244434}
+  m_Layer: 3
   m_Name: Box3
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -48,10 +50,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_Mass: 100
+  m_LinearDrag: 1000000
+  m_AngularDrag: 1000000
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -97,6 +99,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forcedTime: 0.4
   boxMoveSpeed: 0.015
+--- !u!210 &7863479724273487880
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760869803185447495}
+  m_Enabled: 1
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+--- !u!114 &2048378574513244434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760869803185447495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a40564d1acdff14e8d6f22908b4be3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6164596295246796231
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,7 +133,7 @@ GameObject:
   - component: {fileID: 4235822042417211235}
   - component: {fileID: 4026699489756004108}
   - component: {fileID: 7960860139411912329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object3_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +230,7 @@ GameObject:
   - component: {fileID: 3347454550487472560}
   - component: {fileID: 378532083363534322}
   - component: {fileID: 4832305467588179510}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object3_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

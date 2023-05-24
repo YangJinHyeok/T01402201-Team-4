@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 54704838543368667}
   - component: {fileID: 4879196681521488482}
   - component: {fileID: 1153042291860220103}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object4_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,9 +108,11 @@ GameObject:
   - component: {fileID: 6217290157135780084}
   - component: {fileID: 5798615444914496151}
   - component: {fileID: 9207773990493024430}
-  m_Layer: 0
+  - component: {fileID: -3627300910129797690}
+  - component: {fileID: 2231500683344513666}
+  m_Layer: 3
   m_Name: Box4
-  m_TagString: Untagged
+  m_TagString: Box
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -170,15 +172,38 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_Mass: 100
+  m_LinearDrag: 1000000
+  m_AngularDrag: 1000000
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!210 &-3627300910129797690
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918187345261093947}
+  m_Enabled: 1
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+--- !u!114 &2231500683344513666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6918187345261093947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a40564d1acdff14e8d6f22908b4be3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7194882817867102641
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,7 +215,7 @@ GameObject:
   - component: {fileID: 7734956395064241083}
   - component: {fileID: 3593481469287653856}
   - component: {fileID: 6357806905260080528}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Object4_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}

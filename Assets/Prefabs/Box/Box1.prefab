@@ -205,8 +205,9 @@ GameObject:
   - component: {fileID: 4914368671283665268}
   - component: {fileID: 6294580893366230441}
   - component: {fileID: 5038817884078996376}
-  - component: {fileID: 8762350256148254275}
   - component: {fileID: 2703875905503616350}
+  - component: {fileID: 203795233796064691}
+  - component: {fileID: 5826725711020352289}
   m_Layer: 3
   m_Name: Box1
   m_TagString: Box
@@ -243,9 +244,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 100
+  m_LinearDrag: 1000000
+  m_AngularDrag: 1000000
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
@@ -264,20 +265,6 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &8762350256148254275
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7434927907382239038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4294b22a05339c449068dded4f4089e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  forcedTime: 0.4
-  boxMoveSpeed: 0.015
 --- !u!61 &2703875905503616350
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -304,3 +291,26 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!210 &203795233796064691
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434927907382239038}
+  m_Enabled: 1
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
+  m_SortingOrder: 0
+--- !u!114 &5826725711020352289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7434927907382239038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a40564d1acdff14e8d6f22908b4be3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

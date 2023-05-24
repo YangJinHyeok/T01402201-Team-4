@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private float Playerspeed = 5f;
     private GameObject Bazzi;
-    private GameObject prefab_obj;
+    //private GameObject prefab_obj;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        prefab_obj = Resources.Load("Prefabs/Bomb") as GameObject;
+        //prefab_obj = Resources.Load("Prefabs/Bomb") as GameObject;
     }
 
     // Update is called once per frame
@@ -25,14 +25,14 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerMove();
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
-            obj.AddComponent<BoxCollider2D>();
-            obj.name = "clone";
-            Vector2 pos = Bazzi.transform.position;
-            obj.transform.position = pos;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    GameObject obj = MonoBehaviour.Instantiate(prefab_obj);
+        //    obj.AddComponent<BoxCollider2D>();
+        //    obj.name = "clone";
+        //    Vector2 pos = Bazzi.transform.position;
+        //    obj.transform.position = pos;
+        //}
 
     }
 

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Text;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -18,6 +19,8 @@ public class CSVMapMaker : MonoBehaviour
     public string prefabFolder;
     public float positionX;
     public float positionY;
+    public float placementDelay = 0.1f;
+    public bool readyForStart = false;
     
     private GameObject prefab;
     private GameObject parent;
@@ -28,13 +31,25 @@ public class CSVMapMaker : MonoBehaviour
 
     }
     
-    public void LoadCSVMap(int length)
+    private IEnumerator LoadCSVMap(int length)
     {
+        while (!readyForStart)
+        {
+            yield return null;
+        }
+
+        float currentX = float.MinValue;
         for (int i = 0; i < length; i++)
         {
             prefabName = dicList[i]["prefapName"].ToString();
             positionX = float.Parse(dicList[i]["positionX"].ToString());
             positionY = float.Parse(dicList[i]["positionY"].ToString());
+            if (currentX < positionX)
+            {
+                currentX = positionX;
+                yield return new WaitForSeconds(placementDelay);
+            }
+                
             if (prefabName.Contains("Box"))
             {
                 prefabFolder = "Box/";
@@ -50,7 +65,8 @@ public class CSVMapMaker : MonoBehaviour
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
             Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
-                
+            
+            
         }
     }
 
@@ -62,7 +78,7 @@ public class CSVMapMaker : MonoBehaviour
 
         dicList = CSVReader.Read(fileName);
         
-        LoadCSVMap(dicList.Count);
+        StartCoroutine(LoadCSVMap(dicList.Count));
         
 
     }

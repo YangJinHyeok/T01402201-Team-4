@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -39,6 +40,7 @@ public class CSVMapWriter : MonoBehaviour
 
         if (nowMaking)
         {
+            player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             sb = new StringBuilder();
         }
         
@@ -111,6 +113,7 @@ public class CSVMapWriter : MonoBehaviour
                     writeOnCSV();
                     nowMaking = false;
                     saveCSVFile();
+                    player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     break;
             }
 
@@ -143,11 +146,12 @@ public class CSVMapWriter : MonoBehaviour
 
     public void writeOnCSV()
     {
-        string[][] output = new string[data.Count][];
+        List<String[]> sortedData = data.OrderByDescending(tem => tem[1]).ToList();
+        string[][] output = new string[sortedData.Count][];
     
         for (int i = 0; i < output.Length; i++)
         {
-            output[i] = data[i];
+            output[i] = sortedData[i];
         }
         int length = output.GetLength(0);
         string delimiter = ",";

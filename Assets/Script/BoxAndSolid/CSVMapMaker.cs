@@ -24,12 +24,9 @@ public class CSVMapMaker : MonoBehaviour
     
     private GameObject prefab;
     private GameObject parent;
+    private bool isEnd = false;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
     
-    void Awake()
-    {
-
-    }
     
     private IEnumerator LoadCSVMap(int length)
     {
@@ -65,9 +62,9 @@ public class CSVMapMaker : MonoBehaviour
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
             Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
-            
-            
         }
+
+        isEnd = true;
     }
 
     private void Start()
@@ -79,7 +76,13 @@ public class CSVMapMaker : MonoBehaviour
         dicList = CSVReader.Read(fileName);
         
         StartCoroutine(LoadCSVMap(dicList.Count));
-        
+    }
 
+    private void Update()
+    {
+        if (isEnd)
+        {
+            Destroy(transform.gameObject);
+        }
     }
 }

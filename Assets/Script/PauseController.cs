@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameStartLogic : MonoBehaviour
+public class PauseController : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -12,7 +12,7 @@ public class GameStartLogic : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         
     }
 }

@@ -221,6 +221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: -10}
+  initEnd: 0
 --- !u!1 &884319821
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,7 +233,6 @@ GameObject:
   - component: {fileID: 884319822}
   - component: {fileID: 884319824}
   - component: {fileID: 884319823}
-  - component: {fileID: 884319825}
   m_Layer: 0
   m_Name: Tilemap
   m_TagString: Untagged
@@ -17186,19 +17186,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &884319825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 884319821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d598c13e6ff9745418ff0e3f1375f77f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isColliding: 0
 --- !u!1 &1309158268
 GameObject:
   m_ObjectHideFlags: 0

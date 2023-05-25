@@ -207,7 +207,6 @@ GameObject:
   - component: {fileID: 5038817884078996376}
   - component: {fileID: 2703875905503616350}
   - component: {fileID: 203795233796064691}
-  - component: {fileID: 5826725711020352289}
   m_Layer: 3
   m_Name: Box1
   m_TagString: Box
@@ -302,15 +301,3 @@ SortingGroup:
   m_SortingLayerID: -3534433
   m_SortingLayer: 2
   m_SortingOrder: 0
---- !u!114 &5826725711020352289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7434927907382239038}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a40564d1acdff14e8d6f22908b4be3c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

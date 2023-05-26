@@ -46,11 +46,11 @@ public class BoxMovement : MonoBehaviour
         if (doMove)
         {
             isColliding = false;
-            Vector3 roundPosition = new Vector3(Mathf.Round(currentPosition.x + pushDirection.x), 
+            Vector3 targetPosition = new Vector3(Mathf.Round(currentPosition.x + pushDirection.x), 
                 Mathf.Round(currentPosition.y + pushDirection.y), 0);
             transform.position =
-                Vector3.MoveTowards(transform.position, roundPosition, boxMoveSpeed);
-            if (roundPosition == transform.position)
+                Vector3.MoveTowards(transform.position, targetPosition, boxMoveSpeed);
+            if (targetPosition == transform.position)
             {
                 doMove = false;
                 isColliding = true;
@@ -61,7 +61,7 @@ public class BoxMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && !doMove)
         {
             isPlayer = true;
             currentPosition = transform.position;
@@ -100,6 +100,7 @@ public class BoxMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
+        
         timer = 0.0f;
         isPlayer = false;
         isColliding = false;

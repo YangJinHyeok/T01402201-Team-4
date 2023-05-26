@@ -58,7 +58,6 @@ public class CSVMapMaker : MonoBehaviour
                 parent = GameObject.FindWithTag("Solid");
             }
             string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-            Debug.Log("prefabName : " + prefabName + " position : ( " + positionX +", "+ positionY + " )");
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
             Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);

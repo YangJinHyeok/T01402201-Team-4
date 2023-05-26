@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Box
   - Solid
+  - Bomb
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4291432863
+    locked: 0
+  - name: Shadow
+    uniqueID: 3645616679
+    locked: 0
+  - name: Bomb
+    uniqueID: 914555739
     locked: 0

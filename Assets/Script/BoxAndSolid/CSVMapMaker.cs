@@ -20,8 +20,7 @@ public class CSVMapMaker : MonoBehaviour
     public float positionX;
     public float positionY;
     public float placementDelay = 0.1f;
-    public bool readyForStart = false;
-    
+
     private GameObject prefab;
     private GameObject parent;
     private bool isEnd = false;
@@ -30,10 +29,12 @@ public class CSVMapMaker : MonoBehaviour
     
     private IEnumerator LoadCSVMap(int length)
     {
-        while (!readyForStart)
+        while (GameLogic.statusGame != 1)
         {
             yield return null;
         }
+        
+        Debug.Log(transform.gameObject.name+ " detect status 1");
 
         float currentX = float.MinValue;
         for (int i = 0; i < length; i++)
@@ -61,9 +62,17 @@ public class CSVMapMaker : MonoBehaviour
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
             Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
+            
         }
-
-        isEnd = true;
+        if (GameLogic.statusGame == 2)
+        {
+            GameLogic.statusGame = 3;
+        }
+        if (GameLogic.statusGame == 1)
+        {
+            GameLogic.statusGame = 2;
+        }
+        
     }
 
     private void Start()
@@ -79,7 +88,7 @@ public class CSVMapMaker : MonoBehaviour
 
     private void Update()
     {
-        if (isEnd)
+        if (GameLogic.statusGame == 4)
         {
             Destroy(transform.gameObject);
         }

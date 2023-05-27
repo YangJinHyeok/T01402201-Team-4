@@ -8,29 +8,40 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
-    private bool paused;
+    
+    /*
+     * 0~9 : Init sequence
+     * 10 : Now playing
+     * 11 : Paused
+     * 12 : Editor mode
+     * 20~29 : Game end sequence
+     */
+    public static int statusGame = 0;
+    
+    private int lastStatus;
     private void Awake()
     {
+        statusGame = 0;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        paused = false;
     }
     
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape) && !paused)
+        if (Input.GetKey(KeyCode.Escape) && statusGame < 11)
         {
+            lastStatus = statusGame;
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
             Time.timeScale = 0;
-            paused = true;
+            statusGame = 11;
             pauseUI.SetActive(true);
         }
     }
     public void resumeGame()
     {
         Debug.Log("clicked");
-        paused = false;
+        statusGame = lastStatus;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         pauseUI.SetActive(false);
@@ -40,18 +51,14 @@ public class GameLogic : MonoBehaviour
     public void replayGame()
     {
         Debug.Log("replay");
-        
+
     }
     
     public void EndGame()
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        statusGame = 20;
     }
 
-    public void OptionControl()
-    {
-        Debug.Log("option panel on");
-    }
-    
 }

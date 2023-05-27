@@ -13,8 +13,10 @@ public class GameLogic : MonoBehaviour
      * 0~9 : Init sequence
      * 10 : Now playing
      * 11 : Paused
-     * 12 : Editor mode
-     * 20~29 : Game end sequence
+     * 12 : Map Editor mode
+     * 13 : Spawn Editor mode
+     * 20-21 : Game end sequence
+     * 22 : Edit End
      */
     public static int statusGame = 0;
     

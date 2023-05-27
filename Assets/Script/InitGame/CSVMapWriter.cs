@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -13,7 +12,6 @@ using Vector3 = UnityEngine.Vector3;
 public class CSVMapWriter : MonoBehaviour
 {
     public string fileName = "Map.csv";
-    public bool nowMaking = false; 
 
     public string prefabName;
     public string prefabFolder;
@@ -37,9 +35,10 @@ public class CSVMapWriter : MonoBehaviour
         tempData[2] = "positionY";
         data.Add(tempData);
 
-        if (nowMaking)
+        if (GameLogic.statusGame == 12)
         {
             player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+            player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
             sb = new StringBuilder();
         }
         
@@ -48,7 +47,7 @@ public class CSVMapWriter : MonoBehaviour
     private bool inputData = false;
     private void Update()
     {
-        if (nowMaking)
+        if (GameLogic.statusGame == 12)
         {
             var input = Input.inputString;
             switch (input)
@@ -110,9 +109,9 @@ public class CSVMapWriter : MonoBehaviour
                 case "p":
                     Debug.Log("now Saving");
                     writeOnCSV();
-                    nowMaking = false;
+                    GameLogic.statusGame = 13;
                     saveCSVFile();
-                    player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    //player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     break;
             }
 

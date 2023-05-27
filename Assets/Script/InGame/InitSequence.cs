@@ -15,6 +15,7 @@ public class InitSequence : MonoBehaviour
     [SerializeField] private GameObject boxSpawner;
 
     [SerializeField] private GameObject solidSpawner;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,6 @@ public class InitSequence : MonoBehaviour
         StartCoroutine(initSequence());
     }
     
-    private int currentSequntial = 0;
     private IEnumerator initSequence()
     {
         for (int i = 6; i <= 20; i++)
@@ -32,27 +32,29 @@ public class InitSequence : MonoBehaviour
             yield return new WaitForSeconds(0.06f);
         }
 
-        solidSpawner.GetComponent<CSVMapMaker>().readyForStart = true;
-        boxSpawner.GetComponent<CSVMapMaker>().readyForStart = true;
-        //Vector3 currentCamera = main.gameObject.transform.position;
-        //float offset = Vector3.Distance(currentCamera, character.transform.position)/9;
-        yield return new WaitForSeconds(4.0f);
-
+        GameLogic.statusGame = 1;
+        while (GameLogic.statusGame != 3)
+        {
+            yield return null;
+        }
+        
         for (int i = 20; i >= 6; i--)
         {
             //main.gameObject.transform.position = Vector3.MoveTowards(currentCamera, character.transform.position, offset);
             main.orthographicSize = i;
             yield return new WaitForSeconds(0.06f);
-        } 
-        
+        }
+
+        GameLogic.statusGame = 4;
         main.GetComponent<MainCamera>().initEnd = true;
         UIObject.gameObject.SetActive(true);
-        currentSequntial++;
+        GameLogic.statusGame = 10;
+        
     }
 
     private void Update()
     {
-        if (currentSequntial == 1)
+        if (GameLogic.statusGame == 10)
         {
             Destroy(transform.gameObject);
         }

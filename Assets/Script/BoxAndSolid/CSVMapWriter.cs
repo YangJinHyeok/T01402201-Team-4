@@ -28,8 +28,7 @@ public class CSVMapWriter : MonoBehaviour
     void Awake()
     {
         player = GameObject.Find("Player");
-        Debug.Log("player : " + player.tag);
-        
+
         data.Clear();
         
         tempData = new string[3];

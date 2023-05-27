@@ -8,20 +8,26 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
-    
+
+    [SerializeField] private int setStatusForTest;
     /*
      * 0~9 : Init sequence
      * 10 : Now playing
      * 11 : Paused
-     * 12 : Editor mode
-     * 20~29 : Game end sequence
+     * 12 : Map Editor mode
+     * 13 : Spawn Editor mode
+     * 20-21 : Game end sequence
+     * 22 : Edit End
      */
     public static int statusGame = 0;
     
     private int lastStatus;
     private void Awake()
     {
-        statusGame = 0;
+        if (setStatusForTest != 0)
+        {
+            statusGame = setStatusForTest;
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

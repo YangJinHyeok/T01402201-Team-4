@@ -6,11 +6,12 @@ TagManager:
   tags:
   - Box
   - Solid
+  - Mob
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Box
+  - EffectedByPlay
   - Water
   - UI
   - 

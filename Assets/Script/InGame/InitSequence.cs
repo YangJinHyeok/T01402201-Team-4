@@ -19,9 +19,18 @@ public class InitSequence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        main = Camera.main;
-        main.GetComponent<MainCamera>().initEnd = false;
-        StartCoroutine(initSequence());
+        if (GameLogic.statusGame == 12 | GameLogic.statusGame == 13)
+        {
+            main = Camera.main;
+            main.GetComponent<MainCamera>().initEnd = true;
+            Destroy(transform.gameObject);
+        }
+        else
+        {
+            main = Camera.main;
+            main.GetComponent<MainCamera>().initEnd = false;
+            StartCoroutine(initSequence());
+        }
     }
     
     private IEnumerator initSequence()
@@ -38,14 +47,18 @@ public class InitSequence : MonoBehaviour
             yield return null;
         }
         
+        GameLogic.statusGame = 4;
+        while (GameLogic.statusGame != 5)
+        {
+            yield return null;
+        }
+        
         for (int i = 20; i >= 6; i--)
         {
-            //main.gameObject.transform.position = Vector3.MoveTowards(currentCamera, character.transform.position, offset);
             main.orthographicSize = i;
             yield return new WaitForSeconds(0.06f);
         }
-
-        GameLogic.statusGame = 4;
+        
         main.GetComponent<MainCamera>().initEnd = true;
         UIObject.gameObject.SetActive(true);
         GameLogic.statusGame = 10;

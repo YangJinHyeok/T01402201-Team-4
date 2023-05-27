@@ -8,7 +8,8 @@ using UnityEngine;
 public class GameLogic : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
-    
+
+    [SerializeField] private int setStatusForTest;
     /*
      * 0~9 : Init sequence
      * 10 : Now playing
@@ -23,7 +24,10 @@ public class GameLogic : MonoBehaviour
     private int lastStatus;
     private void Awake()
     {
-        statusGame = 0;
+        if (setStatusForTest != 0)
+        {
+            statusGame = setStatusForTest;
+        }
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }

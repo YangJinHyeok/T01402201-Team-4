@@ -1,14 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -33,8 +28,6 @@ public class CSVMapMaker : MonoBehaviour
         {
             yield return null;
         }
-        
-        Debug.Log(transform.gameObject.name+ " detect status 1");
 
         float currentX = float.MinValue;
         for (int i = 0; i < length; i++)
@@ -82,7 +75,11 @@ public class CSVMapMaker : MonoBehaviour
         dicList.Clear();
 
         dicList = CSVReader.Read(fileName);
-        
+        if (GameLogic.statusGame == 12)
+        {
+            Destroy(transform.gameObject);
+        }
+            
         StartCoroutine(LoadCSVMap(dicList.Count));
     }
 

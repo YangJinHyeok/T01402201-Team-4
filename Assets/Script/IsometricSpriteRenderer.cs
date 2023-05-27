@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class IsometricSpriteRenderer : MonoBehaviour
 {
-    private Renderer renderer;
+    private Renderer render;
 
     // Update is called once per frame
     private void Start()
     {
-        renderer = GetComponent<Renderer>();
-        renderer.sortingOrder = (int)(transform.position.y * -100);
+        render = GetComponent<Renderer>();
+        render.sortingOrder = (int)(transform.position.y * -100);
     }
 
     void Update()
     {
-        renderer.sortingOrder = (int)(transform.position.y * -100);
+        render.sortingOrder = (int)(transform.position.y * -100);
     }
 }

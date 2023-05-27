@@ -1,0 +1,28 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MainCamera : MonoBehaviour
+{
+    private Transform character;
+    //[SerializeField] private GameObject character; 
+    // Start is called before the first frame update
+    void Start()
+    {
+        character = GameObject.Find("Player").transform;
+    }
+
+    // Update is called once per frame
+
+
+    public Vector3 offset;
+    public bool initEnd = false;
+    void Update()
+    {
+        if (initEnd)
+        {
+            Vector3 position = character.position;
+            transform.position = new Vector3(position.x + offset.x, position.y + offset.y, offset.z);
+        }
+    }
+}

@@ -76,7 +76,7 @@ public class BombComtroller : MonoBehaviour
             Collider2D[] colliders = Physics2D.OverlapBoxAll(position, Vector2.one / 2f, 0f, explosionLayerMask);
             foreach (Collider2D collider in colliders)
             {
-                if (collider.CompareTag("Box2"))
+                if (collider.CompareTag("Box"))
                 {
                     Destroy(collider.gameObject);
                 }

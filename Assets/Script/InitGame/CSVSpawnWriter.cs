@@ -35,7 +35,7 @@ public class CSVSpawnWriter : MonoBehaviour
         tempData[2] = "positionY";
         data.Add(tempData);
 
-        if (GameLogic.statusGame == 13)
+        if (GameManager.instance.statusGame == 13)
         {
             player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
@@ -47,7 +47,7 @@ public class CSVSpawnWriter : MonoBehaviour
     private bool inputData = false;
     private void Update()
     {
-        if (GameLogic.statusGame == 13)
+        if (GameManager.instance.statusGame == 13)
         {
             var input = Input.inputString;
             switch (input)
@@ -74,7 +74,7 @@ public class CSVSpawnWriter : MonoBehaviour
                 case "p":
                     Debug.Log("now Saving");
                     writeOnCSV();
-                    GameLogic.statusGame = 22;
+                    GameManager.instance.statusGame = 22;
                     saveCSVFile();
                     //player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     break;

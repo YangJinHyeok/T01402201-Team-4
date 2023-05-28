@@ -1,14 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Numerics;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.UI;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
@@ -20,8 +15,7 @@ public class CSVMapMaker : MonoBehaviour
     public float positionX;
     public float positionY;
     public float placementDelay = 0.1f;
-    public bool readyForStart = false;
-    
+
     private GameObject prefab;
     private GameObject parent;
     private bool isEnd = false;
@@ -30,7 +24,7 @@ public class CSVMapMaker : MonoBehaviour
     
     private IEnumerator LoadCSVMap(int length)
     {
-        while (!readyForStart)
+        while (GameLogic.statusGame != 1)
         {
             yield return null;
         }
@@ -61,9 +55,17 @@ public class CSVMapMaker : MonoBehaviour
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
             Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
+            
         }
-
-        isEnd = true;
+        if (GameLogic.statusGame == 2)
+        {
+            GameLogic.statusGame = 3;
+        }
+        if (GameLogic.statusGame == 1)
+        {
+            GameLogic.statusGame = 2;
+        }
+        
     }
 
     private void Start()
@@ -73,13 +75,17 @@ public class CSVMapMaker : MonoBehaviour
         dicList.Clear();
 
         dicList = CSVReader.Read(fileName);
-        
+        if (GameLogic.statusGame == 12)
+        {
+            Destroy(transform.gameObject);
+        }
+            
         StartCoroutine(LoadCSVMap(dicList.Count));
     }
 
     private void Update()
     {
-        if (isEnd)
+        if (GameLogic.statusGame == 4)
         {
             Destroy(transform.gameObject);
         }

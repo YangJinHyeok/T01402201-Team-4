@@ -6,13 +6,14 @@ TagManager:
   tags:
   - Box
   - Solid
+  - Mob
   - Bomb
   - Box2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Box
+  - EffectedByPlay
   - Water
   - UI
   - Bomb
@@ -53,10 +54,4 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4291432863
-    locked: 0
-  - name: Shadow
-    uniqueID: 3645616679
-    locked: 0
-  - name: Bomb
-    uniqueID: 914555739
     locked: 0

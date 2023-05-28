@@ -380,6 +380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1646620284}
   - component: {fileID: 1646620285}
+  - component: {fileID: 1646620286}
   m_Layer: 0
   m_Name: MapEditor
   m_TagString: Untagged
@@ -415,7 +416,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fileName: DefaultSolid.csv
-  nowMaking: 0
+  prefabName: 
+  prefabFolder: 
+  positionX: 0
+  positionY: 0
+--- !u!114 &1646620286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646620283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2cfa1873f08c9242a16fa8a199a9279, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fileName: DefaultSpawn.csv
   prefabName: 
   prefabFolder: 
   positionX: 0

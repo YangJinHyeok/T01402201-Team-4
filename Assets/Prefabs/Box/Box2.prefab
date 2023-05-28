@@ -248,7 +248,7 @@ Rigidbody2D:
   m_AngularDrag: 1000000
   m_GravityScale: 0
   m_Material: {fileID: 0}
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -302,4 +302,4 @@ SortingGroup:
   m_Enabled: 1
   m_SortingLayerID: -3534433
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 4

@@ -18,13 +18,12 @@ public class CSVMapMaker : MonoBehaviour
 
     private GameObject prefab;
     private GameObject parent;
-    private bool isEnd = false;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
     
     
     private IEnumerator LoadCSVMap(int length)
     {
-        while (GameLogic.statusGame != 1)
+        while (GameManager.instance.statusGame != 1)
         {
             yield return null;
         }
@@ -40,7 +39,7 @@ public class CSVMapMaker : MonoBehaviour
                 currentX = positionX;
                 yield return new WaitForSeconds(placementDelay);
             }
-                
+            
             if (prefabName.Contains("Box"))
             {
                 prefabFolder = "Box/";
@@ -57,13 +56,13 @@ public class CSVMapMaker : MonoBehaviour
             Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
             
         }
-        if (GameLogic.statusGame == 2)
+        if (GameManager.instance.statusGame == 2)
         {
-            GameLogic.statusGame = 3;
+            GameManager.instance.statusGame = 3;
         }
-        if (GameLogic.statusGame == 1)
+        if (GameManager.instance.statusGame == 1)
         {
-            GameLogic.statusGame = 2;
+            GameManager.instance.statusGame = 2;
         }
         
     }
@@ -75,7 +74,7 @@ public class CSVMapMaker : MonoBehaviour
         dicList.Clear();
 
         dicList = CSVReader.Read(fileName);
-        if (GameLogic.statusGame == 12)
+        if (GameManager.instance.statusGame == 12)
         {
             Destroy(transform.gameObject);
         }
@@ -85,7 +84,7 @@ public class CSVMapMaker : MonoBehaviour
 
     private void Update()
     {
-        if (GameLogic.statusGame == 4)
+        if (GameManager.instance.statusGame == 4)
         {
             Destroy(transform.gameObject);
         }

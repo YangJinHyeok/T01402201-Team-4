@@ -26,12 +26,4 @@ public class Explosion : MonoBehaviour
         Destroy(gameObject, seconds);
     }
 
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Box"))
-        {
-            Destroy(other.gameObject);
-        }
-    }
 }

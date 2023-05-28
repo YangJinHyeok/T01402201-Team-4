@@ -7,6 +7,8 @@ TagManager:
   - Box
   - Solid
   - Mob
+  - Bomb
+  - Box2
   layers:
   - Default
   - TransparentFX
@@ -14,9 +16,9 @@ TagManager:
   - EffectedByPlay
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Bomb
+  - Explosion
+  - Box2
   - 
   - 
   - 

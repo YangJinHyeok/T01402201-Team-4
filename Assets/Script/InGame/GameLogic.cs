@@ -57,7 +57,6 @@ public class GameLogic : MonoBehaviour
     public void replayGame()
     {
         Debug.Log("replay");
-
     }
     
     public void EndGame()

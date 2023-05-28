@@ -20,6 +20,8 @@ public class BombComtroller : MonoBehaviour
     public float explosionDuration = 1f;
     public int explosionRadius = 1;
 
+    public Box boxPrefab;
+
     
 
     private void OnEnable()
@@ -34,34 +36,66 @@ public class BombComtroller : MonoBehaviour
             StartCoroutine(PlaceBomb());
         }
     }
-
     private IEnumerator PlaceBomb()
     {
         Vector2 position = transform.position;
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
 
-        GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
-        bombsRemaining--;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
+        bool isBombPresent = false;
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("Bomb"))
+            {
+                isBombPresent = true;
+                break;
+            }
+        }
 
-        yield return new WaitForSeconds(bombFuseTime);
-        
-        position = bomb.transform.position;
-        position.x = Mathf.Round(position.x);
-        position.y = Mathf.Round(position.y);
+        if (!isBombPresent)
+        {
+            GameObject bomb = Instantiate(bombPrefab, position, Quaternion.identity);
+            bombsRemaining--;
 
-        Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-        explosion.SetActiveRenderer(explosion.start);
-        explosion.DestroyAfter(explosionDuration);
+            yield return new WaitForSeconds(bombFuseTime);
 
-        Explode(position, Vector2.up, explosionRadius);
-        Explode(position, Vector2.down, explosionRadius);
-        Explode(position, Vector2.left, explosionRadius);
-        Explode(position, Vector2.right, explosionRadius);
+            position = bomb.transform.position;
+            position.x = Mathf.Round(position.x);
+            position.y = Mathf.Round(position.y);
 
-        Destroy(bomb);
-        bombsRemaining++; 
+            Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+            explosion.SetActiveRenderer(explosion.start);
+            explosion.DestroyAfter(explosionDuration);
+
+            Explode(position, Vector2.up, explosionRadius);
+            Explode(position, Vector2.down, explosionRadius);
+            Explode(position, Vector2.left, explosionRadius);
+            Explode(position, Vector2.right, explosionRadius);
+
+            Destroy(bomb);
+            bombsRemaining++;
+        }
     }
+
+    private IEnumerator ShowDustAndDestroy(Collider2D collider)
+    {
+        float dustDuration = 1f;
+        Vector3 dustPosition = collider.transform.position;
+
+        Destroy(collider.gameObject);
+        GameObject dustObject = new GameObject("Dust");
+        SpriteRenderer dustRenderer = dustObject.AddComponent<SpriteRenderer>();
+        string spritePath = "dust";
+        Sprite dustSprite = Resources.Load<Sprite>(spritePath);
+        dustRenderer.sprite = dustSprite;
+        dustObject.transform.position = dustPosition;
+
+        yield return new WaitForSeconds(dustDuration);
+
+        Destroy(dustObject);
+    }
+
 
     private void Explode(Vector2 position, Vector2 direction, int length)
     {
@@ -78,7 +112,12 @@ public class BombComtroller : MonoBehaviour
             {
                 if (collider.CompareTag("Box"))
                 {
-                    Destroy(collider.gameObject);
+                    StartCoroutine(ShowDustAndDestroy(collider));
+                }
+                else if (collider.CompareTag("Bomb"))
+                {
+                    bombFuseTime = 0f;
+                    Invoke("Explode", bombFuseTime);
                 }
             }
 
@@ -93,6 +132,7 @@ public class BombComtroller : MonoBehaviour
         
         Explode(position, direction, length - 1);
     }
+
 
 
 

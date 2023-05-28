@@ -16,10 +16,9 @@ public class MainCamera : MonoBehaviour
 
 
     public Vector3 offset;
-    public bool initEnd = false;
     void Update()
     {
-        if (initEnd)
+        if (GameManager.instance.statusGame is >= 10 and < 20)
         {
             Vector3 position = character.position;
             transform.position = new Vector3(position.x + offset.x, position.y + offset.y, offset.z);

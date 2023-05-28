@@ -8,13 +8,7 @@ public class InitSequence : MonoBehaviour
 {
     [SerializeField] private GameObject UIObject;
     
-    private Camera main; //나중에 serializeField로 바꿀 예정
-
-    //[SerializeField] private GameObject character;
-
-    [SerializeField] private GameObject boxSpawner;
-
-    [SerializeField] private GameObject solidSpawner;
+    private Camera main;
     
     // Start is called before the first frame update
     void Start()
@@ -22,13 +16,11 @@ public class InitSequence : MonoBehaviour
         if (GameManager.instance.statusGame == 12 | GameManager.instance.statusGame == 13)
         {
             main = Camera.main;
-            main.GetComponent<MainCamera>().initEnd = true;
             Destroy(transform.gameObject);
         }
         else
         {
             main = Camera.main;
-            main.GetComponent<MainCamera>().initEnd = false;
             StartCoroutine(initSequence());
         }
     }
@@ -59,7 +51,6 @@ public class InitSequence : MonoBehaviour
             yield return new WaitForSeconds(0.06f);
         }
         
-        main.GetComponent<MainCamera>().initEnd = true;
         UIObject.gameObject.SetActive(true);
         GameManager.instance.statusGame = 10;
         

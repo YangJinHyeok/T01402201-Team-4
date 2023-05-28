@@ -1,10 +1,12 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class CSVSpawnMaker : MonoBehaviour
@@ -19,13 +21,12 @@ public class CSVSpawnMaker : MonoBehaviour
     
     private GameObject prefab;
     private GameObject parent;
-    private bool isEnd = false;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
     
     
     private IEnumerator LoadCSVMap(int length)
     {
-        while (GameLogic.statusGame != 4)
+        while (GameManager.instance.statusGame != 4)
         {
             yield return null;
         }
@@ -84,9 +85,12 @@ public class CSVSpawnMaker : MonoBehaviour
         /*
          * select player spawn position by random
          * main.gameObject.transform.position = new Vector3(positionX, positionY, -10);
+         * Random.Range(0, player.count);
+         * yield return new WaitForSeconds(0.5f);
          */
-
-        GameLogic.statusGame = 5;
+        
+        
+        GameManager.instance.statusGame = 5;
 
     }
 
@@ -98,7 +102,7 @@ public class CSVSpawnMaker : MonoBehaviour
         dicList.Clear();
 
         dicList = CSVReader.Read(fileName);
-        if (GameLogic.statusGame == 12)
+        if (GameManager.instance.statusGame == 12)
         {
             Destroy(transform.gameObject);
         }
@@ -108,7 +112,7 @@ public class CSVSpawnMaker : MonoBehaviour
 
     private void Update()
     {
-        if (GameLogic.statusGame == 10)
+        if (GameManager.instance.statusGame == 10)
         {
             Destroy(transform.gameObject);
         }

@@ -5,12 +5,14 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class GameLogic : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    [SerializeField] private GameObject pauseUI;
+    public static GameManager instance = null;
 
     [SerializeField] private int setStatusForTest;
+    
     /*
+     * -1 : Main menu
      * 0~9 : Init sequence
      * 10 : Now playing
      * 11 : Paused
@@ -19,39 +21,55 @@ public class GameLogic : MonoBehaviour
      * 20-21 : Game end sequence
      * 22 : Edit End
      */
-    public static int statusGame = 0;
+    public int statusGame = -1;
     
     private int lastStatus;
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            if (instance != this)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+        
         if (setStatusForTest != 0)
         {
             statusGame = setStatusForTest;
         }
+        
+    }
+
+    public void startGame()
+    {
+        statusGame = 0;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
-    
-    void Update()
+
+    public void pauseGame()
     {
-        if (Input.GetKey(KeyCode.Escape) && statusGame < 11)
-        {
-            lastStatus = statusGame;
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            Time.timeScale = 0;
-            statusGame = 11;
-            pauseUI.SetActive(true);
-        }
+        lastStatus = statusGame;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        Time.timeScale = 0;
+        statusGame = 11;
     }
+    
     public void resumeGame()
     {
         Debug.Log("clicked");
         statusGame = lastStatus;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        pauseUI.SetActive(false);
         Time.timeScale = 1;
+        GameObject.Find("Pause").SetActive(false);
     }
 
     public void replayGame()
@@ -66,4 +84,9 @@ public class GameLogic : MonoBehaviour
         statusGame = 20;
     }
 
+    public void EndEdit()
+    {
+        statusGame = 22;
+    }
+    
 }

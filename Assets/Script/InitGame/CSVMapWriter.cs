@@ -35,7 +35,7 @@ public class CSVMapWriter : MonoBehaviour
         tempData[2] = "positionY";
         data.Add(tempData);
 
-        if (GameLogic.statusGame == 12)
+        if (GameManager.instance.statusGame == 12)
         {
             player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
@@ -47,7 +47,7 @@ public class CSVMapWriter : MonoBehaviour
     private bool inputData = false;
     private void Update()
     {
-        if (GameLogic.statusGame == 12)
+        if (GameManager.instance.statusGame == 12)
         {
             var input = Input.inputString;
             switch (input)
@@ -109,7 +109,7 @@ public class CSVMapWriter : MonoBehaviour
                 case "p":
                     Debug.Log("now Saving");
                     writeOnCSV();
-                    GameLogic.statusGame = 13;
+                    GameManager.instance.statusGame = 13;
                     saveCSVFile();
                     //player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     break;

@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,6 +17,11 @@ public class GameEffects : MonoBehaviour
     public static float portalCooltime = 3.0f;
 
     private GameUIController gameUIController;
+    
+    private GameObject portalUse;
+
+    private GameObject player;
+    
 
     private void Awake()
     {
@@ -22,6 +29,14 @@ public class GameEffects : MonoBehaviour
         path.Clear();
         gameUIController = UIController.GetComponent<GameUIController>();
         portalCooltime = 3.0f;
+        portalUse = AssetDatabase
+            .LoadAssetAtPath("Assets/Prefabs/Solid/PortalUse.prefab", typeof(GameObject))
+            .GameObject();
+    }
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
     }
 
     private void Update()
@@ -58,12 +73,30 @@ public class GameEffects : MonoBehaviour
     public void teleport(GameObject enter)
     {
         GameEffects.portalCooltime = 0.0f;
-        GameObject player = GameObject.Find("Player");
         int index = portals.IndexOf(enter);
         index = path[index];
         GameObject outer = portals[index];
-        player.transform.position = outer.transform.position;
+        StartCoroutine(teleportVisualEffect(enter, outer));
+    }
 
+    IEnumerator teleportVisualEffect(GameObject enter, GameObject outer)
+    {
+        Instantiate(portalUse, enter.transform.position, Quaternion.identity);
+        player.GetComponent<Rigidbody2D>().Sleep();
+        for (int i = 0; i < 10; i++)
+        {
+            player.transform.localScale = player.transform.localScale - new Vector3(0.05f, 0.05f, 0.05f);
+            yield return new WaitForSeconds(0.04f);
+        }
+
+        Instantiate(portalUse, outer.transform.position, Quaternion.identity);
+        player.transform.position = outer.transform.position;
+        for (int i = 0; i < 10; i++)
+        {
+            player.transform.localScale = player.transform.localScale + new Vector3(0.05f, 0.05f, 0.05f);
+            yield return new WaitForSeconds(0.04f);
+        }
+        player.GetComponent<Rigidbody2D>().WakeUp();
     }
 
     public void makePortal()

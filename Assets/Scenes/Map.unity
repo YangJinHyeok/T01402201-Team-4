@@ -168,8 +168,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2247a74926c21b47aab8f8bf940f75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseUI: {fileID: 419494216}
   setStatusForTest: 0
+  statusGame: -1
 --- !u!114 &5045500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,7 +332,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: -30}
-  initEnd: 1
 --- !u!20 &114926758
 Camera:
   m_ObjectHideFlags: 0
@@ -1590,8 +1589,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIObject: {fileID: 1500677134}
-  boxSpawner: {fileID: 962008676}
-  solidSpawner: {fileID: 1023791034}
 --- !u!1 &1096832117
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,7 +1648,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: a33635858d87bf547bf1c43ad26674d6, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2214,7 +2211,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24f78ad5c72c67d4ea6ad6ffb73cc36b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyInfo: {fileID: 0}
+  pauseUI: {fileID: 419494216}
+  QImage: {fileID: 1096832119}
   timeText: {fileID: 559817552}
   scoreText: {fileID: 1077810033}
   coinText: {fileID: 1195855289}
@@ -2262,12 +2260,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07863e3cf0a2375469c45a57d8c751aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: DefaultMap
-  prefabName: 
-  positionX: 0
-  positionY: 0
   placementDelay: 1
   GameController: {fileID: 5045496}
+  fileName: DefaultMap
 --- !u!1 &1563426247
 GameObject:
   m_ObjectHideFlags: 0

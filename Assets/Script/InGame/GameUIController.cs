@@ -8,7 +8,7 @@ public class GameUIController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private Image QImage;
-    
+    [SerializeField] private Image volume;
     public static int times = 300;
     public Text timeText;
     
@@ -18,21 +18,46 @@ public class GameUIController : MonoBehaviour
     public static long coin = 0;
     public Text coinText;
 
+    private CanvasGroup canvasGroup;
     
     private void Start()
     {
 
         coinText.text = string.Format("{000000} $",coin);
         timeText.text = string.Format("{000}", times);
-        scoreText.text = string.Format("Score : {000000000}", score);
+        scoreText.text = string.Format("Score : {0000000000}", score);
+        canvasGroup = transform.GetComponent<CanvasGroup>();
+        
         StartCoroutine(timer());
         
     }
 
     private void Update()
     {
+        if (GameManager.instance.masterVol == -80.0f)
+        {
+            volume.color = Color.red;
+        }
+        else
+        {
+            volume.color = Color.white;
+        }
+        
+
+        if (GameManager.instance.statusGame < 10)
+        {
+            canvasGroup.alpha = 0;
+        }
+        
+        timeText.text = string.Format("{000}", times);
+        scoreText.text = string.Format("Score : {0000000000}", score);   
+        
         if (Input.GetKey(KeyCode.Escape) && GameManager.instance.statusGame is > 0 and < 11)
         {
+            if (canvasGroup.alpha == 0)
+            {
+                canvasGroup.alpha = 1;
+            }
             GameManager.instance.pauseGame();
             pauseUI.SetActive(true);
         }
@@ -52,8 +77,6 @@ public class GameUIController : MonoBehaviour
             {
                 times--;
                 score = score - 1000;
-                timeText.text = string.Format("{000}", times);
-                scoreText.text = string.Format("Score : {000000000}", score);
 
                 yield return new WaitForSeconds(1);
             }
@@ -63,7 +86,7 @@ public class GameUIController : MonoBehaviour
     public void updateScoreWIthValue(int value)
     {
         score += value;
-        scoreText.text = string.Format("Score : {000000000}", score);
+        scoreText.text = string.Format("Score : {0000000000}", score);
     }
     
 }

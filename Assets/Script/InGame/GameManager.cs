@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class GameManager : MonoBehaviour
     public int statusGame = -1;
     
     private int lastStatus;
+    public AudioMixer mixer;
+    public float masterVol;
     private void Awake()
     {
         if (instance == null)
@@ -43,7 +46,9 @@ public class GameManager : MonoBehaviour
         {
             statusGame = setStatusForTest;
         }
-        
+
+        mixer.GetFloat("MasterVol", out masterVol);
+
     }
 
     public void startGame()
@@ -88,5 +93,20 @@ public class GameManager : MonoBehaviour
     {
         statusGame = 22;
     }
-    
+
+    public void changeVol()
+    {
+        mixer.GetFloat("MasterVol", out masterVol);
+        if (masterVol == 0.0f)
+        {
+            masterVol = -80.0f;
+        }
+        else
+        {
+            masterVol += 20.0f;
+        }
+
+        mixer.SetFloat("MasterVol", masterVol);
+
+    }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class InitSequence : MonoBehaviour
 {
-    [SerializeField] private GameObject UIObject;
+    private CanvasGroup UIController;
     
     private Camera main;
     
@@ -20,6 +20,7 @@ public class InitSequence : MonoBehaviour
         }
         else
         {
+            UIController = GameObject.Find("Canvas").GetComponent<CanvasGroup>();
             main = Camera.main;
             StartCoroutine(initSequence());
         }
@@ -50,8 +51,8 @@ public class InitSequence : MonoBehaviour
             main.orthographicSize = i;
             yield return new WaitForSeconds(0.06f);
         }
-        
-        UIObject.gameObject.SetActive(true);
+
+        UIController.alpha = 1;
         GameManager.instance.statusGame = 10;
         
     }

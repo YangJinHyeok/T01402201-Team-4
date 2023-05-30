@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,16 +7,19 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private GameObject pauseUI;
     [SerializeField] private Image QImage;
     [SerializeField] private Image volume;
+    [SerializeField] private GameObject boardPage;
     public static int times = 300;
     public Text timeText;
     
-    public static long score = times * 1000;
+    public static int score = 30000;
     public Text scoreText;
 
-    public static long coin = 0;
+    public static int coin = 0;
     public Text coinText;
 
     private CanvasGroup canvasGroup;
+    private BoardScript boardScript;
+    private Coroutine timerControl;
     
     private void Start()
     {
@@ -28,7 +29,7 @@ public class GameUIController : MonoBehaviour
         scoreText.text = string.Format("Score : {0000000000}", score);
         canvasGroup = transform.GetComponent<CanvasGroup>();
         
-        StartCoroutine(timer());
+        timerControl = StartCoroutine(timer());
         
     }
 
@@ -48,6 +49,12 @@ public class GameUIController : MonoBehaviour
         {
             canvasGroup.alpha = 0;
         }
+        else if (GameManager.instance.statusGame == 20)
+        {
+            Debug.Log("end status : 20");
+            endSequence();
+        }
+        
         
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);   
@@ -76,7 +83,7 @@ public class GameUIController : MonoBehaviour
             else
             {
                 times--;
-                score = score - 1000;
+                score = score - 50;
 
                 yield return new WaitForSeconds(1);
             }
@@ -88,5 +95,14 @@ public class GameUIController : MonoBehaviour
         score += value;
         scoreText.text = string.Format("Score : {0000000000}", score);
     }
-    
+
+    public void endSequence()
+    {
+        canvasGroup.alpha = 1;
+        GameManager.instance.statusGame = 21;
+        StopCoroutine(timerControl);
+        boardScript = boardPage.GetComponent<BoardScript>();
+        boardPage.SetActive(true);
+        boardScript.endRoutine(score);
+    }
 }

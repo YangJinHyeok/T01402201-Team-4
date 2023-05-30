@@ -1,8 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -92,6 +87,11 @@ public class GameManager : MonoBehaviour
     public void EndEdit()
     {
         statusGame = 22;
+    }
+
+    public void MainMenu()
+    {
+        
     }
 
     public void changeVol()

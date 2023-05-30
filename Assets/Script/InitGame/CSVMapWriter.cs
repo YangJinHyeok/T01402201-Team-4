@@ -144,7 +144,7 @@ public class CSVMapWriter : MonoBehaviour
 
     public void writeOnCSV()
     {
-        List<String[]> sortedData = data.OrderByDescending(tem => tem[1]).ToList();
+        List<String[]> sortedData = data.OrderBy(tem => tem[1]).ToList();
         string[][] output = new string[sortedData.Count][];
     
         for (int i = 0; i < output.Length; i++)

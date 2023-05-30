@@ -1,0 +1,77 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class BoardScript : MonoBehaviour
+{
+    [SerializeField] private GameObject[] boards;
+    //[SerializeField] private GameObject board1;
+
+    private Text[] texts;
+    private CSVBoard csvBoard;
+
+    public void endRoutine(int score)
+    {
+        texts = new Text[boards.Length];
+        for (int i = 0; i < boards.Length; i++)
+        {
+            texts[i] = boards[i].GetComponentInChildren<Text>();
+        }
+        csvBoard = CSVBoard.Instance;
+        List<string[]> currentBoard = csvBoard.readBoard();
+
+        if (currentBoard == null)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                texts[i].text = "xxxxxx : 0000000000";
+            }
+        }
+        else
+        {
+            for (int i = 0; i < currentBoard.Count(); i++)
+            {
+                Debug.Log(currentBoard[i][0] + " - " + currentBoard[i][1]);
+                texts[i].text = currentBoard[i][0] + string.Format(" : {0000000000}", int.Parse(currentBoard[i][1]));
+            }
+
+            for (int i = currentBoard.Count(); i < 6; i++)
+            {
+                string mono = "abcdef : 0123456789";
+                texts[i].text = mono;
+            }
+        }
+        StartCoroutine(reBoard(score));
+    }
+
+    IEnumerator reBoard(int score)
+    {
+        yield return new WaitForSecondsRealtime(2f);
+        string[][] nowBoard = csvBoard.saveBoard("player1", score);
+        
+        for (int i = 0; i < nowBoard.Count(); i++)
+        {
+            Vector3 eulerAngle = new Vector3(3f, 0f, 0f);
+
+            for (int j = 0; j < 60; j++)
+            {
+                boards[i].transform.Rotate(eulerAngle, Space.Self);
+                boards[i].transform.localRotation *= Quaternion.Euler(eulerAngle);
+                if (j == 29)
+                {
+                    texts[i].text = nowBoard[i][0] + string.Format(" : {0000000000}", int.Parse(nowBoard[i][1]));       
+                }
+                
+                yield return new WaitForSecondsRealtime(0.01f);
+            }
+        }
+
+        for (int i = nowBoard.Count(); i < 6; i++)
+        {
+            string mono = "xxxxxx : 0000000000";
+            texts[i].text = mono;
+        }
+    }
+}

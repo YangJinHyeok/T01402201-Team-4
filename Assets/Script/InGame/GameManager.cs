@@ -107,6 +107,5 @@ public class GameManager : MonoBehaviour
         }
 
         mixer.SetFloat("MasterVol", masterVol);
-
     }
 }

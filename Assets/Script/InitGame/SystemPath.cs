@@ -21,8 +21,7 @@ public static class SystemPath
             case RuntimePlatform.IPhonePlayer:
             case RuntimePlatform.OSXEditor:
             case RuntimePlatform.OSXPlayer:
-                path = Application.dataPath;
-
+                path = Application.persistentDataPath;
                 path = path.Substring(0, path.LastIndexOf('/'));
                 return Path.Combine(path, "Assets", "Resources/");       
             case RuntimePlatform.WindowsEditor:
@@ -32,8 +31,7 @@ public static class SystemPath
             default:
                 path = Application.dataPath;
                 path = path.Substring(0, path.LastIndexOf('/'));
-                // return Path.Combine(path, "Resources/");
-                return Path.Combine(path, "Assets", "Resources/");
+                return Path.Combine(path, "Resources/");
         }
     }
 }

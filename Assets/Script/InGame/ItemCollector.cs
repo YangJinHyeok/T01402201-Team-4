@@ -10,16 +10,34 @@ public class ItemCollector : MonoBehaviour
         if (collision.gameObject.CompareTag("ItemSpeed"))
         {
             Destroy(collision.gameObject);
+            IncreaseSpeed();
         }
         else if (collision.gameObject.CompareTag("ItemCount"))
         {
             Destroy(collision.gameObject);
+            IncreaseCount();
         }
         else if (collision.gameObject.CompareTag("ItemPower"))
         {
             Destroy(collision.gameObject);
+            IncreasePower();
         }
     }
+
+
+    public void IncreaseSpeed()
+    {
+
+    }
+    public void IncreaseCount()
+    {
+
+    }
+    public void IncreasePower()
+    {
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {

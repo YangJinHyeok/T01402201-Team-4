@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
-    private float Playerspeed = 7f;
+    private float Playerspeed = 4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,34 +34,36 @@ public class PlayerMovement : MonoBehaviour
             transform.Translate(new Vector2(Playerspeed * Time.deltaTime, 0));
             state = MovementState.right;
         }
-        if (Input.GetKey(KeyCode.LeftArrow))
+        else if (Input.GetKey(KeyCode.LeftArrow))
         {
             transform.Translate(new Vector2(-Playerspeed * Time.deltaTime, 0));
             state = MovementState.left;
         }
-        if (Input.GetKey(KeyCode.UpArrow))
+        else if (Input.GetKey(KeyCode.UpArrow))
         {
             transform.Translate(new Vector2(0, Playerspeed  * Time.deltaTime));
             state = MovementState.up;
         }
-        if (Input.GetKey(KeyCode.DownArrow))
+        else if (Input.GetKey(KeyCode.DownArrow))
         {
             transform.Translate(new Vector2(0, -Playerspeed * Time.deltaTime));
             state = MovementState.down;
         }
+
+
         if (Input.GetKeyUp(KeyCode.RightArrow))
         {
             state = MovementState.rightidle;
         }
-        if (Input.GetKeyUp(KeyCode.LeftArrow))
+        else if (Input.GetKeyUp(KeyCode.LeftArrow))
         {
             state = MovementState.leftidle;
         }
-        if (Input.GetKeyUp(KeyCode.UpArrow))
+        else if (Input.GetKeyUp(KeyCode.UpArrow))
         {
             state = MovementState.upidle;
         }
-        if (Input.GetKeyUp(KeyCode.DownArrow))
+        else if (Input.GetKeyUp(KeyCode.DownArrow))
         {
             state = MovementState.downidle;
         }

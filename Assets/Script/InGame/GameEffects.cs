@@ -112,10 +112,5 @@ public class GameEffects : MonoBehaviour
             }
         }
     }
-
-    public void endGame(bool isWin)
-    {
-        gameUIController.endSequence(isWin);
-    }
     
 }

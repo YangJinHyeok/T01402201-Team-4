@@ -69,7 +69,6 @@ public class CSVMapMaker : MonoBehaviour
 
     private void Start()
     {
-        
         List<Vector3> positions = new List<Vector3>();
         List<String> prefaps = new List<string>();
         dicList.Clear();
@@ -79,9 +78,8 @@ public class CSVMapMaker : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
-        
+            
         StartCoroutine(LoadCSVMap(dicList.Count));
-        
     }
 
     private void Update()

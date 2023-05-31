@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7851405545197892432}
   - component: {fileID: 374800927907162656}
   - component: {fileID: 4196129384654531590}
+  - component: {fileID: -7034192401486944059}
   m_Layer: 0
   m_Name: ItemSpeed
   m_TagString: ItemSpeed
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.975}
   m_EdgeRadius: 0
+--- !u!114 &-7034192401486944059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7851405545197892439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee97578d6271d4f5e9db6b3c6bace244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

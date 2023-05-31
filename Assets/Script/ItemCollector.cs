@@ -9,6 +9,7 @@ public class ItemCollector : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ItemSpeed"))
         {
+            Debug.Log("스피드 충;"); 
             Destroy(collision.gameObject);
             IncreaseSpeed();
         }
@@ -38,15 +39,5 @@ public class ItemCollector : MonoBehaviour
 
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

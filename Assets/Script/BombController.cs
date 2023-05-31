@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
-public class BombComtroller : MonoBehaviour
+public class BombController : MonoBehaviour
 {
     [Header("Bomb")]
     public GameObject bombPrefab;

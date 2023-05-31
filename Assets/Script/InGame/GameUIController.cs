@@ -8,6 +8,7 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private Image QImage;
     [SerializeField] private Image volume;
     [SerializeField] private GameObject boardPage;
+    [SerializeField] private GameObject endImage;
     public static int times = 300;
     public Text timeText;
     
@@ -49,12 +50,6 @@ public class GameUIController : MonoBehaviour
         {
             canvasGroup.alpha = 0;
         }
-        else if (GameManager.instance.statusGame == 20)
-        {
-            Debug.Log("end status : 20");
-            endSequence();
-        }
-        
         
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);   
@@ -96,12 +91,30 @@ public class GameUIController : MonoBehaviour
         scoreText.text = string.Format("Score : {0000000000}", score);
     }
 
-    public void endSequence()
+    public void endSequence(bool isWin)
     {
         canvasGroup.alpha = 1;
         GameManager.instance.statusGame = 21;
         StopCoroutine(timerControl);
+        StartCoroutine(callEndImage(isWin));
         boardScript = boardPage.GetComponent<BoardScript>();
+    }
+    IEnumerator callEndImage(bool isWin)
+    {
+        if (isWin)
+        {
+            endImage.transform.Find("Win").gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(3.0f);
+            endImage.transform.Find("Win").gameObject.SetActive(false);
+        }
+        else
+        {
+            endImage.transform.Find("Lose").gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(3.0f);
+            endImage.transform.Find("Lose").gameObject.SetActive(false);
+        }
+
+        yield return new WaitForSecondsRealtime(1.0f);
         boardPage.SetActive(true);
         boardScript.endRoutine(score);
     }

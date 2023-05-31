@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e90dfdfb23d94603bd2fb762c1dbd5a
+guid: 954dc4e65c1c541dd86db7ce71648bec
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ItemCount_0
+      name: Lucci_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 0
-        width: 42
-        height: 61
+        x: 88
+        y: 42
+        width: 49
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 094266175bc41419e8734fe79e0ebd5e
-      internalID: 99556490
+      spriteID: 02ce97afd628144fd97585c8a9b6a7c5
+      internalID: 201577854
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemCount_1
+      name: Lucci_1
       rect:
         serializedVersion: 2
-        x: 63
-        y: 0
-        width: 42
-        height: 61
+        x: 158
+        y: 63
+        width: 49
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,29 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063c7563037554074a7fbe6c3dac95ea
-      internalID: -1276932233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ItemCount_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 2
-        width: 19
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63b37cca4c2234e309ad44c772460694
-      internalID: -610065891
+      spriteID: cfe4d018b69aa4a7284646376cf12607
+      internalID: -1842865821
       vertices: []
       indices: 
       edges: []
@@ -190,9 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ItemCount_0: 99556490
-      ItemCount_1: -1276932233
-      ItemCount_2: -610065891
+      Lucci_0: 201577854
+      Lucci_1: -1842865821
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -221,7 +221,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0, z: -10}
-  initEnd: 0
 --- !u!1 &884319821
 GameObject:
   m_ObjectHideFlags: 0

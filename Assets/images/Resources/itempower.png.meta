@@ -117,43 +117,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: itempower_0
+      name: ItemPower_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 143
-        width: 32
-        height: 49
+        x: 8
+        y: 0
+        width: 39
+        height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 32, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57173e5a446d14807915ce1f732b84f6
-      internalID: 2119450201
+      spriteID: 6c237280a3afe4ffa84fde22d697a0e1
+      internalID: -54484165
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: itempower_1
+      name: ItemPower_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 143
-        width: 32
-        height: 49
+        x: 64
+        y: 0
+        width: 39
+        height: 60
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 32, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f5d7968d460d4d5cb93e5ab0f8cb021
-      internalID: 779274988
+      spriteID: f7fb758eb52d84cda9b63d27fe20ff69
+      internalID: -471280891
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemPower_2
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 2
+        width: 19
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ed41c30f91f40c6bbd97d172462e25
+      internalID: 892003692
       vertices: []
       indices: 
       edges: []
@@ -169,8 +190,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      itempower_0: 2119450201
-      itempower_1: 779274988
+      ItemPower_0: -54484165
+      ItemPower_1: -471280891
+      ItemPower_2: 892003692
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

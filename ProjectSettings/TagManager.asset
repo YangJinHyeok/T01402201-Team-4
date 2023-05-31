@@ -12,6 +12,8 @@ TagManager:
   - ItemCount
   - ItemPower
   - ItemSpeed
+  - ItemSuperPower
+  - Lucci
   layers:
   - Default
   - TransparentFX

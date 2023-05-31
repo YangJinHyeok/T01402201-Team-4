@@ -117,43 +117,43 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: speed2_0
+      name: ItemSpeed_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 14
-        width: 36
-        height: 39
+        x: 4
+        y: 0
+        width: 47
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 66ac3727b2db44d4183998e7440da04e
-      internalID: 386550276
+      spriteID: eeefc55428ba5438fa1232e15e9635ca
+      internalID: -402982070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: speed2_1
+      name: ItemSpeed_1
       rect:
         serializedVersion: 2
-        x: 55
-        y: 18
-        width: 36
-        height: 39
+        x: 60
+        y: 0
+        width: 47
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b66d118f86b4c4cb2a5f4010ff4f3bf0
-      internalID: -512169254
+      spriteID: 9770a39cabbb84ea5bf7e5f5d0e8efc7
+      internalID: -1129954973
       vertices: []
       indices: 
       edges: []
@@ -169,8 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      speed2_0: 386550276
-      speed2_1: -512169254
+      ItemSpeed_0: -402982070
+      ItemSpeed_1: -1129954973
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

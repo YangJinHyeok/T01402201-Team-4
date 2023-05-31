@@ -23,6 +23,16 @@ public class ItemCollector : MonoBehaviour
             Destroy(collision.gameObject);
             IncreasePower();
         }
+        else if (collision.gameObject.CompareTag("ItemSuperPower"))
+        {
+            Destroy(collision.gameObject);
+            
+        }
+        else if (collision.gameObject.CompareTag("Lucci"))
+        {
+            Destroy(collision.gameObject);
+            
+        }
     }
 
 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4e90dfdfb23d94603bd2fb762c1dbd5a
+guid: 92f27496038094f64a8135e26f657718
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -117,13 +117,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ItemCount_0
+      name: ItemSuperPower_0
       rect:
         serializedVersion: 2
-        x: 7
+        x: 1
         y: 0
-        width: 42
-        height: 61
+        width: 53
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 094266175bc41419e8734fe79e0ebd5e
-      internalID: 99556490
+      spriteID: a638e29dd29d343d98c7fa48c0dc8f69
+      internalID: 1743948430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ItemCount_1
+      name: ItemSuperPower_1
       rect:
         serializedVersion: 2
-        x: 63
+        x: 57
         y: 0
-        width: 42
-        height: 61
+        width: 53
+        height: 63
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -152,29 +152,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 063c7563037554074a7fbe6c3dac95ea
-      internalID: -1276932233
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: ItemCount_2
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 2
-        width: 19
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63b37cca4c2234e309ad44c772460694
-      internalID: -610065891
+      spriteID: b3c6e71e093c44969a249114d47b9dda
+      internalID: -738917169
       vertices: []
       indices: 
       edges: []
@@ -190,9 +169,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ItemCount_0: 99556490
-      ItemCount_1: -1276932233
-      ItemCount_2: -610065891
+      ItemSuperPower_0: 1743948430
+      ItemSuperPower_1: -738917169
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

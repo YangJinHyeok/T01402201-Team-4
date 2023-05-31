@@ -9,6 +9,9 @@ TagManager:
   - Mob
   - Bomb
   - Box2
+  - ItemCount
+  - ItemPower
+  - ItemSpeed
   layers:
   - Default
   - TransparentFX

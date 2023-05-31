@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
-    private float Playerspeed = 4f;
+    private float playerSpeed = 4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,22 +31,22 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            transform.Translate(new Vector2(Playerspeed * Time.deltaTime, 0));
+            transform.Translate(new Vector2(playerSpeed * Time.deltaTime, 0));
             state = MovementState.right;
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            transform.Translate(new Vector2(-Playerspeed * Time.deltaTime, 0));
+            transform.Translate(new Vector2(-playerSpeed * Time.deltaTime, 0));
             state = MovementState.left;
         }
         else if (Input.GetKey(KeyCode.UpArrow))
         {
-            transform.Translate(new Vector2(0, Playerspeed  * Time.deltaTime));
+            transform.Translate(new Vector2(0, playerSpeed  * Time.deltaTime));
             state = MovementState.up;
         }
         else if (Input.GetKey(KeyCode.DownArrow))
         {
-            transform.Translate(new Vector2(0, -Playerspeed * Time.deltaTime));
+            transform.Translate(new Vector2(0, -playerSpeed * Time.deltaTime));
             state = MovementState.down;
         }
 
@@ -69,15 +69,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         anim.SetInteger("state", (int)state);
-    }
-
-    private void PlayerAction(){
-        if(Input.GetKeyDown(KeyCode.Space)){ // + 물풍선 갯수 조건 해줘야함
-            MakeBomb();
-        }
-    }
-    private void MakeBomb(){
-        
     }
     
 

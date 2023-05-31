@@ -21,7 +21,7 @@ public static class SystemPath
             case RuntimePlatform.IPhonePlayer:
             case RuntimePlatform.OSXEditor:
             case RuntimePlatform.OSXPlayer:
-                path = Application.persistentDataPath;
+                path = Application.dataPath;
                 path = path.Substring(0, path.LastIndexOf('/'));
                 return Path.Combine(path, "Assets", "Resources/");       
             case RuntimePlatform.WindowsEditor:

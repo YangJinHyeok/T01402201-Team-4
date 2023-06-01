@@ -2830,7 +2830,7 @@ MonoBehaviour:
   QImage: {fileID: 1096832119}
   volume: {fileID: 440367563}
   boardPage: {fileID: 1584534105}
-  endImage: {fileID: 0}
+  endImage: {fileID: 1073774114}
   timeText: {fileID: 559817552}
   scoreText: {fileID: 1077810033}
   coinText: {fileID: 1195855289}

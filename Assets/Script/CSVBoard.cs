@@ -78,7 +78,7 @@ public class CSVBoard
 
         if (sortedData.Count > 6)
         {
-            sortedData.RemoveRange(5,sortedData.Count-6);
+            sortedData.RemoveRange(6,sortedData.Count-6);
         }
 
         string[][] output = new string[sortedData.Count][];

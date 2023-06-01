@@ -7,13 +7,20 @@ using UnityEngine.UI;
 public class BoardScript : MonoBehaviour
 {
     [SerializeField] private GameObject[] boards;
+
+    [SerializeField] private InputField inputField;
+
+    [SerializeField] private Button inputButton;
     //[SerializeField] private GameObject board1;
 
     private Text[] texts;
     private CSVBoard csvBoard;
+    private string inputName;
+    private int currentScore;
 
     public void endRoutine(int score)
     {
+        currentScore = score;
         texts = new Text[boards.Length];
         for (int i = 0; i < boards.Length; i++)
         {
@@ -43,13 +50,33 @@ public class BoardScript : MonoBehaviour
                 texts[i].text = mono;
             }
         }
-        StartCoroutine(reBoard(score));
+
+        inputName = "player1";
+        inputField.onEndEdit.AddListener(inputNameEnd); 
     }
 
-    IEnumerator reBoard(int score)
+    private void inputNameEnd(string nick)
+    {
+        if (nick.Length == 0)
+        {
+            inputName = "player1";
+        }
+        else
+        {
+            inputName = nick;
+        }
+    }
+    public void inputPlayer()
+    {
+        inputButton.interactable = false;
+        StartCoroutine(reBoard());
+    } 
+    
+
+    IEnumerator reBoard()
     {
         yield return new WaitForSecondsRealtime(2f);
-        string[][] nowBoard = csvBoard.saveBoard("player1", score);
+        string[][] nowBoard = csvBoard.saveBoard(inputName, currentScore);
         
         for (int i = 0; i < nowBoard.Count(); i++)
         {

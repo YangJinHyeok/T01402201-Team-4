@@ -29,37 +29,20 @@ public class GameUIController : MonoBehaviour
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);
         canvasGroup = transform.GetComponent<CanvasGroup>();
-        
+        canvasGroup.alpha = 0;
+        boardPage.SetActive(false);
         timerControl = StartCoroutine(timer());
         
     }
 
     private void Update()
     {
-        if (GameManager.instance.masterVol == -80.0f)
-        {
-            volume.color = Color.red;
-        }
-        else
-        {
-            volume.color = Color.white;
-        }
-        
-
-        if (GameManager.instance.statusGame < 10)
-        {
-            canvasGroup.alpha = 0;
-        }
-        
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);   
         
         if (Input.GetKey(KeyCode.Escape) && GameManager.instance.statusGame is > 0 and < 11)
         {
-            if (canvasGroup.alpha == 0)
-            {
-                canvasGroup.alpha = 1;
-            }
+            canvasGroup.alpha = 1;
             GameManager.instance.pauseGame();
             pauseUI.SetActive(true);
         }
@@ -117,5 +100,17 @@ public class GameUIController : MonoBehaviour
         yield return new WaitForSecondsRealtime(1.0f);
         boardPage.SetActive(true);
         boardScript.endRoutine(score);
+    }
+
+    public void changeVolButton()
+    {
+        if (GameManager.instance.masterVol == -80.0f)
+        {
+            volume.color = Color.red;
+        }
+        else
+        {
+            volume.color = Color.white;
+        }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3068585231989522355}
   - component: {fileID: 3068585231989522352}
   - component: {fileID: 3068585231989522353}
+  - component: {fileID: 5663662399526702175}
   m_Layer: 0
   m_Name: Lucci
   m_TagString: Lucci
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5663662399526702175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3068585231989522366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee97578d6271d4f5e9db6b3c6bace244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

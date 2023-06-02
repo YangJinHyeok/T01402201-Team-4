@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3463349488464737920}
   - component: {fileID: 8948722184029312922}
   - component: {fileID: 3486289004330814502}
+  - component: {fileID: 8822640659903622304}
   m_Layer: 0
   m_Name: ItemSuperPower
   m_TagString: ItemSuperPower
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 3141739711137147450}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.68, y: 0.7, z: 0}
+  m_LocalScale: {x: 0.68, y: 0.68, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -133,3 +134,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &8822640659903622304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3141739711137147450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee97578d6271d4f5e9db6b3c6bace244, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

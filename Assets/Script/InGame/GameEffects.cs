@@ -73,11 +73,8 @@ public class GameEffects : MonoBehaviour
                 //player
                 Debug.Log("Item Count : " + Character.Instance.count );
 
-                if (Character.Instance.count+1 > Character.Instance.countMax)
+                if (Character.Instance.count+1 <= Character.Instance.countMax)
                 {
-                    Character.Instance.count = Character.Instance.countMax;
-                }
-                else{
                     Character.Instance.count += 1;
                 }
 
@@ -88,14 +85,11 @@ public class GameEffects : MonoBehaviour
                 //player
                 Debug.Log("Item Speed" + Character.Instance.speed );
 
-                if (Character.Instance.speed+1f > Character.Instance.speedMax)
+                if (Character.Instance.speed+1f <= Character.Instance.speedMax)
                 {
-                    Character.Instance.speed = Character.Instance.speedMax;
-                }
-                else{
                     Character.Instance.speed += 1f;
                 }
-
+                
                 Debug.Log("Item Speed" + Character.Instance.speed );
                 break;
             
@@ -103,14 +97,11 @@ public class GameEffects : MonoBehaviour
                 //player
                 Debug.Log("Item Power : " + Character.Instance.power );
                 
-                if (Character.Instance.power+1 > Character.Instance.powerMax)
+                if (Character.Instance.power+1 <= Character.Instance.powerMax)
                 {
-                    Character.Instance.power = Character.Instance.powerMax;
-                }
-                else{
                     Character.Instance.power += 1;
                 }
-
+                
                 Debug.Log("Item Power : " + Character.Instance.power );
                 break;
             
@@ -118,20 +109,14 @@ public class GameEffects : MonoBehaviour
                 //player
                 Debug.Log("Item Super Power : "+ Character.Instance.power);
 
-                if (Character.Instance.power+1 > Character.Instance.powerMax)
-                {
-                    Character.Instance.power = Character.Instance.powerMax;
-                }
-                else{
-                    Character.Instance.power = Character.Instance.powerMax;
-                }
+                Character.Instance.power = Character.Instance.powerMax;
 
                 Debug.Log("Item Super Power : "+ Character.Instance.power);
                 break;
             
             case "Lucci" :
                 Debug.Log("Lucci");
-                //player
+                gameUIController.updateCoin(Random.Range(100,300));
                 break;
         }
         Destroy(item);

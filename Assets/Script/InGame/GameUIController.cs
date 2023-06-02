@@ -38,7 +38,7 @@ public class GameUIController : MonoBehaviour
     private void Update()
     {
         timeText.text = string.Format("{000}", times);
-        scoreText.text = string.Format("Score : {0000000000}", score);   
+        scoreText.text = string.Format("Score : {0000000000}", score);
         
         if (Input.GetKey(KeyCode.Escape) && GameManager.instance.statusGame is > 0 and < 11)
         {
@@ -74,6 +74,11 @@ public class GameUIController : MonoBehaviour
         scoreText.text = string.Format("Score : {0000000000}", score);
     }
 
+    public void updateCoin(int value)
+    {
+        coin += value;
+        coinText.text = string.Format("{000000} $",coin);
+    }
     public void endSequence(bool isWin)
     {
         canvasGroup.alpha = 1;

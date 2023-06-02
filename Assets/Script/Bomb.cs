@@ -10,13 +10,14 @@ public class Bomb : MonoBehaviour
     [Header("Explosion")]
     public Explosion explosionPrefab;
     public LayerMask explosionLayerMask;
-    public float explosionDuration = 1f;
+    public float explosionDuration = 5.0f;
     private int explosionRadius;
-
+    
     public float time = 3.0f;
 
     private void Awake(){
-        explosionRadius = Character.Instance.power;
+        PlayerMovement bombPower = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        explosionRadius = bombPower.getPlayerPower();
     }
     private void Start()
     {
@@ -48,19 +49,17 @@ public class Bomb : MonoBehaviour
         Explode(position, Vector2.left, explosionRadius);
         Explode(position, Vector2.right, explosionRadius);
 
-
-        Character.Instance.remaining++;
+        BombController bombRemaining = GameObject.Find("Player").GetComponent<BombController>();
+        bombRemaining.remainUp();
         Destroy(this.gameObject);
     }
 
     public void PlaceBomb()
     {
-        Vector2 position = GameObject.Find("Player").transform.position;
+        Vector2 position = transform.position;
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
-
-        Character.Instance.remaining--;
-
+                
         StartCoroutine(ExplodeAfterDelay(position));
          
     }

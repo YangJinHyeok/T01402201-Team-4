@@ -75,15 +75,21 @@ public class GameEffects : MonoBehaviour
                 break;
             case "ItemPower" :
                 //player
-                Debug.Log("Item Power");
+                Debug.Log("Item Power : " + Character.Instance.power );
+                Character.Instance.power += 1;
+                Debug.Log("Item Power : " + Character.Instance.power );
                 break;
             case "ItemSpeed" :
                 //player
-                Debug.Log("Item Speed");
+                Debug.Log("Item Speed" + Character.Instance.speed );
+                Character.Instance.speed += 1.0f;
+                Debug.Log("Item Speed" + Character.Instance.speed );
                 break;
             case "ItemSuperPower" :
                 //player
-                Debug.Log("Item Super Power");
+                Debug.Log("Item Super Power : "+ Character.Instance.power);
+                Character.Instance.power = 10;
+                Debug.Log("Item Super Power : "+ Character.Instance.power);
                 break;
             case "Lucci" :
                 Debug.Log("Lucci");

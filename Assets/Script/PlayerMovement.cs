@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
-    private float playerSpeed = 4f;
+    private float playerSpeed;
     private Vector2 lastMovement = new Vector2(0, 0);
 
     // Start is called before the first frame update
@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
+        playerSpeed = Character.Instance.speed;
 
     }
 

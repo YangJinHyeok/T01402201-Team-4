@@ -21,6 +21,8 @@ public class GameEffects : MonoBehaviour
     private GameObject portalUse;
 
     private GameObject player;
+
+    private GameObject dust;
     
 
     private void Awake()
@@ -31,6 +33,9 @@ public class GameEffects : MonoBehaviour
         portalCooltime = 3.0f;
         portalUse = AssetDatabase
             .LoadAssetAtPath("Assets/Prefabs/Solid/PortalUse.prefab", typeof(GameObject))
+            .GameObject();
+        dust = AssetDatabase
+            .LoadAssetAtPath("Assets/Prefabs/dust.prefab", typeof(GameObject))
             .GameObject();
     }
 
@@ -51,6 +56,7 @@ public class GameEffects : MonoBehaviour
     public void destroyBox(GameObject target)
     {
         Vector3 targetPosition = target.transform.position;
+        Instantiate(dust, targetPosition, Quaternion.identity);
         Destroy(target);
         gameUIController.updateScoreWIthValue(30);
     }

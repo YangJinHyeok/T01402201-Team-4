@@ -334,11 +334,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4f1dd6094f72a4fb31a0c24c304ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bombPrefab: {fileID: 2748078785954436232, guid: b5acfe7931615ba40a7c9e7fda947aa6, type: 3}
+  bomb: {fileID: 0}
   inputKey: 32
-  bombFuseTime: 3
-  bombAmount: 5
-  bombsRemaining: 0
 --- !u!114 &357793579
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,15 +7,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
-    private float playerSpeed;
     private Vector2 lastMovement = new Vector2(0, 0);
     
-    private int playerPower;
-    private int playerCount;
-    private int playerRemaining;
-
+    private float playerSpeed;
     private float playerSpeedMax;
-    private int playerCountMax;
+    private int playerPower;
     private int playerPowerMax;
 
     // Start is called before the first frame update
@@ -26,10 +22,7 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         playerSpeed = Character.Instance.getSpeed();
         playerPower = Character.Instance.getPower();
-        playerCount = Character.Instance.getCount();
-        playerRemaining = playerCount;
         playerSpeedMax = Character.Instance.getSpeedMax();
-        playerCountMax = Character.Instance.getCountMax();
         playerPowerMax = Character.Instance.getPowerMax();
 
     }
@@ -89,15 +82,7 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     
     }
-
-    public void countUp()
-    {
-        if (playerCount < playerCountMax)
-        {
-            playerCount++;
-            playerRemaining++;
-        }
-    }
+    
     public void powerUp()
     {
         if (playerPower < playerPowerMax)
@@ -118,19 +103,6 @@ public class PlayerMovement : MonoBehaviour
     {
         playerPower = playerPowerMax;
         
-    }
-
-    public void remainUp()
-    {
-        if (playerRemaining < playerCount)
-        {
-            playerRemaining++;
-        }
-        else
-        {
-            //동시에 폭탄 여러개 터지면 remain값이 한계 넘어갈 수 잇음
-            playerRemaining = playerCount;
-        }
     }
 
 }

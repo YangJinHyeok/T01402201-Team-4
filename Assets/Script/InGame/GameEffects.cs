@@ -123,7 +123,7 @@ public class GameEffects : MonoBehaviour
                     Character.Instance.power = Character.Instance.powerMax;
                 }
                 else{
-                    Character.Instance.power += 1;
+                    Character.Instance.power = Character.Instance.powerMax;
                 }
 
                 Debug.Log("Item Super Power : "+ Character.Instance.power);

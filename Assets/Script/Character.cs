@@ -32,7 +32,7 @@ public class Character : MonoBehaviour
 
     public float speedMax = 8.0f;
     public int countMax = 10;
-    public int powerMax = 10;
+    public int powerMax = 14;
     
 }
 

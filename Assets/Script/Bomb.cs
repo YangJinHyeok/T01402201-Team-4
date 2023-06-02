@@ -15,9 +15,11 @@ public class Bomb : MonoBehaviour
 
     public float time = 3.0f;
 
+    private void Awake(){
+        explosionRadius = Character.Instance.power;
+    }
     private void Start()
     {
-        explosionRadius = Character.Instance.power;
         PlaceBomb();
     }
 

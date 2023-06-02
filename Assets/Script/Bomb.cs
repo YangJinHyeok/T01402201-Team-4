@@ -15,7 +15,10 @@ public class Bomb : MonoBehaviour
 
     public float time = 3.0f;
 
-
+    private void Start()
+    {
+        PlaceBomb();
+    }
 
     private void Update()
     {

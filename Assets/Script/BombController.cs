@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
@@ -29,7 +31,10 @@ public class BombController : MonoBehaviour
     {
         if (bombsRemaining > 0 && Input.GetKeyDown(inputKey))
         {
-            bombPrefab.GetComponent<Bomb>().PlaceBomb();
+            //bombPrefab.GetComponent<Bomb>().PlaceBomb();
+            string path = "Assets/Prefabs/"  + "Bomb" + ".prefab";
+            GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
+            Instantiate(prefab, transform.position, Quaternion.identity);
         }
     }
      

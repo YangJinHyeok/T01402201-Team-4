@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -5744035271500031}
   - component: {fileID: 6246402961730311066}
   - component: {fileID: 1264781596756414489}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Bomb
   m_TagString: Bomb
   m_Icon: {fileID: 0}
@@ -191,7 +191,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   explosionDuration: 1
-  explosionRadius: 3
   time: 3
 --- !u!1 &3269842039891944543
 GameObject:
@@ -203,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3269842039891944542}
   - component: {fileID: 3269842039891944541}
-  m_Layer: 6
+  m_Layer: 3
   m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -52,13 +52,13 @@ public class BombController : MonoBehaviour
             
         }
     }
-     
+
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if(other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
+        if (other.CompareTag("Bomb"))
         {
-            other.isTrigger = false; 
+            other.isTrigger = false;
         }
     }
 

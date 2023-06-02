@@ -99,14 +99,15 @@ public class Bomb : MonoBehaviour
                 if (collider.CompareTag("Box"))
                 {
                     StartCoroutine(ShowDustAndDestroy(collider));
+
                 }
                 if (collider.CompareTag("Bomb"))
                 {
-                    /*Bomb bomb = collider.GetComponent<Bomb>();
-                    bomb.time = -1;*/
-                    Debug.Log("hi");
+                    Bomb bomb = collider.GetComponent<Bomb>();
+                    bomb.time = -1;
                 }
             }
+
 
             return;
         }
@@ -119,8 +120,8 @@ public class Bomb : MonoBehaviour
 
         Explode(position, direction, length - 1);
     }
-    
 
+    
 
 
 }

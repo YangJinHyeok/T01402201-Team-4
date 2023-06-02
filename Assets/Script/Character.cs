@@ -29,6 +29,7 @@ public class Character : MonoBehaviour
     public float speed = 4.0f;
     public int power = 3;
     public int count = 1;
+    public int remaining;
 
     public float speedMax = 8.0f;
     public int countMax = 10;

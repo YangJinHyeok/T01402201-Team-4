@@ -17,10 +17,16 @@ public class BombController : MonoBehaviour
     public Box boxPrefab;
 
 
+    private void OnEnable()
+    {
+        Character.Instance.remaining = Character.Instance.count;
+        
+    }
+
     private void Update()
     {
         
-        if (Character.Instance.count > 0 && Input.GetKeyDown(inputKey))
+        if (Character.Instance.remaining > 0 && Input.GetKeyDown(inputKey))
         {
             Vector2 position = GameObject.Find("Player").transform.position;
             position.x = Mathf.Round(position.x);

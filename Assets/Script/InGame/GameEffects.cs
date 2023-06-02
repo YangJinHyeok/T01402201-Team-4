@@ -76,6 +76,7 @@ public class GameEffects : MonoBehaviour
                 if (Character.Instance.count+1 <= Character.Instance.countMax)
                 {
                     Character.Instance.count += 1;
+                    Character.Instance.remaining += 1;
                 }
 
                 Debug.Log("Item Count : " + Character.Instance.count );

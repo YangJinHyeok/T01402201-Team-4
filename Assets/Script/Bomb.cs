@@ -49,8 +49,8 @@ public class Bomb : MonoBehaviour
         Explode(position, Vector2.right, explosionRadius);
 
 
+        Character.Instance.remaining++;
         Destroy(this.gameObject);
-        Character.Instance.count++;
     }
 
     public void PlaceBomb()
@@ -59,7 +59,7 @@ public class Bomb : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
 
-        Character.Instance.count--;
+        Character.Instance.remaining--;
 
         StartCoroutine(ExplodeAfterDelay(position));
          

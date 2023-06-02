@@ -105,4 +105,8 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
+    public int getPlayerPower()
+    {
+        return playerPower;
+    }
 }

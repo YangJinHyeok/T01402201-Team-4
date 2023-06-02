@@ -65,9 +65,27 @@ public class GameEffects : MonoBehaviour
         
     }
 
-    public void powerUp()
+    public void powerUp(GameObject item)
     {
-        
+        switch (item.tag)
+        {
+            case "ItemCount" :
+                //player
+                break;
+            case "ItemPower" :
+                //player
+                break;
+            case "ItemSpeed" :
+                //player
+                break;
+            case "ItemSuperPower" :
+                //player
+                break;
+            case "Lucci" :
+                //player
+                break;
+        }
+        Destroy(item);
     }
 
     public void teleport(GameObject enter)

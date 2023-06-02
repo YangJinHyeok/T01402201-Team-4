@@ -82,6 +82,34 @@ public class GameEffects : MonoBehaviour
     IEnumerator teleportVisualEffect(GameObject enter, GameObject outer)
     {
         Instantiate(portalUse, enter.transform.position, Quaternion.identity);
+        Vector3 outPosition = outer.transform.position;
+        Vector3[] outerPoints = new []{Vector3.up, Vector3.down, Vector3.left, Vector3.right};
+        Vector3 direction;
+
+        List<int> possible = new List<int>();
+
+        for (int i = 0; i < 4; i++)
+        {
+            direction = new Vector3();
+            direction = outPosition + outerPoints[i]; 
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(direction.x, direction.y), 0.1f);
+            
+            if ((direction.x is > -28 and < 27) && (direction.y is > -15 and < 14) && colliders.Length < 1)
+            {
+                possible.Add(i);
+            }
+        }
+        
+        if (possible.Count > 0)
+        {
+            direction = outerPoints[possible[Random.Range(0, possible.Count)]];
+            outPosition += direction;
+        }
+        else
+        {
+            outPosition = enter.transform.position;
+        }
+        
         player.GetComponent<Rigidbody2D>().Sleep();
         for (int i = 0; i < 10; i++)
         {
@@ -89,8 +117,8 @@ public class GameEffects : MonoBehaviour
             yield return new WaitForSeconds(0.04f);
         }
 
-        Instantiate(portalUse, outer.transform.position, Quaternion.identity);
-        player.transform.position = outer.transform.position;
+        Instantiate(portalUse, outPosition, Quaternion.identity);
+        player.transform.position = outPosition;
         for (int i = 0; i < 10; i++)
         {
             player.transform.localScale = player.transform.localScale + new Vector3(0.05f, 0.05f, 0.05f);
@@ -112,5 +140,8 @@ public class GameEffects : MonoBehaviour
             }
         }
     }
-    
+    public void endGame(bool isWin)
+    {
+        gameUIController.endSequence(isWin);
+    }
 }

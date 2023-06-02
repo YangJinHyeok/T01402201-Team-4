@@ -8,6 +8,7 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private Image QImage;
     [SerializeField] private Image volume;
     [SerializeField] private GameObject boardPage;
+    [SerializeField] private GameObject endImage;
     public static int times = 300;
     public Text timeText;
     
@@ -28,43 +29,20 @@ public class GameUIController : MonoBehaviour
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);
         canvasGroup = transform.GetComponent<CanvasGroup>();
-        
+        canvasGroup.alpha = 0;
+        boardPage.SetActive(false);
         timerControl = StartCoroutine(timer());
         
     }
 
     private void Update()
     {
-        if (GameManager.instance.masterVol == -80.0f)
-        {
-            volume.color = Color.red;
-        }
-        else
-        {
-            volume.color = Color.white;
-        }
-        
-
-        if (GameManager.instance.statusGame < 10)
-        {
-            canvasGroup.alpha = 0;
-        }
-        else if (GameManager.instance.statusGame == 20)
-        {
-            Debug.Log("end status : 20");
-            endSequence();
-        }
-        
-        
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);   
         
         if (Input.GetKey(KeyCode.Escape) && GameManager.instance.statusGame is > 0 and < 11)
         {
-            if (canvasGroup.alpha == 0)
-            {
-                canvasGroup.alpha = 1;
-            }
+            canvasGroup.alpha = 1;
             GameManager.instance.pauseGame();
             pauseUI.SetActive(true);
         }
@@ -96,13 +74,43 @@ public class GameUIController : MonoBehaviour
         scoreText.text = string.Format("Score : {0000000000}", score);
     }
 
-    public void endSequence()
+    public void endSequence(bool isWin)
     {
         canvasGroup.alpha = 1;
         GameManager.instance.statusGame = 21;
         StopCoroutine(timerControl);
+        StartCoroutine(callEndImage(isWin));
         boardScript = boardPage.GetComponent<BoardScript>();
+    }
+    IEnumerator callEndImage(bool isWin)
+    {
+        if (isWin)
+        {
+            endImage.transform.Find("Win").gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(3.0f);
+            endImage.transform.Find("Win").gameObject.SetActive(false);
+        }
+        else
+        {
+            endImage.transform.Find("Lose").gameObject.SetActive(true);
+            yield return new WaitForSecondsRealtime(3.0f);
+            endImage.transform.Find("Lose").gameObject.SetActive(false);
+        }
+
+        yield return new WaitForSecondsRealtime(1.0f);
         boardPage.SetActive(true);
         boardScript.endRoutine(score);
+    }
+
+    public void changeVolButton()
+    {
+        if (GameManager.instance.masterVol == -80.0f)
+        {
+            volume.color = Color.red;
+        }
+        else
+        {
+            volume.color = Color.white;
+        }
     }
 }

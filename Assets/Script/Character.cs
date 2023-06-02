@@ -34,6 +34,76 @@ public class Character : MonoBehaviour
     public float speedMax = 8.0f;
     public int countMax = 10;
     public int powerMax = 14;
+
+
+    public float getSpeed()
+    {
+        return speed;
+    }
+    public void setSpeed()
+    {
+        
+    }
+    public float getSpeedMax()
+    {
+        
+        return speedMax;
+    }
+
+    public void setSpeedMax()
+    {
+        
+    }
+
+    public int getPower()
+    {
+        return power;
+    }
+
+    public void setPower()
+    {
+        
+    }
+
+    public int getCount()
+    {
+        return count;
+    }
+
+    public void setCount()
+    {
+        
+    }
+
+    public int getCountMax()
+    {
+        return countMax;
+    }
+
+    public void setCountMax()
+    {
+        
+    }
     
+    public int getPowerMax()
+    {
+        return powerMax;
+    }
+
+    public void setPowerMax()
+    {
+        
+    }
+
+    private void getFromCSV()
+    {
+        
+    }
+
+    private void saveToCSV()
+    {
+        
+    }
+
 }
 

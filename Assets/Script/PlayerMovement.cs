@@ -9,6 +9,14 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private float playerSpeed;
     private Vector2 lastMovement = new Vector2(0, 0);
+    
+    private int playerPower;
+    private int playerCount;
+    private int playerRemaining;
+
+    private float playerSpeedMax;
+    private int playerCountMax;
+    private int playerPowerMax;
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +24,13 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        playerSpeed = Character.Instance.speed;
+        playerSpeed = Character.Instance.getSpeed();
+        playerPower = Character.Instance.getPower();
+        playerCount = Character.Instance.getCount();
+        playerRemaining = playerCount;
+        playerSpeedMax = Character.Instance.getSpeedMax();
+        playerCountMax = Character.Instance.getCountMax();
+        playerPowerMax = Character.Instance.getPowerMax();
 
     }
 
@@ -75,6 +89,48 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     
     }
-    
+
+    public void countUp()
+    {
+        if (playerCount < playerCountMax)
+        {
+            playerCount++;
+            playerRemaining++;
+        }
+    }
+    public void powerUp()
+    {
+        if (playerPower < playerPowerMax)
+        {
+            playerPower++;
+        }
+    }
+
+    public void speedUp()
+    {
+        if (playerSpeed < playerSpeedMax)
+        {
+            playerSpeed++;
+        }
+    }
+
+    public void maxUp()
+    {
+        playerPower = playerPowerMax;
+        playerSpeed = playerSpeedMax;
+    }
+
+    public void remainUp()
+    {
+        if (playerRemaining < playerCount)
+        {
+            playerRemaining++;
+        }
+        else
+        {
+            //동시에 폭탄 여러개 터지면 remain값이 한계 넘어갈 수 잇음
+            playerRemaining = playerCount;
+        }
+    }
 
 }

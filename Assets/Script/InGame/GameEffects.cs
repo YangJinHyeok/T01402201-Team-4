@@ -73,52 +73,23 @@ public class GameEffects : MonoBehaviour
 
     public void powerUp(GameObject item)
     {
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         switch (item.tag)
         {
             case "ItemCount" :
-                //player
-                Debug.Log("Item Count : " + Character.Instance.count );
-
-                if (Character.Instance.count+1 <= Character.Instance.countMax)
-                {
-                    Character.Instance.count += 1;
-                    Character.Instance.remaining += 1;
-                }
-
-                Debug.Log("Item Count : " + Character.Instance.count );
+                playerMovement.countUp();
                 break;
                 
             case "ItemSpeed" :
-                //player
-                Debug.Log("Item Speed" + Character.Instance.speed );
-
-                if (Character.Instance.speed+1f <= Character.Instance.speedMax)
-                {
-                    Character.Instance.speed += 1f;
-                }
-                
-                Debug.Log("Item Speed" + Character.Instance.speed );
+                playerMovement.speedUp();
                 break;
             
             case "ItemPower" :
-                //player
-                Debug.Log("Item Power : " + Character.Instance.power );
-                
-                if (Character.Instance.power+1 <= Character.Instance.powerMax)
-                {
-                    Character.Instance.power += 1;
-                }
-                
-                Debug.Log("Item Power : " + Character.Instance.power );
+                playerMovement.powerUp();
                 break;
             
             case "ItemSuperPower" :
-                //player
-                Debug.Log("Item Super Power : "+ Character.Instance.power);
-
-                Character.Instance.power = Character.Instance.powerMax;
-
-                Debug.Log("Item Super Power : "+ Character.Instance.power);
+                playerMovement.maxUp();
                 break;
             
             case "Lucci" :
@@ -126,6 +97,9 @@ public class GameEffects : MonoBehaviour
                 gameUIController.updateCoin(Random.Range(100,300));
                 break;
         }
+        /*
+         * <<sound method will place in this Line>>
+         */
         Destroy(item);
     }
 

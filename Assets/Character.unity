@@ -139,7 +139,6 @@ GameObject:
   - component: {fileID: 357793569}
   - component: {fileID: 357793577}
   - component: {fileID: 357793578}
-  - component: {fileID: 357793579}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -336,20 +335,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bomb: {fileID: 0}
   inputKey: 32
---- !u!114 &357793579
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 357793568}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b8aae6c286f89714f930553065612ad5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UIController: {fileID: 0}
-  portals: []
 --- !u!1001 &1554737789
 PrefabInstance:
   m_ObjectHideFlags: 0

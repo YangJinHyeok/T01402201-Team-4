@@ -71,17 +71,22 @@ public class GameEffects : MonoBehaviour
         {
             case "ItemCount" :
                 //player
+                Debug.Log("Item Count");
                 break;
             case "ItemPower" :
                 //player
+                Debug.Log("Item Power");
                 break;
             case "ItemSpeed" :
                 //player
+                Debug.Log("Item Speed");
                 break;
             case "ItemSuperPower" :
                 //player
+                Debug.Log("Item Super Power");
                 break;
             case "Lucci" :
+                Debug.Log("Lucci");
                 //player
                 break;
         }

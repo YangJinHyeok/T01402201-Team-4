@@ -114,10 +114,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void maxUp()
+    public void maxPowerUp()
     {
         playerPower = playerPowerMax;
-        playerSpeed = playerSpeedMax;
+        
     }
 
     public void remainUp()

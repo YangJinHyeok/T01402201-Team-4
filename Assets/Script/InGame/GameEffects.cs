@@ -89,7 +89,7 @@ public class GameEffects : MonoBehaviour
                 break;
             
             case "ItemSuperPower" :
-                playerMovement.maxUp();
+                playerMovement.maxPowerUp();
                 break;
             
             case "Lucci" :

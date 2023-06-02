@@ -50,7 +50,7 @@ public class Bomb : MonoBehaviour
 
 
         Destroy(this.gameObject);
-        GameObject.Find("Player").GetComponent<BombController>().bombsRemaining++;
+        Character.Instance.count++;
     }
 
     public void PlaceBomb()
@@ -59,7 +59,7 @@ public class Bomb : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
 
-        GameObject.Find("Player").GetComponent<BombController>().bombsRemaining--;
+        Character.Instance.count--;
 
         StartCoroutine(ExplodeAfterDelay(position));
          

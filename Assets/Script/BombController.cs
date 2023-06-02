@@ -14,24 +14,13 @@ public class BombController : MonoBehaviour
     [Header("Bomb")]
     public GameObject bomb;
     public KeyCode inputKey = KeyCode.Space;
-    public float bombFuseTime = 3f;
-    
-    public int bombsRemaining;
-    
-
     public Box boxPrefab;
 
-    
-
-    private void OnEnable()
-    {
-        bombsRemaining = Character.Instance.count;
-    }
 
     private void Update()
     {
         
-        if (bombsRemaining > 0 && Input.GetKeyDown(inputKey))
+        if (Character.Instance.count > 0 && Input.GetKeyDown(inputKey))
         {
             Vector2 position = GameObject.Find("Player").transform.position;
             position.x = Mathf.Round(position.x);

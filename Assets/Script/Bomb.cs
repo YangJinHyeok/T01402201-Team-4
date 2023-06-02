@@ -17,19 +17,23 @@ public class Bomb : MonoBehaviour
 
     private void Start()
     {
+
         PlaceBomb();
     }
 
     private void Update()
     {
-        
+        if(time > 0)
+        {
+            time -= Time.deltaTime;
+            
+        }
     }
 
-    private IEnumerator ExplodeAfterDelay(GameObject bomb, Vector2 position)
+    private IEnumerator ExplodeAfterDelay(Vector2 position)
     {
         while (time > 0)
         {
-            Debug.Log(time);
             yield return null;
         }
 
@@ -42,7 +46,8 @@ public class Bomb : MonoBehaviour
         Explode(position, Vector2.left, explosionRadius);
         Explode(position, Vector2.right, explosionRadius);
 
-        Destroy(bomb);
+
+        Destroy(this.gameObject);
         GameObject.Find("Player").GetComponent<BombController>().bombsRemaining++;
     }
 
@@ -52,46 +57,28 @@ public class Bomb : MonoBehaviour
         position.x = Mathf.Round(position.x);
         position.y = Mathf.Round(position.y);
 
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
-        bool isBombPresent = false;
-        foreach (Collider2D collider in colliders)
-        {
-            if (collider.CompareTag("Bomb"))
-            {
-                isBombPresent = true;
-                break;
-            }
-        }
+        GameObject.Find("Player").GetComponent<BombController>().bombsRemaining--;
 
-        if (!isBombPresent)
-        {
-            
-            GameObject bombInstance = Instantiate(GameObject.Find("Player").GetComponent<BombController>().bombPrefab, position, Quaternion.identity);
-            Bomb bomb = bombInstance.GetComponent<Bomb>();
-            Debug.Log("Active? " + gameObject.activeInHierarchy);
-            GameObject.Find("Player").GetComponent<BombController>().bombsRemaining--;
-
-            StartCoroutine(ExplodeAfterDelay(bombInstance, position));
-            
-        }
+        StartCoroutine(ExplodeAfterDelay(position));
+         
     }
 
     private IEnumerator ShowDustAndDestroy(Collider2D collider)
     {
         float dustDuration = 1f;
-        Vector3 dustPosition = collider.transform.position;
+        /*Vector3 dustPosition = collider.transform.position;*/
 
         Destroy(collider.gameObject);
-        GameObject dustObject = new GameObject("Dust");
+        /*GameObject dustObject = new GameObject("Dust");
         SpriteRenderer dustRenderer = dustObject.AddComponent<SpriteRenderer>();
         string spritePath = "dust";
         Sprite dustSprite = Resources.Load<Sprite>(spritePath);
         dustRenderer.sprite = dustSprite;
-        dustObject.transform.position = dustPosition;
+        dustObject.transform.position = dustPosition;*/
 
         yield return new WaitForSeconds(dustDuration);
 
-        Destroy(dustObject);
+        /*Destroy(dustObject);*/
     }
 
     private void Explode(Vector2 position, Vector2 direction, int length)
@@ -111,9 +98,11 @@ public class Bomb : MonoBehaviour
                 {
                     StartCoroutine(ShowDustAndDestroy(collider));
                 }
-                else if (collider.CompareTag("Bomb"))
+                if (collider.CompareTag("Bomb"))
                 {
-                    
+                    /*Bomb bomb = collider.GetComponent<Bomb>();
+                    bomb.time = -1;*/
+                    Debug.Log("hi");
                 }
             }
 
@@ -128,6 +117,8 @@ public class Bomb : MonoBehaviour
 
         Explode(position, direction, length - 1);
     }
+    
+
 
 
 }

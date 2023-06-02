@@ -12,11 +12,12 @@ public class BombController : MonoBehaviour
 
 
     [Header("Bomb")]
-    public GameObject bombPrefab;
+    public GameObject bomb;
     public KeyCode inputKey = KeyCode.Space;
     public float bombFuseTime = 3f;
     public int bombAmount = 1;
     public int bombsRemaining;
+    
 
     public Box boxPrefab;
 
@@ -31,10 +32,28 @@ public class BombController : MonoBehaviour
     {
         if (bombsRemaining > 0 && Input.GetKeyDown(inputKey))
         {
-            //bombPrefab.GetComponent<Bomb>().PlaceBomb();
-            string path = "Assets/Prefabs/"  + "Bomb" + ".prefab";
-            GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-            Instantiate(prefab, transform.position, Quaternion.identity);
+            Vector2 position = GameObject.Find("Player").transform.position;
+            position.x = Mathf.Round(position.x);
+            position.y = Mathf.Round(position.y);
+
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
+            bool isBombPresent = false;
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.CompareTag("Bomb"))
+                {
+                    isBombPresent = true;
+                    break;
+                }
+            }
+
+            if (!isBombPresent)
+            {
+                string path = "Assets/Prefabs/Bomb/" + "Bomb" + ".prefab";
+                GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
+                bomb = Instantiate(prefab, position, Quaternion.identity);
+            }
+            
         }
     }
      
@@ -47,7 +66,11 @@ public class BombController : MonoBehaviour
         }
     }
 
-    
+
+
+
+
+
 
 
 }

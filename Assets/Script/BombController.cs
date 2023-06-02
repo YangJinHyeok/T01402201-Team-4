@@ -15,13 +15,15 @@ public class BombController : MonoBehaviour
     public GameObject bomb;
     public KeyCode inputKey = KeyCode.Space;
     public float bombFuseTime = 3f;
-    public int bombAmount = 1;
+    private int bombAmount ;
     public int bombsRemaining;
     
 
     public Box boxPrefab;
 
-    
+    private void Start(){
+        bombAmount = Character.Instance.count;
+    }
 
     private void OnEnable()
     {

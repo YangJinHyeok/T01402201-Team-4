@@ -71,26 +71,64 @@ public class GameEffects : MonoBehaviour
         {
             case "ItemCount" :
                 //player
-                Debug.Log("Item Count");
+                Debug.Log("Item Count : " + Character.Instance.count );
+
+                if (Character.Instance.count+1 > Character.Instance.countMax)
+                {
+                    Character.Instance.count = Character.Instance.countMax;
+                }
+                else{
+                    Character.Instance.count += 1;
+                }
+
+                Debug.Log("Item Count : " + Character.Instance.count );
                 break;
-            case "ItemPower" :
-                //player
-                Debug.Log("Item Power : " + Character.Instance.power );
-                Character.Instance.power += 1;
-                Debug.Log("Item Power : " + Character.Instance.power );
-                break;
+                
             case "ItemSpeed" :
                 //player
                 Debug.Log("Item Speed" + Character.Instance.speed );
-                Character.Instance.speed += 1.0f;
+
+                if (Character.Instance.speed+1f > Character.Instance.speedMax)
+                {
+                    Character.Instance.speed = Character.Instance.speedMax;
+                }
+                else{
+                    Character.Instance.speed += 1f;
+                }
+
                 Debug.Log("Item Speed" + Character.Instance.speed );
                 break;
+            
+            case "ItemPower" :
+                //player
+                Debug.Log("Item Power : " + Character.Instance.power );
+                
+                if (Character.Instance.power+1 > Character.Instance.powerMax)
+                {
+                    Character.Instance.power = Character.Instance.powerMax;
+                }
+                else{
+                    Character.Instance.power += 1;
+                }
+
+                Debug.Log("Item Power : " + Character.Instance.power );
+                break;
+            
             case "ItemSuperPower" :
                 //player
                 Debug.Log("Item Super Power : "+ Character.Instance.power);
-                Character.Instance.power = 10;
+
+                if (Character.Instance.power+1 > Character.Instance.powerMax)
+                {
+                    Character.Instance.power = Character.Instance.powerMax;
+                }
+                else{
+                    Character.Instance.power += 1;
+                }
+
                 Debug.Log("Item Super Power : "+ Character.Instance.power);
                 break;
+            
             case "Lucci" :
                 Debug.Log("Lucci");
                 //player

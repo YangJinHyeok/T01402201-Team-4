@@ -11,13 +11,13 @@ public class Bomb : MonoBehaviour
     public Explosion explosionPrefab;
     public LayerMask explosionLayerMask;
     public float explosionDuration = 1f;
-    public int explosionRadius = 3;
+    private int explosionRadius;
 
     public float time = 3.0f;
 
     private void Start()
     {
-
+        explosionRadius = Character.Instance.power;
         PlaceBomb();
     }
 

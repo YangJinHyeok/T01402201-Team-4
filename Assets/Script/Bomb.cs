@@ -12,11 +12,12 @@ public class Bomb : MonoBehaviour
     public LayerMask explosionLayerMask;
     public float explosionDuration = 5.0f;
     private int explosionRadius;
-    
+    private GameObject gameController;
     public float time = 3.0f;
 
     private void Awake(){
         PlayerMovement bombPower = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        gameController = GameObject.Find("GameController");
         explosionRadius = bombPower.getPlayerPower();
     }
     private void Start()
@@ -64,23 +65,7 @@ public class Bomb : MonoBehaviour
          
     }
 
-    private IEnumerator ShowDustAndDestroy(Collider2D collider)
-    {
-        float dustDuration = 1f;
-        /*Vector3 dustPosition = collider.transform.position;*/
-
-        Destroy(collider.gameObject);
-        /*GameObject dustObject = new GameObject("Dust");
-        SpriteRenderer dustRenderer = dustObject.AddComponent<SpriteRenderer>();
-        string spritePath = "dust";
-        Sprite dustSprite = Resources.Load<Sprite>(spritePath);
-        dustRenderer.sprite = dustSprite;
-        dustObject.transform.position = dustPosition;*/
-
-        yield return new WaitForSeconds(dustDuration);
-
-        /*Destroy(dustObject);*/
-    }
+    
 
     private void Explode(Vector2 position, Vector2 direction, int length)
     {
@@ -97,8 +82,7 @@ public class Bomb : MonoBehaviour
             {
                 if (collider.CompareTag("Box"))
                 {
-                    StartCoroutine(ShowDustAndDestroy(collider));
-
+                    gameController.GetComponent<GameEffects>().destroyBox(collider.gameObject);
                 }
                 if (collider.CompareTag("Bomb"))
                 {

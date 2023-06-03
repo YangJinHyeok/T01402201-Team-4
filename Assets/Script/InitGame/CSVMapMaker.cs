@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
+using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class CSVMapMaker : MonoBehaviour
@@ -52,9 +53,10 @@ public class CSVMapMaker : MonoBehaviour
             }
             string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-            
-            Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
-            
+
+            GameObject nowSpawn = Instantiate(prefab,
+                new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
+            //inputItem(nowSpawn);
         }
         if (GameManager.instance.statusGame == 2)
         {
@@ -88,5 +90,19 @@ public class CSVMapMaker : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
+    }
+
+    private void inputItem(GameObject parent)
+    {
+        string[] itemName = new[] {"ItemCount", "ItemPower", "ItemSpeed", "ItemSuperPower", "Lucci" };
+        int[] probability = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        if (parent.gameObject.CompareTag("Box"))
+        {
+            string nowSpawnName = itemName[probability[Random.Range(0, 10)]];
+            string path = "Assets/Prefabs/Item/" + nowSpawnName + ".prefab";
+            GameObject nowSpawn = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
+            Instantiate(nowSpawn, Vector3.zero, Quaternion.identity, parent.transform);
+        }    
+        
     }
 }

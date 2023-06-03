@@ -35,13 +35,16 @@ public class CSVMapWriter : MonoBehaviour
         tempData[2] = "positionY";
         data.Add(tempData);
 
+    }
+
+    private void Start()
+    {
         if (GameManager.instance.statusGame == 12)
         {
             player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
             sb = new StringBuilder();
         }
-        
     }
 
     private bool inputData = false;

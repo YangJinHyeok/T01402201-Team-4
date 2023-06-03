@@ -83,7 +83,7 @@ public class Bomb : MonoBehaviour
             {
                 if (collider.CompareTag("Box"))
                 {
-                    gameEffects.GetComponent<GameEffects>().destroyBox(collider.gameObject);
+                    gameEffects.GetComponent<GameEffects>().touchBoxAndSolid(collider.gameObject);
                 }
                 if (collider.CompareTag("Bomb"))
                 {

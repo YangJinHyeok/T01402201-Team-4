@@ -34,14 +34,16 @@ public class CSVSpawnWriter : MonoBehaviour
         tempData[1] = "positionX";
         tempData[2] = "positionY";
         data.Add(tempData);
+    }
 
+    private void Start()
+    {
         if (GameManager.instance.statusGame == 13)
         {
             player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
             player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
             sb = new StringBuilder();
         }
-        
     }
 
     private bool inputData = false;
@@ -76,7 +78,6 @@ public class CSVSpawnWriter : MonoBehaviour
                     writeOnCSV();
                     GameManager.instance.statusGame = 22;
                     saveCSVFile();
-                    //player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
                     break;
             }
 

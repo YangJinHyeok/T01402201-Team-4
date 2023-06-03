@@ -52,13 +52,23 @@ public class GameEffects : MonoBehaviour
         }
     }
 
-    public void destroyBox(GameObject target)
+    public void touchBoxAndSolid(GameObject target)
     {
         Vector3 targetPosition = target.transform.position;
         Instantiate(dust, targetPosition, Quaternion.identity);
-        effectTotarget(target);
-        //박스및솔리드 공통 스크립트 추가할 예정
+        target.GetComponent<BoxAndSolid>().effectByBomb();
         gameUIController.updateScoreWIthValue(30);
+    }
+
+    public void touchItems(GameObject item)
+    {
+        Destroy(item);
+    }
+
+    public void touchMob(GameObject target)
+    {
+        //Mob die method
+        gameUIController.updateScoreWIthValue(100);
     }
 
     public void powerUp(GameObject item)
@@ -93,11 +103,6 @@ public class GameEffects : MonoBehaviour
          * <<sound method will place in this Line>>
          */
         Destroy(item);
-    } 
-
-    public void effectTotarget(GameObject target)
-    {
-        target.GetComponent<BoxAndSolid>().effectByBomb();
     }
 
     public void teleport(GameObject enter)

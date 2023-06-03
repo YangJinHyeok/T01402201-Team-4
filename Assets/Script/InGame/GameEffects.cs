@@ -56,42 +56,48 @@ public class GameEffects : MonoBehaviour
     {
         Vector3 targetPosition = target.transform.position;
         Instantiate(dust, targetPosition, Quaternion.identity);
-        Destroy(target);
+        effectTotarget(target);
         //박스및솔리드 공통 스크립트 추가할 예정
         gameUIController.updateScoreWIthValue(30);
     }
 
     public void powerUp(GameObject item)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>(); 
         BombController bombController = player.GetComponent<BombController>();
         switch (item.tag)
         {
-            case "ItemCount" :
+            case "ItemCount":
                 bombController.countUp();
                 break;
-                
-            case "ItemSpeed" :
+
+            case "ItemSpeed":
                 playerMovement.speedUp();
                 break;
-            
-            case "ItemPower" :
+
+            case "ItemPower":
                 bombController.powerUp();
                 break;
-            
-            case "ItemSuperPower" :
+
+            case "ItemSuperPower":
                 bombController.maxPowerUp();
                 break;
-            
-            case "Lucci" :
+
+            case "Lucci":
                 Debug.Log("Lucci");
-                gameUIController.updateCoin(Random.Range(100,300));
+                gameUIController.updateCoin(Random.Range(100, 300));
                 break;
         }
+
         /*
          * <<sound method will place in this Line>>
          */
         Destroy(item);
+    } 
+
+    public void effectTotarget(GameObject target)
+    {
+        target.GetComponent<BoxAndSolid>().effectByBomb();
     }
 
     public void teleport(GameObject enter)

@@ -15,10 +15,12 @@ public class Bomb : MonoBehaviour
     private GameEffects gameEffects;
     public float time = 3.0f;
     private BombController bombController;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
         bombController = GameObject.Find("Player").GetComponent<BombController>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
         explosionRadius = bombController.getPlayerPower();
     }
@@ -89,6 +91,11 @@ public class Bomb : MonoBehaviour
                 {
                     Bomb bomb = collider.GetComponent<Bomb>();
                     bomb.time = -1;
+                }
+                if (collider.CompareTag("Player"))
+                {
+                    playerMovement.GetComponent<PlayerMovement>().PlayerDie();
+                                        
                 }
             }
 

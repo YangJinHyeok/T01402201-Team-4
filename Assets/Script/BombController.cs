@@ -13,12 +13,16 @@ public class BombController : MonoBehaviour
     private int playerCount;
     private int playerRemaining;
     private int playerCountMax;
+    private int playerPower;
+    private int playerPowerMax;
 
     private void Start()
     {
         playerCount = Character.Instance.getCount();
         playerRemaining = playerCount;
         playerCountMax = Character.Instance.getCountMax();
+        playerPower = Character.Instance.getPower();
+        playerPowerMax = Character.Instance.getPowerMax();
     }
     
     private void Update()
@@ -82,5 +86,22 @@ public class BombController : MonoBehaviour
             playerRemaining = playerCount;
         }
     }
+    
+    public void powerUp()
+    {
+        if (playerPower < playerPowerMax)
+        {
+            playerPower++;
+        }
+    }
+    public void maxPowerUp()
+    {
+        playerPower = playerPowerMax;
+        
+    }
 
+    public int getPlayerPower()
+    {
+        return playerPower;
+    }
 }

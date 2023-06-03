@@ -11,8 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     private float playerSpeed;
     private float playerSpeedMax;
-    private int playerPower;
-    private int playerPowerMax;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -21,10 +20,7 @@ public class PlayerMovement : MonoBehaviour
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
         playerSpeed = Character.Instance.getSpeed();
-        playerPower = Character.Instance.getPower();
         playerSpeedMax = Character.Instance.getSpeedMax();
-        playerPowerMax = Character.Instance.getPowerMax();
-
     }
 
     // Update is called once per frame
@@ -82,14 +78,6 @@ public class PlayerMovement : MonoBehaviour
         anim.SetInteger("state", (int)state);
     
     }
-    
-    public void powerUp()
-    {
-        if (playerPower < playerPowerMax)
-        {
-            playerPower++;
-        }
-    }
 
     public void speedUp()
     {
@@ -98,15 +86,5 @@ public class PlayerMovement : MonoBehaviour
             playerSpeed++;
         }
     }
-
-    public void maxPowerUp()
-    {
-        playerPower = playerPowerMax;
-        
-    }
-
-    public int getPlayerPower()
-    {
-        return playerPower;
-    }
+    
 }

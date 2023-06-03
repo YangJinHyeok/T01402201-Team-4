@@ -50,7 +50,6 @@ public class GameEffects : MonoBehaviour
         {
             GameEffects.portalCooltime += Time.deltaTime;
         }
-        
     }
 
     public void destroyBox(GameObject target)
@@ -58,17 +57,8 @@ public class GameEffects : MonoBehaviour
         Vector3 targetPosition = target.transform.position;
         Instantiate(dust, targetPosition, Quaternion.identity);
         Destroy(target);
+        //박스및솔리드 공통 스크립트 추가할 예정
         gameUIController.updateScoreWIthValue(30);
-    }
-
-    public void touchSolid(GameObject target)
-    {
-        
-    }
-
-    public void itemSpawn(Vector3 position)
-    {
-        
     }
 
     public void powerUp(GameObject item)
@@ -86,11 +76,11 @@ public class GameEffects : MonoBehaviour
                 break;
             
             case "ItemPower" :
-                playerMovement.powerUp();
+                bombController.powerUp();
                 break;
             
             case "ItemSuperPower" :
-                playerMovement.maxPowerUp();
+                bombController.maxPowerUp();
                 break;
             
             case "Lucci" :

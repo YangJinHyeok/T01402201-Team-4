@@ -12,13 +12,15 @@ public class Bomb : MonoBehaviour
     public LayerMask explosionLayerMask;
     public float explosionDuration = 5.0f;
     private int explosionRadius;
-    private GameObject gameController;
+    private GameEffects gameEffects;
     public float time = 3.0f;
+    private BombController bombController;
 
-    private void Awake(){
-        PlayerMovement bombPower = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        gameController = GameObject.Find("GameController");
-        explosionRadius = bombPower.getPlayerPower();
+    private void Awake()
+    {
+        bombController = GameObject.Find("Player").GetComponent<BombController>();
+        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
+        explosionRadius = bombController.getPlayerPower();
     }
     private void Start()
     {
@@ -49,9 +51,8 @@ public class Bomb : MonoBehaviour
         Explode(position, Vector2.down, explosionRadius);
         Explode(position, Vector2.left, explosionRadius);
         Explode(position, Vector2.right, explosionRadius);
-
-        BombController bombRemaining = GameObject.Find("Player").GetComponent<BombController>();
-        bombRemaining.remainUp();
+        
+        bombController.remainUp();
         Destroy(this.gameObject);
     }
 
@@ -82,7 +83,7 @@ public class Bomb : MonoBehaviour
             {
                 if (collider.CompareTag("Box"))
                 {
-                    gameController.GetComponent<GameEffects>().destroyBox(collider.gameObject);
+                    gameEffects.GetComponent<GameEffects>().destroyBox(collider.gameObject);
                 }
                 if (collider.CompareTag("Bomb"))
                 {

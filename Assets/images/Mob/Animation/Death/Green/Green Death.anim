@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Green Death (No flash) - Animation
+  m_Name: Green Death
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -22,7 +22,7 @@ AnimationClip:
     - time: 0
       value: {fileID: 5318538941367151636, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
     - time: 0.1
-      value: {fileID: 6147276036302709336, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
+      value: {fileID: 5318538941367151636, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
     - time: 0.2
       value: {fileID: -8495571456267938532, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
     - time: 0.3
@@ -67,7 +67,7 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 5318538941367151636, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
-    - {fileID: 6147276036302709336, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
+    - {fileID: 5318538941367151636, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
     - {fileID: -8495571456267938532, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
     - {fileID: 6333565778237916887, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}
     - {fileID: -4680908065948595818, guid: b7991da59e8e2b24ba2089bcf4168640, type: 3}

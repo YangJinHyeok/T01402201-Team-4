@@ -95,16 +95,24 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(delayTime);
 
+        anim.SetTrigger("death");
+        playerSpeed = 0f;
+
+        delayTime = 2f;
+        yield return new WaitForSeconds(delayTime);
+
         gameEffects.GetComponent<GameEffects>().endGame(false);
+        Destroy(gameObject);
     }
 
     public void PlayerDie()
     {
-        float delayTime = 5.0f;
-        
-        anim.SetTrigger("death");
+        float delayTime = 4.0f;
 
+        anim.SetTrigger("trap");
+        playerSpeed = 1.0f;
         StartCoroutine(DelayedExecution(delayTime));
+        
 
     }
 }

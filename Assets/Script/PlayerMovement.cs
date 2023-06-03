@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private Vector2 lastMovement = new Vector2(0, 0);
-    
+    private GameEffects gameEffects;
+
     private float playerSpeed;
     private float playerSpeedMax;
     
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         playerSpeed = Character.Instance.getSpeed();
         playerSpeedMax = Character.Instance.getSpeedMax();
+        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
     }
 
     // Update is called once per frame
@@ -28,12 +33,11 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerMove();
     }
+    
 
-
-    private enum MovementState {down, right, up, left, downidle, rightidle, upidle, leftidle };
+    private enum MovementState {down, right, up, left, downidle, rightidle, upidle, leftidle};
     private void PlayerMove()
     {
-
         MovementState state = MovementState.downidle;
         
         if (Input.GetKey(KeyCode.RightArrow))
@@ -86,5 +90,21 @@ public class PlayerMovement : MonoBehaviour
             playerSpeed++;
         }
     }
-    
+
+    private IEnumerator DelayedExecution(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        gameEffects.GetComponent<GameEffects>().endGame(false);
+    }
+
+    public void PlayerDie()
+    {
+        float delayTime = 5.0f;
+        
+        anim.SetTrigger("death");
+
+        StartCoroutine(DelayedExecution(delayTime));
+
+    }
 }

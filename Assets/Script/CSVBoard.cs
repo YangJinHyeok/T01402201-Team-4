@@ -122,7 +122,7 @@ public class CSVBoard
         string[][] firstOut = new string[1][];
         firstOut[0] = column[0];
             
-        sb.AppendLine(string.Join(delimiter, firstOut[1]));
+        sb.AppendLine(string.Join(delimiter, firstOut[0]));
 
         StreamWriter newOutStream = System.IO.File.CreateText(filepath + fileNameToSave);
         newOutStream.Write(sb);

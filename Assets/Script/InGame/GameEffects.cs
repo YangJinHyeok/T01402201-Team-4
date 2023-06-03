@@ -21,6 +21,8 @@ public class GameEffects : MonoBehaviour
     private GameObject portalUse;
 
     private GameObject player;
+
+    private GameObject dust;
     
 
     private void Awake()
@@ -31,6 +33,9 @@ public class GameEffects : MonoBehaviour
         portalCooltime = 3.0f;
         portalUse = AssetDatabase
             .LoadAssetAtPath("Assets/Prefabs/Solid/PortalUse.prefab", typeof(GameObject))
+            .GameObject();
+        dust = AssetDatabase
+            .LoadAssetAtPath("Assets/Prefabs/dust.prefab", typeof(GameObject))
             .GameObject();
     }
 
@@ -45,29 +50,48 @@ public class GameEffects : MonoBehaviour
         {
             GameEffects.portalCooltime += Time.deltaTime;
         }
-        
     }
 
     public void destroyBox(GameObject target)
     {
         Vector3 targetPosition = target.transform.position;
+        Instantiate(dust, targetPosition, Quaternion.identity);
         Destroy(target);
+        //박스및솔리드 공통 스크립트 추가할 예정
         gameUIController.updateScoreWIthValue(30);
     }
 
-    public void touchSolid(GameObject target)
+    public void powerUp(GameObject item)
     {
-        
-    }
-
-    public void itemSpawn(Vector3 position)
-    {
-        
-    }
-
-    public void powerUp()
-    {
-        
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        BombController bombController = player.GetComponent<BombController>();
+        switch (item.tag)
+        {
+            case "ItemCount" :
+                bombController.countUp();
+                break;
+                
+            case "ItemSpeed" :
+                playerMovement.speedUp();
+                break;
+            
+            case "ItemPower" :
+                bombController.powerUp();
+                break;
+            
+            case "ItemSuperPower" :
+                bombController.maxPowerUp();
+                break;
+            
+            case "Lucci" :
+                Debug.Log("Lucci");
+                gameUIController.updateCoin(Random.Range(100,300));
+                break;
+        }
+        /*
+         * <<sound method will place in this Line>>
+         */
+        Destroy(item);
     }
 
     public void teleport(GameObject enter)

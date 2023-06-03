@@ -9,6 +9,11 @@ TagManager:
   - Mob
   - Bomb
   - Box2
+  - ItemCount
+  - ItemPower
+  - ItemSpeed
+  - ItemSuperPower
+  - Lucci
   layers:
   - Default
   - TransparentFX

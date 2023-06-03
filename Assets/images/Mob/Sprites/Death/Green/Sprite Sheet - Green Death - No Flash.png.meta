@@ -1,0 +1,539 @@
+fileFormatVersion: 2
+guid: b7991da59e8e2b24ba2089bcf4168640
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5318538941367151636
+    second: Sprite Sheet - Green Death - No Flash_0
+  - first:
+      213: 6147276036302709336
+    second: Sprite Sheet - Green Death - No Flash_1
+  - first:
+      213: -8495571456267938532
+    second: Sprite Sheet - Green Death - No Flash_2
+  - first:
+      213: 6333565778237916887
+    second: Sprite Sheet - Green Death - No Flash_3
+  - first:
+      213: -4680908065948595818
+    second: Sprite Sheet - Green Death - No Flash_4
+  - first:
+      213: -4486586556858704002
+    second: Sprite Sheet - Green Death - No Flash_5
+  - first:
+      213: -5574522400834549763
+    second: Sprite Sheet - Green Death - No Flash_6
+  - first:
+      213: 6973148414213631654
+    second: Sprite Sheet - Green Death - No Flash_7
+  - first:
+      213: 1576187300037212229
+    second: Sprite Sheet - Green Death - No Flash_8
+  - first:
+      213: 9174255944467253385
+    second: Sprite Sheet - Green Death - No Flash_9
+  - first:
+      213: -8870383661451814068
+    second: Sprite Sheet - Green Death - No Flash_10
+  - first:
+      213: 8279431224860822817
+    second: Sprite Sheet - Green Death - No Flash_11
+  - first:
+      213: -2015383151648258573
+    second: Sprite Sheet - Green Death - No Flash_12
+  - first:
+      213: -3919585684183042423
+    second: Sprite Sheet - Green Death - No Flash_13
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 32
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_0
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 0
+        width: 44
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0946a0269346baa4d9294c9345c870e4
+      internalID: 5318538941367151636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_1
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 0
+        width: 33
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e210861f943a3574295e6adc83a4464f
+      internalID: 6147276036302709336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_2
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 21
+        width: 20
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a240c4b6b28c26f48a4a21ed77f9917d
+      internalID: -8495571456267938532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 17
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a432a65e8766834a9417840f7459869
+      internalID: 6333565778237916887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_4
+      rect:
+        serializedVersion: 2
+        x: 244
+        y: 19
+        width: 18
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2d0227eade5184daa318cf980fc269
+      internalID: -4680908065948595818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_5
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 15
+        width: 18
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4366a6c14b572cf4d9c6f58408dbb388
+      internalID: -4486586556858704002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_6
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 15
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da1cd2b880a64e5418a703b547e184e5
+      internalID: -5574522400834549763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_7
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 0
+        width: 37
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21521aa8fee81ad49a825d01e031858c
+      internalID: 6973148414213631654
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_8
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 15
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3147a137f0f9264f870fab9ac5e62da
+      internalID: 1576187300037212229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_9
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 10
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0968a502069535c4fbd7f83759e2bb92
+      internalID: 9174255944467253385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_10
+      rect:
+        serializedVersion: 2
+        x: 451
+        y: 9
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633621a614782694ab572780ade054c4
+      internalID: -8870383661451814068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_11
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 0
+        width: 37
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08f55311292029d458dd47e45423c6dd
+      internalID: 8279431224860822817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_12
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 0
+        width: 37
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75b74d72fac3e5743a90bd5c9bde4258
+      internalID: -2015383151648258573
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_13
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 0
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14b10be4e6f2cd148abc6df40cca2689
+      internalID: -3919585684183042423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_14
+      rect:
+        serializedVersion: 2
+        x: 486
+        y: 0
+        width: 36
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f236a8fdf627f1a4285a37b796b31d1c
+      internalID: -1426531473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_15
+      rect:
+        serializedVersion: 2
+        x: 551
+        y: 0
+        width: 65
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901c7a2de5940cb4486f8702c6221031
+      internalID: -337828541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Green Death - No Flash_16
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 0
+        width: 647
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e0d04b314a2e4b41ac60e005cf13f1e
+      internalID: 204786184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Sprite Sheet - Green Death - No Flash_0: 5318538941367151636
+      Sprite Sheet - Green Death - No Flash_1: 6147276036302709336
+      Sprite Sheet - Green Death - No Flash_10: -8870383661451814068
+      Sprite Sheet - Green Death - No Flash_11: 8279431224860822817
+      Sprite Sheet - Green Death - No Flash_12: -2015383151648258573
+      Sprite Sheet - Green Death - No Flash_13: -3919585684183042423
+      Sprite Sheet - Green Death - No Flash_14: -1426531473
+      Sprite Sheet - Green Death - No Flash_15: -337828541
+      Sprite Sheet - Green Death - No Flash_16: 204786184
+      Sprite Sheet - Green Death - No Flash_2: -8495571456267938532
+      Sprite Sheet - Green Death - No Flash_3: 6333565778237916887
+      Sprite Sheet - Green Death - No Flash_4: -4680908065948595818
+      Sprite Sheet - Green Death - No Flash_5: -4486586556858704002
+      Sprite Sheet - Green Death - No Flash_6: -5574522400834549763
+      Sprite Sheet - Green Death - No Flash_7: 6973148414213631654
+      Sprite Sheet - Green Death - No Flash_8: 1576187300037212229
+      Sprite Sheet - Green Death - No Flash_9: 9174255944467253385
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

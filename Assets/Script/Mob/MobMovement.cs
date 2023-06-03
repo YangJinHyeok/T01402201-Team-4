@@ -9,8 +9,10 @@ public class MobMovement : MonoBehaviour
     public float moveInterval = 3f; // 이동 간격 조정
     private float timer = 0f;
     public float moveSpeed = 1f; // 이동 속도 조정
+    public float findRange = 5f;
 
     private Vector2 targetPosition;
+    private Vector2 trackPosition;
     private bool isMoving = false;
 
     // Start is called before the first frame update
@@ -25,7 +27,17 @@ public class MobMovement : MonoBehaviour
         timer += Time.fixedDeltaTime;
         if (timer >= moveInterval)
         {
-            MoveRandom();
+            trackPosition = findCharacter();
+            if (trackPosition != Vector2.zero)
+            {
+                Debug.Log("Tracking!");
+                moveTrack(trackPosition);
+            }
+            else
+            {
+                Debug.Log("Random!");
+                moveRandom();
+            }
             timer = 0f;
         }
 
@@ -44,7 +56,7 @@ public class MobMovement : MonoBehaviour
         }
     }
 
-    private void MoveRandom()
+    private void moveRandom()
     {
         Vector2 currentPosition = monsterTransform.position;
         Vector2[] moveDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
@@ -74,12 +86,66 @@ public class MobMovement : MonoBehaviour
         }
     }
 
+    private void moveTrack(Vector2 trackPosition)
+    {
+        targetPosition = trackPosition;
+
+        isMoving = true;
+        animator.SetBool("IsMove", true);
+
+        StartCoroutine(CheckCollisionDuringMove());
+    }
+
+    private IEnumerator CheckCollisionDuringMove()
+    {
+        while (isMoving)
+        {
+            // 현재 이동 중인 위치에서 충돌 여부 확인
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(monsterTransform.position, 0.1f);
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.gameObject.CompareTag("Mob") || collider.gameObject.CompareTag("Bomb"))
+                {
+                    isMoving = false;
+                    animator.SetBool("IsMove", false);
+                    yield break;
+                }
+            }
+            yield return null;
+        }
+    }
+
+    private Vector2 findCharacter()
+    {
+        Vector2 currentPosition = monsterTransform.position;
+
+        Vector2[] directions = new Vector2[] { Vector2.right, Vector2.left, Vector2.up, Vector2.down };
+
+        foreach (Vector2 direction in directions)
+        {
+            Vector2 targetPosition = currentPosition + direction; // 현재 위치에 방향 벡터를 더한 타겟 위치
+
+            RaycastHit2D hit = Physics2D.Raycast(targetPosition, direction, findRange);
+            if (hit.collider == null) // 레이캐스트 결과가 null인 경우 다음 방향으로 진행
+                continue;
+
+            if (hit.collider.gameObject.CompareTag("Player"))
+            {
+                Vector2 playerPosition = hit.collider.transform.position;
+                return new Vector2(Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y));
+            }
+        }
+
+        return Vector2.zero;
+    }
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 캐릭터와의 충돌을 감지하면 필요한 처리를 수행합니다.
         if (collision.gameObject.CompareTag("Player"))
         {
-            // 충돌 처리 예시: 게임 오버 등
             Debug.Log("Game Over");
         }
     }

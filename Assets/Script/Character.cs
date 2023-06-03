@@ -36,6 +36,10 @@ public class Character : MonoBehaviour
     public int powerMax = 14;
 
 
+    public void isTrap()
+    {
+        speed = 1.0f;
+    }
     public float getSpeed()
     {
         return speed;

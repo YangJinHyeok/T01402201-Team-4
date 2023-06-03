@@ -55,7 +55,10 @@ GameObject:
   m_Component:
   - component: {fileID: 3676484299675220756}
   - component: {fileID: 4173796606179322161}
-  - component: {fileID: 4770852616329482482}
+  - component: {fileID: 3292780406921925853}
+  - component: {fileID: 2809733836486009211}
+  - component: {fileID: 4638655701419161790}
+  - component: {fileID: 2284827367097018460}
   m_Layer: 0
   m_Name: A
   m_TagString: Untagged
@@ -130,7 +133,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &4770852616329482482
+--- !u!95 &3292780406921925853
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -151,3 +154,54 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2809733836486009211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509257954238236172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 580e611912101bd479ed72e0a79c8f47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveInterval: 3
+  moveSpeed: 1
+--- !u!50 &4638655701419161790
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509257954238236172}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!70 &2284827367097018460
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7509257954238236172}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0073610153, y: 0.0015931141}
+  m_Size: {x: 1.1252098, y: 0.68941796}
+  m_Direction: 1

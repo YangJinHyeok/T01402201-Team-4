@@ -20,6 +20,9 @@ public class CSVMapMaker : MonoBehaviour
     private GameObject prefab;
     private GameObject parent;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
+    string[] itemName = new[] {"ItemCount", "ItemPower", "ItemSpeed", "ItemSuperPower", "Lucci" };
+    int[] probability = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 5, 6, 7, 8, 9 };
+
     
     
     private IEnumerator LoadCSVMap(int length)
@@ -56,7 +59,7 @@ public class CSVMapMaker : MonoBehaviour
 
             GameObject nowSpawn = Instantiate(prefab,
                 new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
-            //inputItem(nowSpawn);
+            inputItem(nowSpawn);
         }
         if (GameManager.instance.statusGame == 2)
         {
@@ -94,15 +97,14 @@ public class CSVMapMaker : MonoBehaviour
 
     private void inputItem(GameObject parent)
     {
-        string[] itemName = new[] {"ItemCount", "ItemPower", "ItemSpeed", "ItemSuperPower", "Lucci" };
-        int[] probability = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-        if (parent.gameObject.CompareTag("Box"))
+        int index = probability[Random.Range(0, probability.Length)];
+        if (parent.gameObject.CompareTag("Box") && index < 5)
         {
-            string nowSpawnName = itemName[probability[Random.Range(0, 10)]];
+            string nowSpawnName = itemName[index];
             string path = "Assets/Prefabs/Item/" + nowSpawnName + ".prefab";
             GameObject nowSpawn = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-            Instantiate(nowSpawn, Vector3.zero, Quaternion.identity, parent.transform);
-        }    
+            Instantiate(nowSpawn, Vector3.zero, Quaternion.identity, parent.transform).SetActive(false);
+        }
         
     }
 }

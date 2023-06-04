@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -75,6 +76,8 @@ public class GameManager : MonoBehaviour
     public void replayGame()
     {
         Debug.Log("replay");
+        //statusGame = 0;
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     
     public void EndGame()
@@ -91,7 +94,8 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
-        
+        //statusGame = -1;
+        //SceneManager.LoadScene(SceneManager.LoadScene());
     }
 
     public void changeVol()

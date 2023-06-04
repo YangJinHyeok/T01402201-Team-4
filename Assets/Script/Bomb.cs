@@ -94,7 +94,7 @@ public class Bomb : MonoBehaviour
                 }
                 if (collider.CompareTag("Player"))
                 {
-                    playerMovement.GetComponent<PlayerMovement>().PlayerDie();
+                    playerMovement.PlayerDie();
                                         
                 }
             }

@@ -12,15 +12,15 @@ using Vector3 = UnityEngine.Vector3;
 public class CSVSpawnMaker : MonoBehaviour
 {
     public string fileName = "Spawn";
-    public string prefabName;
-    public string prefabFolder;
-    public float positionX;
-    public float positionY;
-    public float placementDelay = 0.1f;
+    private string prefabName;
+    private string prefabFolder;
+    private float positionX;
+    private float positionY;
+    private float placementDelay = 0.1f;
     private Camera main;
-    
     private GameObject prefab;
     private GameObject parent;
+    private GameEffects gameEffects;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
     
     
@@ -46,10 +46,6 @@ public class CSVSpawnMaker : MonoBehaviour
             {
                 mob2.Add(dicList[i]);
             }
-            /*if (prefabName.Equals("Mob1"))
-            {
-                mob1.Add(dicList[i]);
-            }*/
         }
 
         for (int i = 0; i < mob1.Count; i++)
@@ -89,7 +85,7 @@ public class CSVSpawnMaker : MonoBehaviour
          * yield return new WaitForSeconds(0.5f);
          */
         
-        
+        gameEffects.setMobCount(mob1.Count + mob2.Count);
         GameManager.instance.statusGame = 5;
 
     }
@@ -99,6 +95,7 @@ public class CSVSpawnMaker : MonoBehaviour
         List<Vector3> positions = new List<Vector3>();
         List<String> prefaps = new List<string>();
         main = Camera.main;
+        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
         dicList.Clear();
 
         dicList = CSVReader.Read(fileName);

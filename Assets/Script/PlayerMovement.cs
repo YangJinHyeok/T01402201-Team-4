@@ -101,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
         delayTime = 2f;
         yield return new WaitForSeconds(delayTime);
 
-        gameEffects.GetComponent<GameEffects>().endGame(false);
+        gameEffects.endGame(false);
         Destroy(gameObject);
     }
 
@@ -110,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         float delayTime = 4.0f;
 
         anim.SetTrigger("trap");
-        playerSpeed = 1.0f;
+        playerSpeed = 0.5f;
         StartCoroutine(DelayedExecution(delayTime));
         
 

@@ -49,6 +49,19 @@ public class Bomb : MonoBehaviour
         explosion.SetActiveRenderer(explosion.start);
         explosion.DestroyAfter(explosionDuration);
 
+        if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask))
+        {
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(position, Vector2.one / 2f, 0f, explosionLayerMask);
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.CompareTag("Player"))
+                {
+                    playerMovement.PlayerDie();
+
+                }
+            }
+        }
+
         Explode(position, Vector2.up, explosionRadius);
         Explode(position, Vector2.down, explosionRadius);
         Explode(position, Vector2.left, explosionRadius);

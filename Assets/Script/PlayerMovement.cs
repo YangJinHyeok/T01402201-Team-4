@@ -14,7 +14,8 @@ public class PlayerMovement : MonoBehaviour
 
     private float playerSpeed;
     private float playerSpeedMax;
-    
+    public bool isTrapTriggered = true;
+
 
 
     // Start is called before the first frame update
@@ -110,6 +111,8 @@ public class PlayerMovement : MonoBehaviour
         float delayTime = 4.0f;
 
         anim.SetTrigger("trap");
+        isTrapTriggered = false;
+
         playerSpeed = 0.5f;
         StartCoroutine(DelayedExecution(delayTime));
         

@@ -98,18 +98,14 @@ public class Bomb : MonoBehaviour
             {
                 if (collider.CompareTag("Box"))
                 {
-                    gameEffects.GetComponent<GameEffects>().touchBoxAndSolid(collider.gameObject);
+                    gameEffects.touchBoxAndSolid(collider.gameObject);
                 }
                 if (collider.CompareTag("Bomb"))
                 {
                     Bomb bomb = collider.GetComponent<Bomb>();
                     bomb.time = -1;
                 }
-                if (collider.CompareTag("Player"))
-                {
-                    playerMovement.PlayerDie();
-                                        
-                }
+
             }
 
 

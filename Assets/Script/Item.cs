@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 
 public class Item : MonoBehaviour
@@ -20,6 +21,11 @@ public class Item : MonoBehaviour
             GameEffects gameEffects = gameController.GetComponent<GameEffects>();
             // 현재 오브젝트(아이템)자체를 넘겨주기
             gameEffects.powerUp(gameObject);
+        }
+
+        if (collision.gameObject.CompareTag("Explosion"))
+        {
+            Destroy(gameObject);
         }
 
     }   

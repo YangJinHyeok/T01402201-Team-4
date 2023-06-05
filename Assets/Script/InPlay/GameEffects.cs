@@ -68,7 +68,7 @@ public class GameEffects : MonoBehaviour
 
     public void powerUp(GameObject item)
     {
-        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>(); 
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         BombController bombController = player.GetComponent<BombController>();
         switch (item.tag)
         {

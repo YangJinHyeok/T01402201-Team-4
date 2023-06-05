@@ -13,13 +13,17 @@ public class InitSequence : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("current status : " + GameManager.instance.statusGame);
         if (GameManager.instance.statusGame == 12 | GameManager.instance.statusGame == 13)
         {
+            Debug.Log("not work");
             main = Camera.main;
             Destroy(transform.gameObject);
         }
         else
         {
+            Debug.Log("do work");
+            Debug.Log("time scale : " + Time.timeScale);
             UIController = GameObject.Find("Canvas").GetComponent<CanvasGroup>();
             main = Camera.main;
             StartCoroutine(initSequence());

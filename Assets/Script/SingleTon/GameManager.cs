@@ -5,9 +5,6 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-
-    [SerializeField] private int setStatusForTest;
-    
     /*
      * -1 : Main menu
      * 0~9 : Init sequence
@@ -37,36 +34,32 @@ public class GameManager : MonoBehaviour
                 Destroy(this.gameObject);
             }
         }
-        
-        if (setStatusForTest != 0)
-        {
-            statusGame = setStatusForTest;
-        }
 
         mixer.GetFloat("MasterVol", out masterVol);
-
     }
 
     public void startGame()
     {
-        statusGame = 0;
+        instance.statusGame = 0;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        SceneManager.LoadScene("InPlay");
+
     }
 
     public void pauseGame()
     {
-        lastStatus = statusGame;
+        instance.lastStatus = new int();
+        instance.lastStatus = instance.statusGame;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         Time.timeScale = 0;
-        statusGame = 11;
+        instance.statusGame = 11;
     }
     
     public void resumeGame()
     {
-        Debug.Log("clicked");
-        statusGame = lastStatus;
+        instance.statusGame = instance.lastStatus;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
@@ -75,26 +68,26 @@ public class GameManager : MonoBehaviour
 
     public void replayGame()
     {
-        Debug.Log("replay");
-        //statusGame = 0;
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        instance.statusGame = 0;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Time.timeScale = 1;
     }
     
     public void EndGame()
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        statusGame = 20;
+        instance.statusGame = 20;
     }
 
     public void EndEdit()
     {
-        statusGame = 22;
+        instance.statusGame = 22;
     }
 
     public void MainMenu()
     {
-        //statusGame = -1;
+        instance.statusGame = -1;
         //SceneManager.LoadScene(SceneManager.LoadScene());
     }
 

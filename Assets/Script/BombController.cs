@@ -15,6 +15,7 @@ public class BombController : MonoBehaviour
     private int playerCountMax;
     private int playerPower;
     private int playerPowerMax;
+    private PlayerMovement playerMovement;
 
     private void Start()
     {
@@ -23,12 +24,13 @@ public class BombController : MonoBehaviour
         playerCountMax = Character.Instance.getCountMax();
         playerPower = Character.Instance.getPower();
         playerPowerMax = Character.Instance.getPowerMax();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
     }
     
     private void Update()
     {
         
-        if (playerRemaining > 0 && Input.GetKeyDown(KeyCode.Space))
+        if (playerRemaining > 0 && Input.GetKeyDown(KeyCode.Space) && playerMovement.isTrapTriggered)
         {
             Vector2 position = GameObject.Find("Player").transform.position;
             position.x = Mathf.Round(position.x);

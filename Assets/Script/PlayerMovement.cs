@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -8,10 +10,13 @@ public class PlayerMovement : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sprite;
     private Vector2 lastMovement = new Vector2(0, 0);
-    
+    private GameEffects gameEffects;
+
     private float playerSpeed;
     private float playerSpeedMax;
-    
+    public bool isTrapTriggered = true;
+    /*private float sadf
+*/
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         playerSpeed = Character.Instance.getSpeed();
         playerSpeedMax = Character.Instance.getSpeedMax();
+        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
     }
 
     // Update is called once per frame
@@ -28,12 +34,11 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerMove();
     }
+    
 
-
-    private enum MovementState {down, right, up, left, downidle, rightidle, upidle, leftidle };
+    private enum MovementState {down, right, up, left, downidle, rightidle, upidle, leftidle};
     private void PlayerMove()
     {
-
         MovementState state = MovementState.downidle;
         
         if (Input.GetKey(KeyCode.RightArrow))
@@ -86,5 +91,31 @@ public class PlayerMovement : MonoBehaviour
             playerSpeed++;
         }
     }
-    
+
+    private IEnumerator DelayedExecution(float delayTime)
+    {
+        yield return new WaitForSeconds(delayTime);
+
+        anim.SetTrigger("death");
+        playerSpeed = 0f;
+
+        delayTime = 2f;
+        yield return new WaitForSeconds(delayTime);
+
+        gameEffects.endGame(false);
+        Destroy(gameObject);
+    }
+
+    public void PlayerDie()
+    {
+        float delayTime = 4.0f;
+
+        anim.SetTrigger("trap");
+        isTrapTriggered = false;
+
+        playerSpeed = 0.5f;
+        StartCoroutine(DelayedExecution(delayTime));
+        
+
+    }
 }

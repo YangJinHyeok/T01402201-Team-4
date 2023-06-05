@@ -15,10 +15,12 @@ public class Bomb : MonoBehaviour
     private GameEffects gameEffects;
     public float time = 3.0f;
     private BombController bombController;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
         bombController = GameObject.Find("Player").GetComponent<BombController>();
+        playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
         explosionRadius = bombController.getPlayerPower();
     }
@@ -46,6 +48,19 @@ public class Bomb : MonoBehaviour
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosion.SetActiveRenderer(explosion.start);
         explosion.DestroyAfter(explosionDuration);
+
+        if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask))
+        {
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(position, Vector2.one / 2f, 0f, explosionLayerMask);
+            foreach (Collider2D collider in colliders)
+            {
+                if (collider.CompareTag("Player"))
+                {
+                    playerMovement.PlayerDie();
+
+                }
+            }
+        }
 
         Explode(position, Vector2.up, explosionRadius);
         Explode(position, Vector2.down, explosionRadius);
@@ -89,6 +104,11 @@ public class Bomb : MonoBehaviour
                 {
                     Bomb bomb = collider.GetComponent<Bomb>();
                     bomb.time = -1;
+                }
+                if (collider.CompareTag("Player"))
+                {
+                    playerMovement.PlayerDie();
+                                        
                 }
             }
 

@@ -29,33 +29,40 @@ public class BombController : MonoBehaviour
     
     private void Update()
     {
-        
-        if (playerRemaining > 0 && Input.GetKeyDown(KeyCode.Space) && playerMovement.isTrapTriggered)
+        if (GameManager.instance.statusGame == 10)
         {
-            Vector2 position = GameObject.Find("Player").transform.position;
-            position.x = Mathf.Round(position.x);
-            position.y = Mathf.Round(position.y);
-
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
-            bool isBombPresent = false;
-            foreach (Collider2D collider in colliders)
+            if (playerRemaining > 0 && Input.GetKeyDown(KeyCode.Space) && playerMovement.isTrapTriggered)
             {
-                if (collider.CompareTag("Bomb"))
+                Vector2 position = GameObject.Find("Player").transform.position;
+                position.x = Mathf.Round(position.x);
+                position.y = Mathf.Round(position.y);
+
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
+                bool isBombPresent = false;
+                foreach (Collider2D collider in colliders)
                 {
-                    isBombPresent = true;
-                    break;
+                    if (collider.CompareTag("Bomb"))
+                    {
+                        isBombPresent = true;
+                        break;
+                    }
                 }
-            }
 
-            if (!isBombPresent)
-            {
-                string path = "Assets/Prefabs/Bomb/" + "Bomb" + ".prefab";
-                GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-                playerRemaining--;
-                Instantiate(prefab, position, Quaternion.identity);
+                if (!isBombPresent)
+                {
+                    string path = "Assets/Prefabs/Bomb/" + "Bomb" + ".prefab";
+                    GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
+                    playerRemaining--;
+                    Instantiate(prefab, position, Quaternion.identity);
+                }
+
             }
-            
         }
+        else
+        {
+            return;
+        }
+
     }
 
 

@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
      * 11 : Paused
      * 12 : Map Editor mode
      * 13 : Spawn Editor mode
-     * 20-21 : Game end sequence
+     * 21 : Game end sequence
      * 22 : Edit End
      */
     public int statusGame = -1;
@@ -75,9 +75,7 @@ public class GameManager : MonoBehaviour
     
     public void EndGame()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-        Cursor.visible = true;
-        instance.statusGame = 20;
+        Application.Quit();
     }
 
     public void EndEdit()
@@ -88,7 +86,10 @@ public class GameManager : MonoBehaviour
     public void MainMenu()
     {
         instance.statusGame = -1;
-        //SceneManager.LoadScene(SceneManager.LoadScene());
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Scenes/MainMenu");
     }
 
     public void changeVol()

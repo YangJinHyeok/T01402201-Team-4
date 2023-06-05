@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 357793569}
   - component: {fileID: 357793577}
   - component: {fileID: 357793578}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -179,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8405c086a561a0b408488603b8677fb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isTrapTriggered: 1
 --- !u!1839735485 &357793571
 Tilemap:
   m_ObjectHideFlags: 0

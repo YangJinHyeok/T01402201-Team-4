@@ -126,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
         float delayTime = 4.0f;
 
         anim.SetTrigger("trap");
+        GetComponent<Collider2D>().enabled = false;
         isTrapTriggered = false;
 
         playerSpeed = 0.5f;

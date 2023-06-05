@@ -6,9 +6,9 @@ public class MobMovement : MonoBehaviour
 {
     private Transform monsterTransform;
     private Animator animator;
-    public float moveInterval = 3f; // ÀÌµ¿ °£°Ý Á¶Á¤
+    public float moveInterval = 3f; // ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private float timer = 0f;
-    public float moveSpeed = 1f; // ÀÌµ¿ ¼Óµµ Á¶Á¤
+    public float moveSpeed = 1f; // ï¿½Ìµï¿½ ï¿½Óµï¿½ ï¿½ï¿½ï¿½ï¿½
     public float findRange = 5f;
 
     private Vector2 targetPosition;
@@ -30,12 +30,12 @@ public class MobMovement : MonoBehaviour
             trackPosition = findCharacter();
             if (trackPosition != Vector2.zero)
             {
-                Debug.Log("Tracking!");
+                
                 moveTrack(trackPosition);
             }
             else
             {
-                Debug.Log("Random!");
+                
                 moveRandom();
             }
             timer = 0f;
@@ -43,11 +43,11 @@ public class MobMovement : MonoBehaviour
 
         if (isMoving)
         {
-            // ºÎµå·´°Ô ÀÌµ¿
+            // ï¿½Îµå·´ï¿½ï¿½ ï¿½Ìµï¿½
             float step = moveSpeed * Time.fixedDeltaTime;
             monsterTransform.position = Vector2.MoveTowards(monsterTransform.position, targetPosition, step);
 
-            // ÀÌµ¿ ¿Ï·á ¿©ºÎ È®ÀÎ
+            // ï¿½Ìµï¿½ ï¿½Ï·ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
             if ((Vector2)monsterTransform.position == targetPosition)
             {
                 isMoving = false;
@@ -62,7 +62,7 @@ public class MobMovement : MonoBehaviour
         Vector2[] moveDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         List<Vector2> availableDirections = new List<Vector2>();
 
-        // ¹°Ã¼ ÁÖº¯¿¡ ÀÖ´ÂÁö ¿©ºÎ¸¦ È®ÀÎÇÏ°í ¹°Ã¼°¡ ¾ø´Â ¹æÇâÀ» Ã£±â
+        // ï¿½ï¿½Ã¼ ï¿½Öºï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Î¸ï¿½ È®ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
         foreach (Vector2 direction in moveDirections)
         {
             Vector2 newPosition = currentPosition + direction;
@@ -74,7 +74,7 @@ public class MobMovement : MonoBehaviour
             }
         }
 
-        // ¹°Ã¼°¡ ¾ø´Â ¹æÇâ Áß¿¡¼­ ·£´ýÇÏ°Ô ÀÌµ¿ÇÏ±â
+        // ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ìµï¿½ï¿½Ï±ï¿½
         if (availableDirections.Count > 0)
         {
             int randomIndex = Random.Range(0, availableDirections.Count);
@@ -100,7 +100,7 @@ public class MobMovement : MonoBehaviour
     {
         while (isMoving)
         {
-            // ÇöÀç ÀÌµ¿ ÁßÀÎ À§Ä¡¿¡¼­ Ãæµ¹ ¿©ºÎ È®ÀÎ
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
             Collider2D[] colliders = Physics2D.OverlapCircleAll(monsterTransform.position, 0.1f);
             foreach (Collider2D collider in colliders)
             {
@@ -123,10 +123,10 @@ public class MobMovement : MonoBehaviour
 
         foreach (Vector2 direction in directions)
         {
-            Vector2 targetPosition = currentPosition + direction; // ÇöÀç À§Ä¡¿¡ ¹æÇâ º¤ÅÍ¸¦ ´õÇÑ Å¸°Ù À§Ä¡
+            Vector2 targetPosition = currentPosition + direction; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Í¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½Ä¡
 
             RaycastHit2D hit = Physics2D.Raycast(targetPosition, direction, findRange);
-            if (hit.collider == null) // ·¹ÀÌÄ³½ºÆ® °á°ú°¡ nullÀÎ °æ¿ì ´ÙÀ½ ¹æÇâÀ¸·Î ÁøÇà
+            if (hit.collider == null) // ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
                 continue;
 
             if (hit.collider.gameObject.CompareTag("Player"))
@@ -143,7 +143,7 @@ public class MobMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Ä³¸¯ÅÍ¿ÍÀÇ Ãæµ¹À» °¨ÁöÇÏ¸é ÇÊ¿äÇÑ Ã³¸®¸¦ ¼öÇàÇÕ´Ï´Ù.
+        // Ä³ï¿½ï¿½ï¿½Í¿ï¿½ï¿½ï¿½ ï¿½æµ¹ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½.
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Game Over");

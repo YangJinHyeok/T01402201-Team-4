@@ -168,6 +168,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveInterval: 3
   moveSpeed: 1
+  findRange: 5
+  player: {fileID: 0}
 --- !u!50 &4638655701419161790
 Rigidbody2D:
   serializedVersion: 4

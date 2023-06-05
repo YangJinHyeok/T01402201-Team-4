@@ -9,21 +9,15 @@ using Random = UnityEngine.Random;
 public class GameEffects : MonoBehaviour
 {
     [SerializeField] private GameObject UIController;
-    
+    public static float portalCooltime = 3.0f;
     public List<GameObject> portals = new List<GameObject>();
     
     private List<int> path = new List<int>();
-
-    public static float portalCooltime = 3.0f;
-
     private GameUIController gameUIController;
-    
     private GameObject portalUse;
-
     private GameObject player;
-
     private GameObject dust;
-    
+    private int mobCount;
 
     private void Awake()
     {
@@ -69,6 +63,7 @@ public class GameEffects : MonoBehaviour
     {
         //Mob die method
         gameUIController.updateScoreWIthValue(100);
+        lowerMobCount();
     }
 
     public void powerUp(GameObject item)
@@ -179,4 +174,22 @@ public class GameEffects : MonoBehaviour
     {
         gameUIController.endSequence(isWin);
     }
+
+    public void setMobCount(int value)
+    {
+        mobCount = value;
+    }
+
+    public void lowerMobCount()
+    {
+        if (mobCount == 1)
+        {
+            endGame(true);
+        }
+        else
+        {
+            mobCount--;
+        }
+    }
+    
 }

@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6373300904866200636}
   - component: {fileID: 4081340337965999369}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Mob1
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 2809733836486009211}
   - component: {fileID: 4638655701419161790}
   - component: {fileID: 2284827367097018460}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,6 @@ MonoBehaviour:
   moveInterval: 3
   moveSpeed: 1
   findRange: 5
-  player: {fileID: 0}
 --- !u!50 &4638655701419161790
 Rigidbody2D:
   serializedVersion: 4

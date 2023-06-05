@@ -129,10 +129,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 30
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 126
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,10 +171,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 222
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_3
       rect:
         serializedVersion: 2
-        x: 288
+        x: 318
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 414
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 510
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: Sprite Sheet - Red Idle_6
       rect:
         serializedVersion: 2
-        x: 576
+        x: 606
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 21
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

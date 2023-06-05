@@ -10,7 +10,6 @@ public class Bomb : MonoBehaviour
     [Header("Explosion")]
     public Explosion explosionPrefab;
     public LayerMask explosionLayerMask;
-    public float explosionDuration = 5.0f;
     private int explosionRadius;
     private GameEffects gameEffects;
     public float time = 3.0f;
@@ -47,7 +46,7 @@ public class Bomb : MonoBehaviour
 
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosion.SetActiveRenderer(explosion.start);
-        explosion.DestroyAfter(explosionDuration);
+        explosion.DestroyAfter(1.0f);
 
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionLayerMask))
         {
@@ -115,7 +114,7 @@ public class Bomb : MonoBehaviour
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosion.SetActiveRenderer(length > 1 ? explosion.middle : explosion.end);
         explosion.SetDirection(direction);
-        explosion.DestroyAfter(explosionDuration);
+        explosion.DestroyAfter(1.0f);
 
 
         Explode(position, direction, length - 1);

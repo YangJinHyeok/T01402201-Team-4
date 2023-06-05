@@ -15,8 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private float playerSpeed;
     private float playerSpeedMax;
     public bool isTrapTriggered = true;
-
-
+    /*private float sadf
+*/
 
     // Start is called before the first frame update
     void Start()

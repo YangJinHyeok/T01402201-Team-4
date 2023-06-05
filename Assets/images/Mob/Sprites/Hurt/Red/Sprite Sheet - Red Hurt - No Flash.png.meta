@@ -141,10 +141,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 25
         y: 0
-        width: 96
-        height: 32
+        width: 41
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,10 +162,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_1
       rect:
         serializedVersion: 2
-        x: 96
+        x: 122
         y: 0
-        width: 96
-        height: 32
+        width: 40
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,10 +183,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_2
       rect:
         serializedVersion: 2
-        x: 192
+        x: 218
         y: 0
-        width: 96
-        height: 32
+        width: 40
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,10 +204,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_3
       rect:
         serializedVersion: 2
-        x: 288
-        y: 0
-        width: 96
-        height: 32
+        x: 312
+        y: 11
+        width: 4
+        height: 4
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,10 +225,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_4
       rect:
         serializedVersion: 2
-        x: 384
+        x: 316
         y: 0
-        width: 96
-        height: 32
+        width: 38
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,10 +246,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_5
       rect:
         serializedVersion: 2
-        x: 480
+        x: 412
         y: 0
-        width: 96
-        height: 32
+        width: 38
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,10 +267,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_6
       rect:
         serializedVersion: 2
-        x: 576
+        x: 505
         y: 0
-        width: 96
-        height: 32
+        width: 41
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,10 +288,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_7
       rect:
         serializedVersion: 2
-        x: 672
+        x: 606
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_8
       rect:
         serializedVersion: 2
-        x: 768
+        x: 702
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -330,10 +330,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_9
       rect:
         serializedVersion: 2
-        x: 864
+        x: 798
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: Sprite Sheet - Red Hurt - No Flash_10
       rect:
         serializedVersion: 2
-        x: 960
+        x: 894
         y: 0
-        width: 96
-        height: 32
+        width: 36
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -364,6 +364,48 @@ TextureImporter:
       bones: []
       spriteID: 7fc1cbbb502649cc0800000000000000
       internalID: -3705228816655049481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Red Hurt - No Flash_11
+      rect:
+        serializedVersion: 2
+        x: 979
+        y: 0
+        width: 47
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e38e7ff01297921469df31d8d1ea44c2
+      internalID: 1992075124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sprite Sheet - Red Hurt - No Flash_12
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 0
+        width: 4
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0b3035749cc16c46b9c57b7f3a8cb43
+      internalID: -2075785636
       vertices: []
       indices: 
       edges: []
@@ -382,6 +424,8 @@ TextureImporter:
       Sprite Sheet - Red Hurt - No Flash_0: 2991152275067873657
       Sprite Sheet - Red Hurt - No Flash_1: 2532082948406456646
       Sprite Sheet - Red Hurt - No Flash_10: -3705228816655049481
+      Sprite Sheet - Red Hurt - No Flash_11: 1992075124
+      Sprite Sheet - Red Hurt - No Flash_12: -2075785636
       Sprite Sheet - Red Hurt - No Flash_2: -8163612798893217856
       Sprite Sheet - Red Hurt - No Flash_3: 3769896932484480164
       Sprite Sheet - Red Hurt - No Flash_4: -6849657800839858545

@@ -26,20 +26,15 @@ public class Character : MonoBehaviour
         }
     }
 
-    public float speed = 4.0f;
-    public int power = 3;
-    public int count = 1;
-    public int remaining;
+    private int speed;
+    private int power;
+    private int count;
 
-    public float speedMax = 8.0f;
-    public int countMax = 10;
-    public int powerMax = 14;
+    private int speedMax;
+    private int countMax;
+    private int powerMax;
 
-
-    public void isTrap()
-    {
-        speed = 1.0f;
-    }
+    private int lucci;
     public float getSpeed()
     {
         return speed;
@@ -99,14 +94,21 @@ public class Character : MonoBehaviour
         
     }
 
-    private void getFromCSV()
+    public void getFromCSV()
     {
-        
+        string[] data = CSVData.Instance.readData();
+        speed = int.Parse(data[0]);
+        power = int.Parse(data[1]);
+        count = int.Parse(data[2]);
+        speedMax = int.Parse(data[3]);
+        powerMax = int.Parse(data[4]);
+        countMax = int.Parse(data[5]);
+        lucci = int.Parse(data[6]);
     }
 
-    private void saveToCSV()
+    public void saveToCSV()
     {
-        
+        CSVData.Instance.saveMaxAndStatus(speedMax, powerMax, countMax,lucci);
     }
 
 }

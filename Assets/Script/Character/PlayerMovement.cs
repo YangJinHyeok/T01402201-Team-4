@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Character.Instance.getFromCSV();
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
@@ -86,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
                 lastMovement = Vector2.zero;
 
             }
-            rb.MovePosition(rb.position + lastMovement * playerSpeed * Time.fixedDeltaTime);
+            rb.MovePosition(rb.position + lastMovement * (playerSpeed * Time.fixedDeltaTime));
 
             anim.SetInteger("state", (int)state);
         }

@@ -108,11 +108,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private IEnumerator DelayedExecution(float delayTime)
+    private IEnumerator playerDeath(float delayTime)
     {
         yield return new WaitForSeconds(delayTime);
 
         anim.SetTrigger("death");
+        playerSpeed = 0f;
+
+        delayTime = 2f;
+        yield return new WaitForSeconds(delayTime);
+
+        gameEffects.endGame(false);
+        Destroy(gameObject);
+    }
+
+    private IEnumerator monsterTouch(float delayTime)
+    {
+        anim.SetTrigger("monsterTouch");
         playerSpeed = 0f;
 
         delayTime = 2f;
@@ -131,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         isTrapTriggered = false;
 
         playerSpeed = 0.5f;
-        StartCoroutine(DelayedExecution(delayTime));
+        StartCoroutine(playerDeath(delayTime));
         
 
     }
@@ -141,6 +153,14 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Explosion"))
         {
             PlayerDie();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Mob"))
+        {
+            StartCoroutine(monsterTouch(2.0f));
         }
     }
 }

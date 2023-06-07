@@ -150,10 +150,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_0
       rect:
         serializedVersion: 2
-        x: 21
+        x: 0
         y: 0
-        width: 44
-        height: 27
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -171,9 +171,9 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_1
       rect:
         serializedVersion: 2
-        x: 113
+        x: 96
         y: 0
-        width: 33
+        width: 96
         height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 21
-        width: 20
-        height: 5
+        x: 192
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_3
       rect:
         serializedVersion: 2
-        x: 208
-        y: 17
-        width: 17
-        height: 10
+        x: 288
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_4
       rect:
         serializedVersion: 2
-        x: 244
-        y: 19
-        width: 18
-        height: 6
+        x: 384
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -255,10 +255,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_5
       rect:
         serializedVersion: 2
-        x: 299
-        y: 15
-        width: 18
-        height: 10
+        x: 480
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_6
       rect:
         serializedVersion: 2
-        x: 346
-        y: 15
-        width: 14
-        height: 8
+        x: 576
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -297,10 +297,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_7
       rect:
         serializedVersion: 2
-        x: 203
+        x: 672
         y: 0
-        width: 37
-        height: 17
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -318,10 +318,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_8
       rect:
         serializedVersion: 2
-        x: 223
-        y: 15
-        width: 5
-        height: 5
+        x: 768
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -339,10 +339,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_9
       rect:
         serializedVersion: 2
-        x: 391
-        y: 10
-        width: 16
-        height: 10
+        x: 864
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,10 +360,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_10
       rect:
         serializedVersion: 2
-        x: 451
-        y: 9
-        width: 7
-        height: 11
+        x: 960
+        y: 0
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,10 +381,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_11
       rect:
         serializedVersion: 2
-        x: 297
+        x: 1056
         y: 0
-        width: 37
-        height: 14
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -402,10 +402,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_12
       rect:
         serializedVersion: 2
-        x: 391
+        x: 1152
         y: 0
-        width: 37
-        height: 9
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -423,10 +423,10 @@ TextureImporter:
       name: Sprite Sheet - Red Death - No Flash_13
       rect:
         serializedVersion: 2
-        x: 481
+        x: 1248
         y: 0
-        width: 10
-        height: 11
+        width: 96
+        height: 28
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -436,69 +436,6 @@ TextureImporter:
       bones: []
       spriteID: bfb95b147785cdad0800000000000000
       internalID: -2676166809338143749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Red Death - No Flash_14
-      rect:
-        serializedVersion: 2
-        x: 486
-        y: 0
-        width: 36
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 40b6b3feec31c424f8a4d3f531982c9d
-      internalID: -1586195318
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Red Death - No Flash_15
-      rect:
-        serializedVersion: 2
-        x: 551
-        y: 0
-        width: 65
-        height: 11
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9d12da00b8a0c1344affb7b541fdbbaa
-      internalID: -169692674
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Red Death - No Flash_16
-      rect:
-        serializedVersion: 2
-        x: 645
-        y: 0
-        width: 647
-        height: 5
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ce250e932be8ea4897f729815ce4b96
-      internalID: -907571066
       vertices: []
       indices: 
       edges: []
@@ -520,9 +457,6 @@ TextureImporter:
       Sprite Sheet - Red Death - No Flash_11: 4455369263295310656
       Sprite Sheet - Red Death - No Flash_12: -8187142257196362161
       Sprite Sheet - Red Death - No Flash_13: -2676166809338143749
-      Sprite Sheet - Red Death - No Flash_14: -1586195318
-      Sprite Sheet - Red Death - No Flash_15: -169692674
-      Sprite Sheet - Red Death - No Flash_16: -907571066
       Sprite Sheet - Red Death - No Flash_2: 6554509128268822883
       Sprite Sheet - Red Death - No Flash_3: 6634215915499214447
       Sprite Sheet - Red Death - No Flash_4: -1291109469765269490

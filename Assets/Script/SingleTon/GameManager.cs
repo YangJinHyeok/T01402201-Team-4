@@ -85,6 +85,7 @@ public class GameManager : MonoBehaviour
 
     public void MainMenu()
     {
+        Character.Instance.saveToCSV();
         instance.statusGame = -1;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;

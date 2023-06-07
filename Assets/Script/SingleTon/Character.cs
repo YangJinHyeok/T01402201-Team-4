@@ -34,7 +34,7 @@ public class Character : MonoBehaviour
     private int countMax;
     private int powerMax;
 
-    private int lucci;
+    private int lucci = 0;
     public float getSpeed()
     {
         return speed;
@@ -92,6 +92,11 @@ public class Character : MonoBehaviour
     public void setPowerMax()
     {
         
+    }
+
+    public void setLucci(int value)
+    {
+        Instance.lucci += value;
     }
 
     public void getFromCSV()

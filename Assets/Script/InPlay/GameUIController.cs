@@ -78,6 +78,7 @@ public class GameUIController : MonoBehaviour
     {
         coin += value;
         coinText.text = string.Format("{000000} $",coin);
+        Character.Instance.setLucci(value);
     }
     public void endSequence(bool isWin)
     {

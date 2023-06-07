@@ -59,9 +59,14 @@ public class CSVData
         sb = new StringBuilder();
         sb.Clear();
         
-        string[] col = new String[2];
-        col[0] = "playerName";
-        col[1] = "score";
+        string[] col = new String[7];
+        col[0] = "speed";
+        col[1] = "power";
+        col[2] = "count";
+        col[3] = "speedMax";
+        col[4] = "powerMax";
+        col[5] = "countMax";
+        col[6] = "lucci";
         string[][] firstOut = new string[1][];
         firstOut[0] = col;
         sb.AppendLine(string.Join(delimiter, firstOut[0]));
@@ -78,11 +83,8 @@ public class CSVData
         data[5] = tempData[2];
         data[6] = tempData[3];
 
-        int length = data.Length;
-        for (int i = 0; i < length; i++)
-        {
-            sb.AppendLine(string.Join(delimiter, data[i]));
-        }
+        int length = data.Length; 
+        sb.AppendLine(string.Join(delimiter, data));
 
         StreamWriter outStream = System.IO.File.CreateText(filepath + fileNameToSave);
         outStream.Write(sb);
@@ -113,7 +115,7 @@ public class CSVData
         column.Add(tempData);
 
         tempData = new String[7];
-        tempData[0] = "1";
+        tempData[0] = "2";
         tempData[1] = "1";
         tempData[2] = "1";
         tempData[3] = "6";

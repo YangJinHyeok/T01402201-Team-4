@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
      * 12 : Map Editor mode
      * 13 : Spawn Editor mode
      * 21 : Game end sequence
-     * 22 : Edit End
      */
     public int statusGame = -1;
     
@@ -78,6 +77,12 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void startEdit()
+    {
+        instance.statusGame = 12;
+        SceneManager.LoadScene("MapEditMode");
+    }
+    
     public void EndEdit()
     {
         instance.statusGame = 22;

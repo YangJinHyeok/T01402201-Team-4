@@ -141,18 +141,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_0
       rect:
         serializedVersion: 2
-        x: 25
+        x: 0
         y: 0
-        width: 41
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 94180f53f4d2602e0800000000000000
+      spriteID: 9fdfe40a147421d449ddcbd521718648
       internalID: -2159989153046953655
       vertices: []
       indices: 
@@ -162,18 +162,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_1
       rect:
         serializedVersion: 2
-        x: 122
+        x: 96
         y: 0
-        width: 40
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4a80df1e50bbf8da0800000000000000
+      spriteID: 3e6801fae5b9ea2439928d21eb1d8f4a
       internalID: -5940323749537707868
       vertices: []
       indices: 
@@ -183,18 +183,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_2
       rect:
         serializedVersion: 2
-        x: 218
+        x: 192
         y: 0
-        width: 40
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ba8d7861279b3160800000000000000
+      spriteID: 5b9fd1767e4adea48a3f025de50dba21
       internalID: 7006359815047711410
       vertices: []
       indices: 
@@ -204,18 +204,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_3
       rect:
         serializedVersion: 2
-        x: 312
-        y: 11
-        width: 4
-        height: 4
+        x: 288
+        y: 0
+        width: 96
+        height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36313a5523819df80800000000000000
+      spriteID: 7b689996330ff214cb57358520e25b92
       internalID: -8081401451875462301
       vertices: []
       indices: 
@@ -225,18 +225,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_4
       rect:
         serializedVersion: 2
-        x: 316
+        x: 384
         y: 0
-        width: 38
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2572532ebf87fc2a0800000000000000
+      spriteID: a620e857aab33014eadbb2e40b286556
       internalID: -6715015496158861486
       vertices: []
       indices: 
@@ -246,18 +246,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_5
       rect:
         serializedVersion: 2
-        x: 406
+        x: 480
         y: 0
-        width: 44
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 919999d99549c8120800000000000000
+      spriteID: ed32096d12c6b7049926b944e9222b93
       internalID: 2417470212608203033
       vertices: []
       indices: 
@@ -267,18 +267,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_6
       rect:
         serializedVersion: 2
-        x: 505
+        x: 576
         y: 0
-        width: 41
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b0bb4d6975cb77240800000000000000
+      spriteID: efe29c643c7972645834d37846a960e5
       internalID: 4789503813110512395
       vertices: []
       indices: 
@@ -288,18 +288,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_7
       rect:
         serializedVersion: 2
-        x: 606
+        x: 672
         y: 0
-        width: 36
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: caa6fe556e43f1da0800000000000000
+      spriteID: fecf69220a7bfd144963c1491a744887
       internalID: -5971996416981112148
       vertices: []
       indices: 
@@ -309,18 +309,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_8
       rect:
         serializedVersion: 2
-        x: 702
+        x: 768
         y: 0
-        width: 36
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a033ddcde614eca40800000000000000
+      spriteID: 1450bccd2cc18e943b76cd4dddd60614
       internalID: 5390317748416754442
       vertices: []
       indices: 
@@ -330,18 +330,18 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_9
       rect:
         serializedVersion: 2
-        x: 797
+        x: 864
         y: 0
-        width: 37
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a73b1eb0f83947f0800000000000000
+      spriteID: cb75d29dfa11f474cae5fc9ddb33b10e
       internalID: -627908066408712283
       vertices: []
       indices: 
@@ -351,61 +351,19 @@ TextureImporter:
       name: Sprite Sheet - Green Hurt - No Flash_10
       rect:
         serializedVersion: 2
-        x: 894
+        x: 960
         y: 0
-        width: 36
+        width: 96
         height: 22
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40b2407887a7964d0800000000000000
+      spriteID: 2e4283457e03b5544bd6e107de42a3f3
       internalID: -3140844607034348796
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Green Hurt - No Flash_11
-      rect:
-        serializedVersion: 2
-        x: 990
-        y: 0
-        width: 36
-        height: 22
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83d69f4416613e142873fdddb757596f
-      internalID: 1220200128
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Sprite Sheet - Green Hurt - No Flash_12
-      rect:
-        serializedVersion: 2
-        x: 499
-        y: 0
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0701897bedf5bb543b53b412675fedda
-      internalID: 1249321751
       vertices: []
       indices: 
       edges: []
@@ -424,8 +382,6 @@ TextureImporter:
       Sprite Sheet - Green Hurt - No Flash_0: -2159989153046953655
       Sprite Sheet - Green Hurt - No Flash_1: -5940323749537707868
       Sprite Sheet - Green Hurt - No Flash_10: -3140844607034348796
-      Sprite Sheet - Green Hurt - No Flash_11: 1220200128
-      Sprite Sheet - Green Hurt - No Flash_12: 1249321751
       Sprite Sheet - Green Hurt - No Flash_2: 7006359815047711410
       Sprite Sheet - Green Hurt - No Flash_3: -8081401451875462301
       Sprite Sheet - Green Hurt - No Flash_4: -6715015496158861486

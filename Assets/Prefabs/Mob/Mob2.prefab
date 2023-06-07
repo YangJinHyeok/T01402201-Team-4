@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 4381784254999595364}
   - component: {fileID: 3444112088746023768}
   - component: {fileID: 2042932624763853088}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: S
-  m_TagString: Untagged
+  m_TagString: Mob
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -3534433
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 4367289792872251007, guid: d4e8a5c5eececab46942986a743fd7d8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,9 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 580e611912101bd479ed72e0a79c8f47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveInterval: 1
-  moveSpeed: 3
+  moveInterval: 3
+  moveSpeed: 0.75
   findRange: 10
+  mobHealth: 8
 --- !u!50 &3444112088746023768
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +172,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3596468324604767313}
   - component: {fileID: 7640607164978197291}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: Mob2
   m_TagString: Mob
   m_Icon: {fileID: 0}

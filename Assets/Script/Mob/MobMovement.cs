@@ -6,48 +6,56 @@ public class MobMovement : MonoBehaviour
 {
     private Transform monsterTransform;
     private Animator animator;
-    public float moveInterval = 3f; // �̵� ���� ����
+    [SerializeField]
+    private float moveInterval = 3f; // �̵� ���� ����
+    [SerializeField]
+    private float moveSpeed = 1f; // �̵� �ӵ� ����
+    [SerializeField]
+    private float findRange = 5f;
+    [SerializeField]
+    private int mobHealth = 12;
     private float timer = 0f;
-    public float moveSpeed = 1f; // �̵� �ӵ� ����
-    public float findRange = 5f;
 
     private Vector2 targetPosition;
     private Vector2 trackPosition;
     private bool isMoving = false;
+
+    private GameEffects gameEffects;
 
     // Start is called before the first frame update
     void Start()
     {
         monsterTransform = transform;
         animator = GetComponent<Animator>();
+        animator.SetInteger("Health", mobHealth);
+        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        timer += Time.fixedDeltaTime;
-        if (timer >= moveInterval)
+        timer += Time.deltaTime;
+        trackPosition = findCharacter();
+        
+        if (trackPosition != Vector2.zero &&
+            Mathf.Floor(monsterTransform.position.x) == monsterTransform.position.x &&
+            Mathf.Floor(monsterTransform.position.y) == monsterTransform.position.y)
         {
-            trackPosition = findCharacter();
-            if (trackPosition != Vector2.zero)
-            {
-                
-                moveTrack(trackPosition);
-            }
-            else
-            {
-                
-                moveRandom();
-            }
+            Debug.Log("Track");
+            moveTrack(trackPosition);
+        }
+
+        else if (timer >= moveInterval && !isMoving)
+        {
+            moveRandom();
             timer = 0f;
         }
 
         if (isMoving)
         {
-            // �ε巴�� �̵�
-            float step = moveSpeed * Time.fixedDeltaTime;
+            targetPosition = new Vector2(Mathf.RoundToInt(targetPosition.x), Mathf.RoundToInt(targetPosition.y));
+            float step = moveSpeed * Time.deltaTime;
             monsterTransform.position = Vector2.MoveTowards(monsterTransform.position, targetPosition, step);
 
-            // �̵� �Ϸ� ���� Ȯ��
             if ((Vector2)monsterTransform.position == targetPosition)
             {
                 isMoving = false;
@@ -56,13 +64,26 @@ public class MobMovement : MonoBehaviour
         }
     }
 
+
+    private bool IsPositionBlocked(Vector2 position)
+    {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(position, 0.1f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("Mob") || collider.gameObject.CompareTag("Bomb"))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void moveRandom()
     {
         Vector2 currentPosition = monsterTransform.position;
         Vector2[] moveDirections = new Vector2[] { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
         List<Vector2> availableDirections = new List<Vector2>();
 
-        // ��ü �ֺ��� �ִ��� ���θ� Ȯ���ϰ� ��ü�� ���� ������ ã��
         foreach (Vector2 direction in moveDirections)
         {
             Vector2 newPosition = currentPosition + direction;
@@ -74,7 +95,6 @@ public class MobMovement : MonoBehaviour
             }
         }
 
-        // ��ü�� ���� ���� �߿��� �����ϰ� �̵��ϱ�
         if (availableDirections.Count > 0)
         {
             int randomIndex = Random.Range(0, availableDirections.Count);
@@ -92,28 +112,8 @@ public class MobMovement : MonoBehaviour
 
         isMoving = true;
         animator.SetBool("IsMove", true);
-
-        StartCoroutine(CheckCollisionDuringMove());
     }
 
-    private IEnumerator CheckCollisionDuringMove()
-    {
-        while (isMoving)
-        {
-            // ���� �̵� ���� ��ġ���� �浹 ���� Ȯ��
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(monsterTransform.position, 0.1f);
-            foreach (Collider2D collider in colliders)
-            {
-                if (collider.gameObject.CompareTag("Mob") || collider.gameObject.CompareTag("Bomb"))
-                {
-                    isMoving = false;
-                    animator.SetBool("IsMove", false);
-                    yield break;
-                }
-            }
-            yield return null;
-        }
-    }
 
     private Vector2 findCharacter()
     {
@@ -123,30 +123,73 @@ public class MobMovement : MonoBehaviour
 
         foreach (Vector2 direction in directions)
         {
-            Vector2 targetPosition = currentPosition + direction; // ���� ��ġ�� ���� ���͸� ���� Ÿ�� ��ġ
+            Vector2 shotPosition = currentPosition + direction;
+            RaycastHit2D hit = Physics2D.Raycast(shotPosition, direction, findRange);
 
-            RaycastHit2D hit = Physics2D.Raycast(targetPosition, direction, findRange);
-            if (hit.collider == null) // ����ĳ��Ʈ ����� null�� ��� ���� �������� ����
+            if (hit.collider == null)
                 continue;
 
             if (hit.collider.gameObject.CompareTag("Player"))
             {
                 Vector2 playerPosition = hit.collider.transform.position;
-                return new Vector2(Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(playerPosition.y));
+                if (direction == Vector2.right || direction == Vector2.left)
+                {
+                    return new Vector2(Mathf.RoundToInt(playerPosition.x), Mathf.RoundToInt(monsterTransform.position.y));
+                }
+                else if (direction == Vector2.up || direction == Vector2.down)
+                {
+                    return new Vector2(Mathf.RoundToInt(monsterTransform.position.x), Mathf.RoundToInt(playerPosition.y));
+                }
             }
         }
 
         return Vector2.zero;
     }
 
+    public void mobHurt()
+    {
+        mobHealth -= 1;
+        if (mobHealth == 0)
+        {
+            mobDeath();
+        }
+        else
+        {
+            animator.SetTrigger("Hurt");
+        }
+    }
+
+    public void mobDeath()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        moveSpeed = 0f;
+        animator.SetInteger("Health", mobHealth);
+        gameEffects.touchMob(gameObject);
+    }
+
+    private void mobDestroy()
+    {
+        Destroy(gameObject);
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // ĳ���Ϳ��� �浹�� �����ϸ� �ʿ��� ó���� �����մϴ�.
         if (collision.gameObject.CompareTag("Player"))
         {
             Debug.Log("Game Over");
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("Explosion"))
+        {
+            mobHurt();
+        }
+        if (collider.gameObject.CompareTag("Bomb") || collider.gameObject.CompareTag("Mob"))
+        {
+            targetPosition = new Vector2(Mathf.RoundToInt(monsterTransform.position.x), Mathf.RoundToInt(monsterTransform.position.y));
         }
     }
 }

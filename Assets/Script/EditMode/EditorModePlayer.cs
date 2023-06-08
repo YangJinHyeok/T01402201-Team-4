@@ -12,8 +12,6 @@ public class EditorModePlayer : MonoBehaviour
     private float playerSpeed;
     private float playerSpeedMax;
     public bool isTrapTriggered = true;
-    /*private float sadf
-*/
 
     // Start is called before the first frame update
     void Start()
@@ -31,7 +29,6 @@ public class EditorModePlayer : MonoBehaviour
     {
         PlayerMove();
     }
-    
 
     private enum MovementState {down, right, up, left, downidle, rightidle, upidle, leftidle};
     private void PlayerMove()
@@ -90,7 +87,6 @@ public class EditorModePlayer : MonoBehaviour
         else
         {
             anim.enabled = false;
-            return;
         }
     }
 }

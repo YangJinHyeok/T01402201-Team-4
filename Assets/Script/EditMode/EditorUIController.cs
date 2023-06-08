@@ -9,7 +9,7 @@ public class EditorUIController : MonoBehaviour
     [SerializeField] private GameObject boxAndSolidPanel;
     [SerializeField] private GameObject MobPanel;
     [SerializeField] private Image volume;
-
+    
     private void Start()
     {
         boxAndSolidPanel.SetActive(true);
@@ -36,4 +36,24 @@ public class EditorUIController : MonoBehaviour
             volume.color = Color.white;
         }
     }
+
+    public void NextStep()
+    {
+        if (GameManager.instance.statusGame == 12)
+        {
+            boxAndSolidPanel.SetActive(false);
+            MobPanel.SetActive(true);
+            GameManager.instance.statusGame = 13;
+        }
+        else if (GameManager.instance.statusGame == 13)
+        {
+            GameManager.instance.statusGame = 22;
+        }
+        else
+        {
+            
+            
+        }
+    }
+
 }

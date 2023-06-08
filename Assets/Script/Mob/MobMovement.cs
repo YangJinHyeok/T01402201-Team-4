@@ -26,6 +26,12 @@ public class MobMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("current status : " + GameManager.instance.statusGame);
+        if (GameManager.instance.statusGame > 10)
+        {
+            Destroy(this);
+        }
+        
         monsterTransform = transform;
         animator = GetComponent<Animator>();
         animator.SetInteger("Health", mobHealth);

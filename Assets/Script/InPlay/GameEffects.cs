@@ -172,6 +172,7 @@ public class GameEffects : MonoBehaviour
     }
     public void endGame(bool isWin)
     {
+        GameManager.instance.pauseGame();
         gameUIController.endSequence(isWin);
     }
 

@@ -19,6 +19,8 @@ public class GameEffects : MonoBehaviour
     private GameObject dust;
     private int mobCount;
 
+    private MobMovement mobMovement;
+
     private void Awake()
     {
         portals.Clear();
@@ -61,7 +63,6 @@ public class GameEffects : MonoBehaviour
 
     public void touchMob(GameObject target)
     {
-        //Mob die method
         gameUIController.updateScoreWIthValue(100);
         lowerMobCount();
     }

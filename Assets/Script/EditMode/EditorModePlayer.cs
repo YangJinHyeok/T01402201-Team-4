@@ -20,7 +20,7 @@ public class EditorModePlayer : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sprite = GetComponent<SpriteRenderer>();
-        playerSpeed = Character.Instance.getSpeed();
+        playerSpeed = Character.Instance.getSpeedMax();
         playerSpeedMax = Character.Instance.getSpeedMax();
     }
 

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class EditorUIController : MonoBehaviour
 {
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject EndPanel;
     [SerializeField] private GameObject boxAndSolidPanel;
     [SerializeField] private GameObject MobPanel;
     [SerializeField] private Image volume;
@@ -14,11 +15,13 @@ public class EditorUIController : MonoBehaviour
     {
         boxAndSolidPanel.SetActive(true);
         MobPanel.SetActive(false);
+        pauseUI.SetActive(false);
+        EndPanel.SetActive(false);
     }
 
     private void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape) && GameManager.instance.statusGame != 22)
         {
             GameManager.instance.pauseGame();
             pauseUI.SetActive(true);
@@ -48,11 +51,7 @@ public class EditorUIController : MonoBehaviour
         else if (GameManager.instance.statusGame == 13)
         {
             GameManager.instance.statusGame = 22;
-        }
-        else
-        {
-            
-            
+            EndPanel.SetActive(true);
         }
     }
 

@@ -1,1 +1,10 @@
+Box1,0,0,
+Solid1,0,-3,
+Solid2,-1,-3,
+Box2,2,0,
+Solid3,2,-3,
+Solid4,-2,-3,
+Solid2,3,-3,
+Box1,4,0,
+Solid1,4,-3,
 prefapName,positionX,positionY

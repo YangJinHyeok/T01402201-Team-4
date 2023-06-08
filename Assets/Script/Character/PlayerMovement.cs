@@ -150,10 +150,17 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        AnimatorStateInfo currentState = anim.GetCurrentAnimatorStateInfo(0);
+
+        if (currentState.IsName("TrapBazzi"))
+        {
+            return;
+        }
         if (collision.gameObject.CompareTag("Explosion"))
         {
             PlayerDie();
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

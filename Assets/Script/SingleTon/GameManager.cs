@@ -77,6 +77,11 @@ public class GameManager : MonoBehaviour
         Application.Quit();
     }
 
+    public void playEdit()
+    {
+        instance.statusGame = 0;
+        SceneManager.LoadScene("Scenes/UserPlay");
+    }
     public void startEdit()
     {
         instance.statusGame = 12;

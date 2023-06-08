@@ -10,12 +10,12 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CSVMapMaker : MonoBehaviour
 {
-    public string fileName = "Map";
-    public string prefabName;
-    public string prefabFolder;
-    public float positionX;
-    public float positionY;
-    public float placementDelay = 0.1f;
+    [SerializeField] private string fileName;
+    private string prefabName;
+    private string prefabFolder;
+    private float positionX;
+    private float positionY;
+    private float placementDelay = 0.1f;
 
     private GameObject prefab;
     private GameObject parent;

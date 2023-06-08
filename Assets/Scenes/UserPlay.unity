@@ -841,7 +841,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcd597ec31ef154a835e8e0a03831f5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: DefaultSpawn
+  fileName: UserSpawn
 --- !u!1 &419494216
 GameObject:
   m_ObjectHideFlags: 0
@@ -18720,7 +18720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab320eb5f3d157245899715e1d3f32cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fileName: DefaultMap
+  fileName: UserMap
 --- !u!1 &972697602
 GameObject:
   m_ObjectHideFlags: 0
@@ -20336,7 +20336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   placementDelay: 1
   GameController: {fileID: 5045496}
-  fileName: DefaultMap
+  fileName: UserMap
 --- !u!1 &1563426247
 GameObject:
   m_ObjectHideFlags: 0
@@ -20557,7 +20557,7 @@ MonoBehaviour:
   - {fileID: 1665188252}
   inputField: {fileID: 480003711}
   inputButton: {fileID: 311353744}
-  nowBoard: Board
+  nowBoard: UserBoard
 --- !u!1 &1612153441
 GameObject:
   m_ObjectHideFlags: 0

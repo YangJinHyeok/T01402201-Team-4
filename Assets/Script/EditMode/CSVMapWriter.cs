@@ -29,13 +29,6 @@ public class CSVMapWriter : MonoBehaviour
         editorUIController = GameObject.Find("Canvas").GetComponent<EditorUIController>();
 
         data.Clear();
-        
-        tempData = new string[3];
-        tempData[0] = "prefapName";
-        tempData[1] = "positionX";
-        tempData[2] = "positionY";
-        data.Add(tempData);
-
     }
 
     private void Start()
@@ -145,12 +138,17 @@ public class CSVMapWriter : MonoBehaviour
 
     public void writeOnCSV()
     {
+        tempData = new string[3];
+        tempData[0] = "prefapName";
+        tempData[1] = "positionX";
+        tempData[2] = "positionY";
         List<String[]> sortedData = data.OrderBy(tem => tem[1]).ToList();
-        string[][] output = new string[sortedData.Count][];
-    
-        for (int i = 0; i < output.Length; i++)
+        string[][] output = new string[sortedData.Count+1][];
+
+        output[0] = tempData;
+        for (int i = 1; i < output.Length; i++)
         {
-            output[i] = sortedData[i];
+            output[i] = sortedData[i-1];
         }
         int length = output.GetLength(0);
         string delimiter = ",";

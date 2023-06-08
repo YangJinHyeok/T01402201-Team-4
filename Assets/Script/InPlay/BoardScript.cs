@@ -46,7 +46,7 @@ public class BoardScript : MonoBehaviour
 
             for (int i = currentBoard.Count(); i < 6; i++)
             {
-                string mono = "abcdef : 0123456789";
+                string mono = "xxxxxx : 0000000000";
                 texts[i].text = mono;
             }
         }

@@ -11,21 +11,22 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CSVMapWriter : MonoBehaviour
 {
-    public string fileName = "Map.csv";
-
-    public string prefabName;
-    public string prefabFolder;
-    public float positionX;
-    public float positionY;
+    private string fileName = "UserMap.csv";
+    private string prefabName;
+    private string prefabFolder;
+    private float positionX;
+    private float positionY;
     private GameObject player;
-    List<string[]> data = new List<string[]>();
-    string[] tempData;
+    private EditorUIController editorUIController;
+    private List<string[]> data = new List<string[]>();
+    private string[] tempData;
     private GameObject latestInstance;
 
     private StringBuilder sb;
     void Awake()
     {
         player = GameObject.Find("Player");
+        editorUIController = GameObject.Find("Canvas").GetComponent<EditorUIController>();
 
         data.Clear();
         
@@ -39,12 +40,9 @@ public class CSVMapWriter : MonoBehaviour
 
     private void Start()
     {
-        if (GameManager.instance.statusGame == 12)
-        {
-            player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
-            sb = new StringBuilder();
-        }
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
+        sb = new StringBuilder();
     }
 
     private bool inputData = false;
@@ -80,41 +78,41 @@ public class CSVMapWriter : MonoBehaviour
                     prefabName = "Box5";
                     inputData = true;
                     break;
-                case "a":
+                case "z":
                     prefabFolder = "Solid/";
                     prefabName = "Solid1";
                     inputData = true;
                     break;
-                case "s":
+                case "x":
                     prefabFolder = "Solid/";
                     prefabName = "Solid2";
                     inputData = true;
                     break;
-                case "d":
+                case "c":
                     prefabFolder = "Solid/";
                     prefabName = "Solid3";
                     inputData = true;
                     break;
-                case "f":
+                case "v":
                     prefabFolder = "Solid/";
                     prefabName = "Solid4";
                     inputData = true;
                     break;
-                case "g":
+                case "b":
                     prefabFolder = "Solid/";
                     prefabName = "Solid5";
                     inputData = true;
                     break;
-                case "z":
+                case "/":
                     Destroy(latestInstance);
                     data.Remove(tempData);
                     break;
                 case "p":
                     Debug.Log("now Saving");
                     writeOnCSV();
-                    GameManager.instance.statusGame = 13;
                     saveCSVFile();
-                    //player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
+                    transform.GetComponent<CSVSpawnWriter>().enabled = true;
+                    editorUIController.NextStep();
                     break;
             }
 

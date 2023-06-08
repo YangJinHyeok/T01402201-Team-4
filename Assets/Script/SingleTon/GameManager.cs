@@ -81,6 +81,7 @@ public class GameManager : MonoBehaviour
     {
         instance.statusGame = 12;
         SceneManager.LoadScene("MapEditMode");
+        GameObject.Find("MapEditor").GetComponent<CSVMapWriter>().enabled = true;
     }
     
     public void EndEdit()

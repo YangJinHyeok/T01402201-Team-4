@@ -11,21 +11,22 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CSVSpawnWriter : MonoBehaviour
 {
-    public string fileName = "Spawn.csv";
-
-    public string prefabName;
-    public string prefabFolder;
-    public float positionX;
-    public float positionY;
+    private string fileName = "UserSpawn.csv";
+    private string prefabName;
+    private string prefabFolder;
+    private float positionX;
+    private float positionY;
     private GameObject player;
-    List<string[]> data = new List<string[]>();
-    string[] tempData;
+    private EditorUIController editorUIController;
+    private List<string[]> data = new List<string[]>();
+    private string[] tempData;
     private GameObject latestInstance;
 
     private StringBuilder sb;
     void Awake()
     {
         player = GameObject.Find("Player");
+        editorUIController = GameObject.Find("Canvas").GetComponent<EditorUIController>();
 
         data.Clear();
         
@@ -36,76 +37,65 @@ public class CSVSpawnWriter : MonoBehaviour
         data.Add(tempData);
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        if (GameManager.instance.statusGame == 13)
-        {
-            player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
-            player.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
-            sb = new StringBuilder();
-        }
+        sb = new StringBuilder();
     }
 
     private bool inputData = false;
     private void Update()
     {
-        if (GameManager.instance.statusGame == 13)
+    
+        var input = Input.inputString;
+        switch (input)
         {
-            var input = Input.inputString;
-            switch (input)
-            {
-                /*case "q":
-                    prefabFolder = "User/";
-                    prefabName = "user";
-                    inputData = true;
-                    break;*/
-                case "a":
-                    prefabFolder = "Mob/";
-                    prefabName = "Mob1";
-                    inputData = true;
-                    break;
-                case "s":
-                    prefabFolder = "Mob/";
-                    prefabName = "Mob2";
-                    inputData = true;
-                    break;
-                case "z":
-                    Destroy(latestInstance);
-                    data.Remove(tempData);
-                    break;
-                case "p":
-                    Debug.Log("now Saving");
-                    writeOnCSV();
-                    GameManager.instance.statusGame = 22;
-                    saveCSVFile();
-                    break;
-            }
-
-            if (inputData)
-            {
-                positionX = Mathf.Round(player.transform.position.x);
-                positionY = Mathf.Round(player.transform.position.y);
-                
-                Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX,positionY),0.1f);
-                if (colliders.Length < 2)
-                {
-                    GameObject prefab = new GameObject();
-                    string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-                    prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-                    Debug.Log("current prefab : " + prefab.name);
-                    latestInstance = Instantiate(prefab,
-                        new Vector3(positionX, positionY, 0), Quaternion.identity);
-
-                    tempData = new string[4];
-                    tempData[0] = prefabName;
-                    tempData[1] = positionX.ToString();
-                    tempData[2] = positionY.ToString();
-                    data.Add(tempData);
-                }
-
-                inputData = false;
-            }
+            case "a":
+                prefabFolder = "Mob/";
+                prefabName = "Mob1";
+                inputData = true;
+                break;
+            case "s":
+                prefabFolder = "Mob/";
+                prefabName = "Mob2";
+                inputData = true;
+                break;
+            case "z":
+                Destroy(latestInstance);
+                data.Remove(tempData);
+                break;
+            case "p":
+                Debug.Log("now Saving");
+                writeOnCSV();
+                editorUIController.NextStep();
+                saveCSVFile();
+                break;
         }
+
+        if (inputData)
+        {
+            positionX = Mathf.Round(player.transform.position.x);
+            positionY = Mathf.Round(player.transform.position.y);
+            
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX,positionY),0.1f);
+            if (colliders.Length < 2)
+            {
+                GameObject prefab = new GameObject();
+                string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
+                prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
+                Debug.Log("current prefab : " + prefab.name);
+                latestInstance = Instantiate(prefab,
+                    new Vector3(positionX, positionY, 0), Quaternion.identity);
+
+                tempData = new string[4];
+                tempData[0] = prefabName;
+                tempData[1] = positionX.ToString();
+                tempData[2] = positionY.ToString();
+                data.Add(tempData);
+            }
+
+            inputData = false;
+        }
+    
     }
 
     public void writeOnCSV()

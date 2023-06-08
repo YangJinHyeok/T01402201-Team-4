@@ -7,13 +7,14 @@ public class MobMovement : MonoBehaviour
     private Transform monsterTransform;
     private Animator animator;
     [SerializeField]
-    private float moveInterval = 3f; // �̵� ���� ����
+    private float moveInterval; // �̵� ���� ����
     [SerializeField]
-    private float moveSpeed = 1f; // �̵� �ӵ� ����
+    private float moveSpeed; // �̵� �ӵ� ����
     [SerializeField]
-    private float findRange = 5f;
+    private float findRange;
     [SerializeField]
-    private int mobHealth = 12;
+    private int mobHealth;
+    private float tempInterval;
     private float timer = 0f;
 
     private Vector2 targetPosition;
@@ -30,6 +31,21 @@ public class MobMovement : MonoBehaviour
         animator.SetInteger("Health", mobHealth);
         gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
     }
+
+    void OnEnable()
+    {
+        tempInterval = moveInterval;
+        moveInterval = 200f;
+        StartCoroutine(WaitForStart());
+    }
+
+    IEnumerator WaitForStart()
+    {
+        yield return new WaitWhile(() => GameManager.instance.statusGame != 10);
+        moveInterval = tempInterval;
+    }
+
+
 
     private void Update()
     {
@@ -63,7 +79,6 @@ public class MobMovement : MonoBehaviour
             }
         }
     }
-
 
     private bool IsPositionBlocked(Vector2 position)
     {

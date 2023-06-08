@@ -11,7 +11,7 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CSVSpawnMaker : MonoBehaviour
 {
-    public string fileName = "Spawn";
+    [SerializeField] private string fileName;
     private string prefabName;
     private string prefabFolder;
     private float positionX;

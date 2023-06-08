@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +12,8 @@ public class BoardScript : MonoBehaviour
     [SerializeField] private InputField inputField;
 
     [SerializeField] private Button inputButton;
-    //[SerializeField] private GameObject board1;
+    
+    [SerializeField] private string nowBoard;
 
     private Text[] texts;
     private CSVBoard csvBoard;
@@ -20,13 +22,14 @@ public class BoardScript : MonoBehaviour
 
     public void endRoutine(int score)
     {
+        csvBoard = CSVBoard.Instance;
+        csvBoard.setName(nowBoard);
         currentScore = score;
         texts = new Text[boards.Length];
         for (int i = 0; i < boards.Length; i++)
         {
             texts[i] = boards[i].GetComponentInChildren<Text>();
         }
-        csvBoard = CSVBoard.Instance;
         List<string[]> currentBoard = csvBoard.readBoard();
 
         if (currentBoard == null)
@@ -57,7 +60,7 @@ public class BoardScript : MonoBehaviour
 
     private void inputNameEnd(string nick)
     {
-        if (nick.Length == 0)
+        if (nick.Length == 0 || nick.Equals("Player Name?"))
         {
             inputName = "player1";
         }

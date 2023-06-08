@@ -942,7 +942,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4637658026432777354, guid: 3a006466f1ce2514d9892404016cc090, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: startGame
+        m_MethodName: startEdit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1538,7 +1538,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4637658026432777354, guid: 3a006466f1ce2514d9892404016cc090, type: 3}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: startGame
+        m_MethodName: playEdit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

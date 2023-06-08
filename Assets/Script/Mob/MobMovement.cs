@@ -30,11 +30,13 @@ public class MobMovement : MonoBehaviour
         {
             Destroy(this);
         }
-        
-        monsterTransform = transform;
-        animator = GetComponent<Animator>();
-        animator.SetInteger("Health", mobHealth);
-        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
+        else
+        {
+            monsterTransform = transform;
+            animator = GetComponent<Animator>();
+            animator.SetInteger("Health", mobHealth);
+            gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
+        }
     }
 
     void OnEnable()

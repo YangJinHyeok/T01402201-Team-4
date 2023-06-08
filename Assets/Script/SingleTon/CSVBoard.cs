@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Enumeration;
 using System.Linq;
 using System.Text;
 
@@ -49,10 +50,16 @@ public class CSVBoard
     }
     
     
-    public string fileNameToSave = "Board.csv"; //write
+    private string fileNameToSave = "Board.csv"; //write
     string[] tempData;
     private StringBuilder sb;
 
+    public void setName(string name)
+    {
+        fileName = name;
+        fileNameToSave = name + ".csv";
+    }
+    
     public string[][] saveBoard(string player, int newScore)
     {
         string filepath = SystemPath.GetPath();

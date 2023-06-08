@@ -11,7 +11,7 @@ public class CSVPortalMaker : MonoBehaviour
 {
     [SerializeField] private float placementDelay = 1.0f; 
     [SerializeField] private GameObject GameController;
-    public string fileName = "Map";
+    [SerializeField] private string fileName;
     
     private string prefabName;
     private float positionX;

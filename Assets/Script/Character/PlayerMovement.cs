@@ -126,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetTrigger("monsterTouch");
         playerSpeed = 0f;
+        GetComponent<Collider2D>().enabled = false;
 
         delayTime = 2f;
         yield return new WaitForSeconds(delayTime);
@@ -139,7 +140,6 @@ public class PlayerMovement : MonoBehaviour
         float delayTime = 4.0f;
 
         anim.SetTrigger("trap");
-        GetComponent<Collider2D>().enabled = false;
         isTrapTriggered = false;
 
         playerSpeed = 0.5f;

@@ -1,16 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.UIElements;
 
-public class PlayerMovement : MonoBehaviour
+public class EditorModePlayer : MonoBehaviour
 {
-    private Rigidbody2D rb;
+   private Rigidbody2D rb;
     private Animator anim;
     private SpriteRenderer sprite;
     private Vector2 lastMovement = new Vector2(0, 0);
-    private GameEffects gameEffects;
 
     private float playerSpeed;
     private float playerSpeedMax;
@@ -27,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
         playerSpeed = Character.Instance.getSpeed();
         playerSpeedMax = Character.Instance.getSpeedMax();
-        gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
     }
 
     // Update is called once per frame
@@ -95,79 +91,6 @@ public class PlayerMovement : MonoBehaviour
         {
             anim.enabled = false;
             return;
-        }
-
-
-    }
-
-    public void speedUp()
-    {
-        if (playerSpeed < playerSpeedMax)
-        {
-            playerSpeed++;
-        }
-    }
-
-    private IEnumerator playerDeath(float delayTime)
-    {
-        yield return new WaitForSeconds(delayTime);
-
-        anim.SetTrigger("death");
-        playerSpeed = 0f;
-
-        delayTime = 2f;
-        yield return new WaitForSeconds(delayTime);
-
-        gameEffects.endGame(false);
-        Destroy(gameObject);
-    }
-
-    private IEnumerator monsterTouch(float delayTime)
-    {
-        anim.SetTrigger("monsterTouch");
-        playerSpeed = 0f;
-        GetComponent<Collider2D>().enabled = false;
-
-        delayTime = 2f;
-        yield return new WaitForSeconds(delayTime);
-
-        gameEffects.endGame(false);
-        Destroy(gameObject);
-    }
-
-    public void PlayerDie()
-    {
-        float delayTime = 4.0f;
-
-        anim.SetTrigger("trap");
-        isTrapTriggered = false;
-
-        playerSpeed = 0.5f;
-        StartCoroutine(playerDeath(delayTime));
-        
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        AnimatorStateInfo currentState = anim.GetCurrentAnimatorStateInfo(0);
-
-        if (currentState.IsName("TrapBazzi"))
-        {
-            return;
-        }
-        if (collision.gameObject.CompareTag("Explosion"))
-        {
-            PlayerDie();
-        }
-
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Mob"))
-        {
-            StartCoroutine(monsterTouch(2.0f));
         }
     }
 }

@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,30 +26,29 @@ public class GameUIController : MonoBehaviour
     
     private void Start()
     {
-
         coinText.text = string.Format("{000000} $",coin);
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);
         canvasGroup = transform.GetComponent<CanvasGroup>();
         canvasGroup.alpha = 0;
         boardPage.SetActive(false);
-        timerControl = StartCoroutine(timer());
-        
     }
 
     private void Update()
     {
         timeText.text = string.Format("{000}", times);
         scoreText.text = string.Format("Score : {0000000000}", score);
-        
+        QImage.fillAmount = GameEffects.portalCooltime / 3.0f;
+        if (GameManager.instance.statusGame == 10 && timerControl.IsUnityNull())
+        {
+            timerControl = StartCoroutine(timer());
+        }
         if (Input.GetKey(KeyCode.Escape) && GameManager.instance.statusGame is > 0 and < 11)
         {
             canvasGroup.alpha = 1;
             GameManager.instance.pauseGame();
             pauseUI.SetActive(true);
         }
-
-        QImage.fillAmount = GameEffects.portalCooltime / 3.0f;
     }
 
     IEnumerator timer()
@@ -62,7 +62,7 @@ public class GameUIController : MonoBehaviour
             else
             {
                 times--;
-                score = score - 50;
+                score = score - 30;
 
                 yield return new WaitForSeconds(1);
             }

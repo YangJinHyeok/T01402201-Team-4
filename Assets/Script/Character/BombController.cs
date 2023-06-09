@@ -16,7 +16,7 @@ public class BombController : MonoBehaviour
     private int playerPower;
     private int playerPowerMax;
     private PlayerMovement playerMovement;
-    public AudioSource mySfx;
+    public AudioSource mySfx3;
 
     public AudioClip setsFx;
 
@@ -120,6 +120,6 @@ public class BombController : MonoBehaviour
 
     public void setSound()
     {
-        mySfx.PlayOneShot(setsFx);
+        mySfx3.PlayOneShot(setsFx);
     }
 }

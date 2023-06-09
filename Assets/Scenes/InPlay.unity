@@ -646,7 +646,7 @@ MonoBehaviour:
   MySfx: {fileID: 357793579}
   MySfxClip: {fileID: 8300000, guid: 0d545c8d5de75bf4e809e5e4a7cf168f, type: 3}
   MySfxClip2: {fileID: 8300000, guid: e04227e1d772e83408277c2ae4ee8dde, type: 3}
-  MySfxClip3: {fileID: 8300000, guid: 974e3992d098cf64294109c27238a21b, type: 3}
+  MySfxClip3: {fileID: 8300000, guid: e04227e1d772e83408277c2ae4ee8dde, type: 3}
   isTrapTriggered: 1
 --- !u!1839735485 &357793571
 Tilemap:
@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4f1dd6094f72a4fb31a0c24c304ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mySfx: {fileID: 357793579}
+  mySfx3: {fileID: 357793579}
   setsFx: {fileID: 8300000, guid: f077aa9ed4edc8d49a7173556ffa9704, type: 3}
 --- !u!82 &357793579
 AudioSource:
@@ -816,7 +816,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.18
+  m_Volume: 0.036
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -20328,7 +20328,7 @@ AudioSource:
   m_GameObject: {fileID: 1464616700}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 2701b00bfa33248438d2f29b01da3a15, type: 2}
   m_audioClip: {fileID: 8300000, guid: 18d7cb774d121874b80804c8ee7e0b29, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.074
@@ -20427,7 +20427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73733101fec5ec84b8483ae1612bd847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MySfx: {fileID: 1464616701}
+  MySfx2: {fileID: 1464616701}
 --- !u!4 &1464616703
 Transform:
   m_ObjectHideFlags: 0

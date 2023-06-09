@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Sound : MonoBehaviour
 {
-    public AudioSource MySfx;
+    public AudioSource MySfx2;
 
     private void Update()
     {
@@ -15,8 +15,7 @@ public class Sound : MonoBehaviour
     {
         if (GameManager.instance.statusGame == 21)
         {
-
-            MySfx.Stop();
+            MySfx2.Stop();
         }
     }
     

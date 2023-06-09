@@ -71,7 +71,7 @@ unity와 C# 그리고 git 을 사용해 게임을 개발하고 있습니다.<br>
 
 - 움직임
 
-![move](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/01a82f24-dfc8-4cb8-9087-2935be2ed43c)
+![move](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/e877b30b-2bdf-497f-b6c1-358240b90130)
 
 - 물폭탄
 

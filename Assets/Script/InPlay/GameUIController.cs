@@ -17,6 +17,7 @@ public class GameUIController : MonoBehaviour
 
     public static int coin = 0;
     public Text coinText;
+    public AudioSource winSound;
 
     private CanvasGroup canvasGroup;
     private BoardScript boardScript;
@@ -92,6 +93,7 @@ public class GameUIController : MonoBehaviour
     {
         if (isWin)
         {
+            winSound.Play();
             endImage.transform.Find("Win").gameObject.SetActive(true);
             yield return new WaitForSecondsRealtime(3.0f);
             endImage.transform.Find("Win").gameObject.SetActive(false);

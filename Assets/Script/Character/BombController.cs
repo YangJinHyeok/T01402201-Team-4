@@ -16,6 +16,9 @@ public class BombController : MonoBehaviour
     private int playerPower;
     private int playerPowerMax;
     private PlayerMovement playerMovement;
+    public AudioSource mySfx;
+
+    public AudioClip setsFx;
 
     private void Start()
     {
@@ -54,6 +57,7 @@ public class BombController : MonoBehaviour
                     GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
                     playerRemaining--;
                     Instantiate(prefab, position, Quaternion.identity);
+                    setSound();
                 }
 
             }
@@ -112,5 +116,10 @@ public class BombController : MonoBehaviour
     public int getPlayerPower()
     {
         return playerPower;
+    }
+
+    public void setSound()
+    {
+        mySfx.PlayOneShot(setsFx);
     }
 }

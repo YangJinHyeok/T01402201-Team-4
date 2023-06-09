@@ -6,7 +6,9 @@ public class Explosion : MonoBehaviour
 {
     public AnimatedSpriteRenderer start;
     public AnimatedSpriteRenderer middle;
-    public AnimatedSpriteRenderer end; 
+    public AnimatedSpriteRenderer end;
+    public AudioSource explosionAudio;
+
 
     public void SetActiveRenderer(AnimatedSpriteRenderer renderer)
     {
@@ -23,7 +25,12 @@ public class Explosion : MonoBehaviour
 
     public void DestroyAfter(float seconds)
     {
+        explosionAudio.Play();
         Destroy(gameObject, seconds);
     }
+
+
+
+
 
 }

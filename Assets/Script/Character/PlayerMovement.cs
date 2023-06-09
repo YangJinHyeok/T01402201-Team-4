@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer sprite;
     private Vector2 lastMovement = new Vector2(0, 0);
     private GameEffects gameEffects;
+    public AudioSource MySfx;
+    public AudioClip MySfxClip;
+    public AudioClip MySfxClip2;
+    public AudioClip MySfxClip3;
 
     private float playerSpeed;
     private float playerSpeedMax;
@@ -28,12 +32,14 @@ public class PlayerMovement : MonoBehaviour
         playerSpeed = Character.Instance.getSpeed();
         playerSpeedMax = Character.Instance.getSpeedMax();
         gameEffects = GameObject.Find("GameController").GetComponent<GameEffects>();
+
     }
 
     // Update is called once per frame
     private void Update()
     {
         PlayerMove();
+        
     }
     
 
@@ -119,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         gameEffects.endGame(false);
+        MySfx.PlayOneShot(MySfxClip2);
+        yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
     }
 
@@ -132,6 +140,8 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         gameEffects.endGame(false);
+        MySfx.PlayOneShot(MySfxClip2);
+        yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
     }
 
@@ -160,6 +170,26 @@ public class PlayerMovement : MonoBehaviour
         {
             PlayerDie();
         }
+        if (collision.gameObject.CompareTag("ItemCount"))
+        {
+            itemEat();
+        }
+        if (collision.gameObject.CompareTag("ItemSuperPower"))
+        {
+            itemEat();
+        }
+        if (collision.gameObject.CompareTag("ItemPower"))
+        {
+            itemEat();
+        }
+        if (collision.gameObject.CompareTag("ItemSpeed"))
+        {
+            itemEat();
+        }
+        if (collision.gameObject.CompareTag("Lucci"))
+        {
+            itemEat();
+        }
 
     }
 
@@ -169,5 +199,10 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(monsterTouch(2.0f));
         }
+    }
+
+    public void itemEat()
+    {
+        MySfx.PlayOneShot(MySfxClip);
     }
 }

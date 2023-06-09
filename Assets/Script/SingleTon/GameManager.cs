@@ -88,6 +88,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("MapEditMode");
         GameObject.Find("MapEditor").GetComponent<CSVMapWriter>().enabled = true;
     }
+
+    public void startUpgrade()
+    {
+        SceneManager.LoadScene("UpgradeMenu");
+    }
     
     public void EndEdit()
     {

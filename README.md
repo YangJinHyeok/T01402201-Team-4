@@ -70,29 +70,44 @@ unity와 C# 그리고 git 을 사용해 게임을 개발하고 있습니다.<br>
 ### 기존의 크레이지 아케이드를 기반
 
 - 움직임
+
   ![move](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/01a82f24-dfc8-4cb8-9087-2935be2ed43c)
 
 - 물폭탄
+
   ![bomb](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/2abfdd7b-dae3-40c4-996f-f50b00b15a6a)
 
 - 오브젝트들
+
   ![box_shift](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/81c82172-0543-41a5-a51c-b9eb3277660e)
 
 - 몬스터에 의한 죽음
+
   ![touch_die](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/12692a11-3958-4e99-be47-281648a25db1)
+
 - 물풍선에 의한 죽음
+
   ![trap_die](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/2228b2e0-6ab5-4ca7-be7b-ad2ee4ae2132)
 
 ### 4팀이 추가한 사항들
 
 - 더욱 커다란 맵과 많은 몬스터
 
-- 매판 Random으로 Portal 생성(어몽어스 벤트)
+  ![initMap](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/13dd511a-b8e4-433b-96f3-bf064e1edb39)
+
+- 우측 상단에 미니맵 추가
+
+- 매판 Random으로 Portal 생성(어몽어스 벤트)  
   ![portal](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/263ef327-57e4-4255-87a5-5ec9816d6bf5)
 
-- 제한시간 안에 모든 몬스터를 처치, Score를 통한 경쟁
+- 제한시간 안에 모든 몬스터를 처치, Score를 통한 경쟁  
   ![rank](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/8d964130-1df8-482f-932b-18967cb0bb0e)
 
 - RPG 장르의 요소 중 하나인 캐릭터 강화
 - 게임 진행 중 얻은 재화로 강화
+
 - 최종 컨텐츠는 User 스스로 Map을 생성, 플레이 가능
+
+![mapEditor1](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/8a733744-8f02-42b4-ab4c-c9362e51b2af)
+
+![mapEditor2](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/a667e21b-9fa7-41af-aae6-2065fa3f9174)

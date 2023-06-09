@@ -42,9 +42,9 @@ public class GameEffects : MonoBehaviour
 
     private void Update()
     {
-        if (GameEffects.portalCooltime < 3.0f)
+        if (portalCooltime < 3.0f)
         {
-            GameEffects.portalCooltime += Time.deltaTime;
+            portalCooltime += Time.deltaTime;
         }
     }
 
@@ -53,17 +53,12 @@ public class GameEffects : MonoBehaviour
         Vector3 targetPosition = target.transform.position;
         Instantiate(dust, targetPosition, Quaternion.identity);
         target.GetComponent<BoxAndSolid>().effectByBomb();
-        gameUIController.updateScoreWIthValue(30);
-    }
-
-    public void touchItems(GameObject item)
-    {
-        Destroy(item);
+        gameUIController.updateScoreWIthValue(20);
     }
 
     public void touchMob(GameObject target)
     {
-        gameUIController.updateScoreWIthValue(100);
+        gameUIController.updateScoreWIthValue(200);
         lowerMobCount();
     }
 
@@ -94,10 +89,7 @@ public class GameEffects : MonoBehaviour
                 gameUIController.updateCoin(Random.Range(100, 300));
                 break;
         }
-
-        /*
-         * <<sound method will place in this Line>>
-         */
+        gameUIController.updateScoreWIthValue(40);
         Destroy(item);
     }
 

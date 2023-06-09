@@ -32,7 +32,6 @@ public class CSVSpawnMaker : MonoBehaviour
         }
         List<Dictionary<string, object>> mob1 = new List<Dictionary<string, object>>();
         List<Dictionary<string, object>> mob2 = new List<Dictionary<string, object>>();
-        //List<Dictionary<string, object>> player = new List<Dictionary<string, object>>();
 
         for (int i = 0; i < length; i++)
         {
@@ -47,15 +46,14 @@ public class CSVSpawnMaker : MonoBehaviour
                 mob2.Add(dicList[i]);
             }
         }
-
+        parent = GameObject.FindWithTag("Mob");
+        prefabFolder = "Mob/";
         for (int i = 0; i < mob1.Count; i++)
         {
             prefabName = mob1[i]["prefapName"].ToString();
             positionX = float.Parse(mob1[i]["positionX"].ToString());
             positionY = float.Parse(mob1[i]["positionY"].ToString());
-            parent = GameObject.FindWithTag("Mob");
-            prefabFolder = "Mob/";
-            
+
             string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
@@ -68,9 +66,7 @@ public class CSVSpawnMaker : MonoBehaviour
             prefabName = mob2[i]["prefapName"].ToString();
             positionX = float.Parse(mob2[i]["positionX"].ToString());
             positionY = float.Parse(mob2[i]["positionY"].ToString());
-            parent = GameObject.FindWithTag("Mob");
-            prefabFolder = "Mob/";
-            
+
             string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
             prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
@@ -78,13 +74,6 @@ public class CSVSpawnMaker : MonoBehaviour
             
             yield return new WaitForSeconds(placementDelay);
         }
-        /*
-         * select player spawn position by random
-         * main.gameObject.transform.position = new Vector3(positionX, positionY, -10);
-         * Random.Range(0, player.count);
-         * yield return new WaitForSeconds(0.5f);
-         */
-        
         gameEffects.setMobCount(mob1.Count + mob2.Count);
         GameManager.instance.statusGame = 5;
 

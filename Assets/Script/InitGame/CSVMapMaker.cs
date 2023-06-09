@@ -19,9 +19,10 @@ public class CSVMapMaker : MonoBehaviour
 
     private GameObject prefab;
     private GameObject parent;
+    private Coroutine routine;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
     string[] itemName = new[] {"ItemCount", "ItemPower", "ItemSpeed", "ItemSuperPower", "Lucci" };
-    int[] probability = new[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 5, 6, 7, 8, 9 };
+    int[] probability = new[] { 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 5, 5, 5, 5, 5 };
 
     
     
@@ -83,15 +84,13 @@ public class CSVMapMaker : MonoBehaviour
         {
             Destroy(transform.gameObject);
         }
-            
-        StartCoroutine(LoadCSVMap(dicList.Count));
     }
 
     private void Update()
     {
-        if (GameManager.instance.statusGame == 4)
+        if (GameManager.instance.statusGame == 1 && routine.IsUnityNull())
         {
-            Destroy(transform.gameObject);
+            routine = StartCoroutine(LoadCSVMap(dicList.Count));
         }
     }
 
@@ -105,6 +104,5 @@ public class CSVMapMaker : MonoBehaviour
             GameObject nowSpawn = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             Instantiate(nowSpawn, Vector3.zero, Quaternion.identity, parent.transform).SetActive(false);
         }
-        
     }
 }

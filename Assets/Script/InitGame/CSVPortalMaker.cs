@@ -19,17 +19,13 @@ public class CSVPortalMaker : MonoBehaviour
     
     private GameObject prefab;
     private GameObject portalParent;
+    private Coroutine routine;
 
     private GameEffects gameEffects;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
     
     private IEnumerator LoadCSVMap(int length)
     {
-        while (GameManager.instance.statusGame != 5)
-        {
-            yield return null;
-        }
-
         GameObject portalInstance;
         for (int i = 0; i < length; i++)
         {
@@ -49,7 +45,6 @@ public class CSVPortalMaker : MonoBehaviour
         yield return new WaitForSeconds(placementDelay);
         gameEffects.makePortal();
         GameManager.instance.statusGame = 6;
-
     }
 
     private void Start()
@@ -67,15 +62,14 @@ public class CSVPortalMaker : MonoBehaviour
         gameEffects = GameController.GetComponent<GameEffects>();
         portalParent = GameObject.Find("Portal");
         prefab = AssetDatabase.
-            LoadAssetAtPath("Assets/Prefabs/Solid/PortalParticle.prefab",typeof(GameObject)).GameObject();    
-        StartCoroutine(LoadCSVMap(dicList.Count));
+            LoadAssetAtPath("Assets/Prefabs/Solid/PortalParticle.prefab",typeof(GameObject)).GameObject();
     }
 
     private void Update()
     {
-        if (GameManager.instance.statusGame == 10)
+        if (GameManager.instance.statusGame == 5 && routine.IsUnityNull())
         {
-            Destroy(transform.gameObject);
+            routine = StartCoroutine(LoadCSVMap(dicList.Count));
         }
     }
 }

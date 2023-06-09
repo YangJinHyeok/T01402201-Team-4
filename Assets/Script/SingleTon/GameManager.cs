@@ -93,11 +93,6 @@ public class GameManager : MonoBehaviour
     {
         SceneManager.LoadScene("UpgradeMenu");
     }
-    
-    public void EndEdit()
-    {
-        instance.statusGame = 22;
-    }
 
     public void MainMenu()
     {
@@ -116,9 +111,13 @@ public class GameManager : MonoBehaviour
         {
             masterVol = -80.0f;
         }
+        else if (masterVol is  < -1f and > -5f)
+        {
+            masterVol = 0.0f;
+        }
         else
         {
-            masterVol += 20.0f;
+            masterVol = masterVol/4;
         }
 
         mixer.SetFloat("MasterVol", masterVol);

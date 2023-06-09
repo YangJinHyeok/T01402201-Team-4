@@ -39,10 +39,7 @@ public class Character : MonoBehaviour
     {
         return speed;
     }
-    public void setSpeed()
-    {
-        
-    }
+    
     public int getSpeedMax()
     {
         
@@ -58,20 +55,10 @@ public class Character : MonoBehaviour
     {
         return power;
     }
-
-    public void setPower()
-    {
-        
-    }
-
+    
     public int getCount()
     {
         return count;
-    }
-
-    public void setCount()
-    {
-        
     }
 
     public int getCountMax()

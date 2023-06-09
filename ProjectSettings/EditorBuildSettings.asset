@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/UserPlay.unity
     guid: 0a10a8b7de24f3c4ea5ceeb20bfdaf66
+  - enabled: 1
+    path: Assets/Scenes/UpgradeMenu.unity
+    guid: c8d71388d542b714fa64c4a244a5e23b
   m_configObjects: {}

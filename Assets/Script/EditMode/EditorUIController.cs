@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,7 @@ public class EditorUIController : MonoBehaviour
     [SerializeField] private GameObject boxAndSolidPanel;
     [SerializeField] private GameObject MobPanel;
     [SerializeField] private Image volume;
+    [SerializeField] private Image ErrorMessage;
     
     private void Start()
     {
@@ -55,4 +57,9 @@ public class EditorUIController : MonoBehaviour
         }
     }
 
+    public void messagingError()
+    {
+        GameObject instantiate = Instantiate(ErrorMessage.gameObject, transform);
+        Destroy(instantiate, 1.0f);
+    }
 }

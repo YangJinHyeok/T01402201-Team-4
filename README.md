@@ -75,7 +75,8 @@ unity와 C# 그리고 git 을 사용해 게임을 개발하고 있습니다.<br>
 
 - 물폭탄
 
-![bomb](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/2abfdd7b-dae3-40c4-996f-f50b00b15a6a)
+![bomb](https://github.com/YangJinHyeok/T01402201-Team-4/assets/96881651/e969b0bc-fb4a-4e43-8230-5476edd3dcf2)
+
 
 - 오브젝트들
 

@@ -125,7 +125,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         gameEffects.endGame(false);
-        MySfx.PlayOneShot(MySfxClip2);
+        playLoseSound(MySfxClip2,0.3f);
         yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
     }
@@ -140,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(delayTime);
 
         gameEffects.endGame(false);
-        MySfx.PlayOneShot(MySfxClip2);
+        playLoseSound(MySfxClip2,0.3f);
         yield return new WaitForSeconds(1.0f);
         Destroy(gameObject);
     }
@@ -204,5 +204,12 @@ public class PlayerMovement : MonoBehaviour
     public void itemEat()
     {
         MySfx.PlayOneShot(MySfxClip);
+    }
+
+    private void playLoseSound(AudioClip loseClip, float volume){
+        float oringinVolume = MySfx.volume;
+        MySfx.volume = volume;
+        MySfx.PlayOneShot(loseClip);
+        MySfx.volume = oringinVolume;
     }
 }

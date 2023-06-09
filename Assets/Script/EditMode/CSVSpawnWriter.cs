@@ -76,24 +76,32 @@ public class CSVSpawnWriter : MonoBehaviour
             positionX = Mathf.Round(player.transform.position.x);
             positionY = Mathf.Round(player.transform.position.y);
             
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX,positionY),0.1f);
-            if (colliders.Length < 2)
+            if (positionX is <= -28 or >= 27 || positionY is <= -15 or >= 14)
             {
-                GameObject prefab = new GameObject();
-                string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-                prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-                Debug.Log("current prefab : " + prefab.name);
-                latestInstance = Instantiate(prefab,
-                    new Vector3(positionX, positionY, 0), Quaternion.identity);
-
-                tempData = new string[4];
-                tempData[0] = prefabName;
-                tempData[1] = positionX.ToString();
-                tempData[2] = positionY.ToString();
-                data.Add(tempData);
+                GameObject.Find("Canvas").GetComponent<EditorUIController>().messagingError();
+                inputData = false;
             }
+            else
+            {
+                Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX, positionY), 0.1f);
+                if (colliders.Length < 2)
+                {
+                    GameObject prefab = new GameObject();
+                    string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
+                    prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
+                    Debug.Log("current prefab : " + prefab.name);
+                    latestInstance = Instantiate(prefab,
+                        new Vector3(positionX, positionY, 0), Quaternion.identity);
 
-            inputData = false;
+                    tempData = new string[4];
+                    tempData[0] = prefabName;
+                    tempData[1] = positionX.ToString();
+                    tempData[2] = positionY.ToString();
+                    data.Add(tempData);
+                }
+
+                inputData = false;
+            }
         }
     
     }

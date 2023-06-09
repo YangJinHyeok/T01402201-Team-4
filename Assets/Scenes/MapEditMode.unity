@@ -1686,6 +1686,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4f1dd6094f72a4fb31a0c24c304ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mySfx3: {fileID: 0}
+  setsFx: {fileID: 0}
 --- !u!58 &697333408
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -2570,6 +2572,7 @@ MonoBehaviour:
   boxAndSolidPanel: {fileID: 2144010940}
   MobPanel: {fileID: 239593722}
   volume: {fileID: 959258579}
+  ErrorMessage: {fileID: 6877148867358581055, guid: 5918f029e185e9349b95b574d8bfdd78, type: 3}
 --- !u!1 &1071798331
 GameObject:
   m_ObjectHideFlags: 0

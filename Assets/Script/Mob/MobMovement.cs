@@ -7,9 +7,9 @@ public class MobMovement : MonoBehaviour
     private Transform monsterTransform;
     private Animator animator;
     [SerializeField]
-    private float moveInterval; // �̵� ���� ����
+    private float moveInterval;
     [SerializeField]
-    private float moveSpeed; // �̵� �ӵ� ����
+    private float moveSpeed; 
     [SerializeField]
     private float findRange;
     [SerializeField]
@@ -63,7 +63,6 @@ public class MobMovement : MonoBehaviour
             Mathf.Floor(monsterTransform.position.x) == monsterTransform.position.x &&
             Mathf.Floor(monsterTransform.position.y) == monsterTransform.position.y)
         {
-            Debug.Log("Track");
             moveTrack(trackPosition);
         }
 
@@ -192,15 +191,6 @@ public class MobMovement : MonoBehaviour
     private void mobDestroy()
     {
         Destroy(gameObject);
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Debug.Log("Game Over");
-        }
     }
 
     private void OnTriggerEnter2D(Collider2D collider)

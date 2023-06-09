@@ -25,15 +25,6 @@ public class UpgradeUIController : MonoBehaviour
     [SerializeField]
     private Button CancleButton;
 
-    private int speed;
-    private int power;
-    private int count;
-    private int firstLucci;
-
-    private int currentSpeed;
-    private int currentPower;
-    private int currentCount;
-
     private Text speedNeedLucci;
     private Text powerNeedLucci;
     private Text countNeedLucci;
@@ -46,32 +37,41 @@ public class UpgradeUIController : MonoBehaviour
     private GameObject PUButton;
     private GameObject CUButton;
 
+    private int maxSpeed;
+    private int maxPower;
+    private int maxCount;
+    private int firstLucci;
+
+    private int currentMaxSpeedLevel;
+    private int currentMaxPowerLevel;
+    private int currentMaxCountLevel;
+
     // Start is called before the first frame update
     void Start()
     {
         Character.Instance.getFromCSV();
 
-        speed = Character.Instance.getSpeedMax();
-        power = Character.Instance.getPowerMax();
-        count = Character.Instance.getCountMax();
+        maxSpeed = Character.Instance.getSpeedMax();
+        maxPower = Character.Instance.getPowerMax();
+        maxCount = Character.Instance.getCountMax();
         firstLucci = Character.Instance.getLucci();
 
         speedNeedLucci = Speed.transform.Find("SpeedNeedLucci").GetComponent<Text>();
         powerNeedLucci = Power.transform.Find("PowerNeedLucci").GetComponent<Text>();
         countNeedLucci = Count.transform.Find("CountNeedLucci").GetComponent<Text>();
 
-        SpeedUpButton.onClick.AddListener(upgradeSpeed);
-        PowerUpButton.onClick.AddListener(upgradePower);
-        CountUpButton.onClick.AddListener(upgradeCount);
+        SpeedUpButton.onClick.AddListener(upgradeMaxSpeed);
+        PowerUpButton.onClick.AddListener(upgradeMaxPower);
+        CountUpButton.onClick.AddListener(upgradeMaxCount);
         CommitButton.onClick.AddListener(commitAll);
         CancleButton.onClick.AddListener(cancleAll);
 
         updateBoard();
     }
 
-    private int getUpgradeSpeed(int speed)
+    private int getSpeedUpgradeLevel(int currentMaxSpeed)
     {
-        switch (speed)
+        switch (currentMaxSpeed)
         {
             case 6:
                 return 0;
@@ -88,9 +88,9 @@ public class UpgradeUIController : MonoBehaviour
         }
     }
 
-    private int getUpgradePower(int power)
+    private int getPowerUpgradeLevel(int currentMaxPower)
     {
-        switch (power)
+        switch (currentMaxPower)
         {
             case 8:
                 return 0;
@@ -107,9 +107,9 @@ public class UpgradeUIController : MonoBehaviour
         }
     }
 
-    private int getUpgradeCount(int count)
+    private int getCountUpgradeLevel(int currentMaxCount)
     {
-        switch (count)
+        switch (currentMaxCount)
         {
             case 6:
                 return 0;
@@ -126,18 +126,18 @@ public class UpgradeUIController : MonoBehaviour
         }
     }
 
-    private int getNeedLucci(int stat)
+    private int getNeedLucci(int statLevel)
     {
-        switch (stat)
+        switch (statLevel)
         {
             case 0:
-                return 100;
+                return 5000;
             case 1:
-                return 200;
+                return 10000;
             case 2:
-                return 500;
+                return 20000;
             case 3:
-                return 1000;
+                return 50000;
             case 4:
                 return 0;
             default:
@@ -145,74 +145,74 @@ public class UpgradeUIController : MonoBehaviour
         }
     }
 
-    private void showMedal(Image stat, int amount)
+    private void showMedal(Image stat, int UpgradeLevel)
     {
         upgrade1 = stat.transform.Find("Upgrade1").gameObject;
         upgrade2 = stat.transform.Find("Upgrade2").gameObject;
         upgrade3 = stat.transform.Find("Upgrade3").gameObject;
         upgrade4 = stat.transform.Find("Upgrade4").gameObject;
-        if (amount >= 1)
+        if (UpgradeLevel >= 1)
         {
             upgrade1.SetActive(true);
         }
-        if (amount >= 2)
+        if (UpgradeLevel >= 2)
         {
             upgrade2.SetActive(true);
         }
-        if (amount >= 3)
+        if (UpgradeLevel >= 3)
         {
             upgrade3.SetActive(true);
         }
-        if (amount >= 4)
+        if (UpgradeLevel >= 4)
         {
             upgrade4.SetActive(true);
         }
-        if (amount < 1)
+        if (UpgradeLevel < 1)
         {
             upgrade1.SetActive(false);
         }
-        if (amount < 2)
+        if (UpgradeLevel < 2)
         {
             upgrade2.SetActive(false);
         }
-        if (amount < 3)
+        if (UpgradeLevel < 3)
         {
             upgrade3.SetActive(false);
         }
-        if (amount < 4)
+        if (UpgradeLevel < 4)
         {
             upgrade4.SetActive(false);
         }
     }
 
-    private void upgradeSpeed()
+    private void upgradeMaxSpeed()
     {
-        int requireLucci = getNeedLucci(currentSpeed);
+        int requireLucci = getNeedLucci(currentMaxSpeedLevel);
         if (requireLucci <= Character.Instance.getLucci())
         {
-            speed += 1;
+            maxSpeed += 1;
             Character.Instance.setLucci(-requireLucci);
             updateBoard();
         }
     }
 
-    private void upgradePower()
+    private void upgradeMaxPower()
     {
-        int requireLucci = getNeedLucci(currentPower);
+        int requireLucci = getNeedLucci(currentMaxPowerLevel);
         if (requireLucci <= Character.Instance.getLucci())
         {
-            power += 1;
+            maxPower += 1;
             Character.Instance.setLucci(-requireLucci);
             updateBoard();
         }
     }
 
-    private void upgradeCount()
+    private void upgradeMaxCount()
     {
-        int requireLucci = getNeedLucci(currentCount);
+        int requireLucci = getNeedLucci(currentMaxCountLevel);
         if (requireLucci <= Character.Instance.getLucci())
         {
-            count += 1;
+            maxCount += 1;
             Character.Instance.setLucci(-requireLucci);
             updateBoard();
         }
@@ -221,51 +221,50 @@ public class UpgradeUIController : MonoBehaviour
 
     private void updateBoard()
     {
-        Debug.Log("Update");
-        currentSpeed = getUpgradeSpeed(speed);
-        currentPower = getUpgradePower(power);
-        currentCount = getUpgradeCount(count);
+        currentMaxSpeedLevel = getSpeedUpgradeLevel(maxSpeed);
+        currentMaxPowerLevel = getPowerUpgradeLevel(maxPower);
+        currentMaxCountLevel = getCountUpgradeLevel(maxCount);
 
-        speedNeedLucci.text = string.Format("{0000} $", getNeedLucci(currentSpeed));
-        powerNeedLucci.text = string.Format("{0000} $", getNeedLucci(currentPower));
-        countNeedLucci.text = string.Format("{0000} $", getNeedLucci(currentCount));
+        speedNeedLucci.text = string.Format("{0000} $", getNeedLucci(currentMaxSpeedLevel));
+        powerNeedLucci.text = string.Format("{0000} $", getNeedLucci(currentMaxPowerLevel));
+        countNeedLucci.text = string.Format("{0000} $", getNeedLucci(currentMaxCountLevel));
         CurrentLucci.text = string.Format("{000000} $", Character.Instance.getLucci());
 
-        showMedal(Speed, currentSpeed);
-        showMedal(Power, currentPower);
-        showMedal(Count, currentCount);
+        showMedal(Speed, currentMaxSpeedLevel);
+        showMedal(Power, currentMaxPowerLevel);
+        showMedal(Count, currentMaxCountLevel);
 
-        if (currentSpeed == 4)
+        if (currentMaxSpeedLevel == 4)
         {
             SUButton = Speed.transform.Find("SpeedUpButton").gameObject;
             SUButton.SetActive(false);
             speedNeedLucci.enabled = false;
         }
-        else if (currentSpeed < 4)
+        else if (currentMaxSpeedLevel < 4)
         {
             SUButton = Speed.transform.Find("SpeedUpButton").gameObject;
             SUButton.SetActive(true);
             speedNeedLucci.enabled = true;
         }
-        if (currentPower == 4)
+        if (currentMaxPowerLevel == 4)
         {
             PUButton = Power.transform.Find("PowerUpButton").gameObject;
             PUButton.SetActive(false);
             powerNeedLucci.enabled = false;
         }
-        else if (currentPower < 4)
+        else if (currentMaxPowerLevel < 4)
         {
             PUButton = Power.transform.Find("PowerUpButton").gameObject;
             PUButton.SetActive(true);
             powerNeedLucci.enabled = true;
         }
-        if (currentCount == 4)
+        if (currentMaxCountLevel == 4)
         {
             CUButton = Count.transform.Find("CountUpButton").gameObject;
             CUButton.SetActive(false);
             countNeedLucci.enabled = false;
         }
-        else if (currentCount < 4)
+        else if (currentMaxCountLevel < 4)
         {
             CUButton = Count.transform.Find("CountUpButton").gameObject;
             CUButton.SetActive(true);
@@ -275,26 +274,20 @@ public class UpgradeUIController : MonoBehaviour
 
     private void commitAll()
     {
-        Character.Instance.setSpeedMax(speed);
-        Character.Instance.setPowerMax(power);
-        Character.Instance.setCountMax(count);
+        Character.Instance.setSpeedMax(maxSpeed);
+        Character.Instance.setPowerMax(maxPower);
+        Character.Instance.setCountMax(maxCount);
         Character.Instance.saveToCSV();
         SceneManager.LoadScene("MainMenu");
     }
 
     private void cancleAll()
     {
-        speed = Character.Instance.getSpeedMax();
-        power = Character.Instance.getPowerMax();
-        count = Character.Instance.getCountMax();
+        maxSpeed = Character.Instance.getSpeedMax();
+        maxPower = Character.Instance.getPowerMax();
+        maxCount = Character.Instance.getCountMax();
         int returnLucci = firstLucci - Character.Instance.getLucci();
         Character.Instance.setLucci(returnLucci);
         updateBoard();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

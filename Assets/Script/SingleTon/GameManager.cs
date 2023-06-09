@@ -1,6 +1,8 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -79,8 +81,11 @@ public class GameManager : MonoBehaviour
 
     public void playEdit()
     {
-        instance.statusGame = 0;
-        SceneManager.LoadScene("Scenes/UserPlay");
+        if (File.Exists(SystemPath.GetPath() + "UserMap.csv"))
+        {
+            instance.statusGame = 0;
+            SceneManager.LoadScene("Scenes/UserPlay");    
+        }
     }
     public void startEdit()
     {

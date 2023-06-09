@@ -11,9 +11,9 @@ public class MainMenuUI : MonoBehaviour
     void Start()
     {
         Character.Instance.getFromCSV();
-        if (Character.Instance.getSpeedMax() == 6 && 
-            Character.Instance.getPowerMax() == 8 &&
-            Character.Instance.getCountMax() == 6)
+        if (Character.Instance.getSpeedMax() >= 6 && 
+            Character.Instance.getPowerMax() >= 8 &&
+            Character.Instance.getCountMax() >= 6)
         {
             startUsers.interactable = true;
             editUsers.interactable = true;

@@ -35,7 +35,7 @@ public class Character : MonoBehaviour
     private int powerMax;
 
     private int lucci = 0;
-    public float getSpeed()
+    public int getSpeed()
     {
         return speed;
     }
@@ -43,15 +43,15 @@ public class Character : MonoBehaviour
     {
         
     }
-    public float getSpeedMax()
+    public int getSpeedMax()
     {
         
         return speedMax;
     }
 
-    public void setSpeedMax()
+    public void setSpeedMax(int value)
     {
-        
+        Instance.speedMax = value;
     }
 
     public int getPower()
@@ -79,9 +79,9 @@ public class Character : MonoBehaviour
         return countMax;
     }
 
-    public void setCountMax()
+    public void setCountMax(int value)
     {
-        
+        Instance.countMax = value;
     }
     
     public int getPowerMax()
@@ -89,9 +89,14 @@ public class Character : MonoBehaviour
         return powerMax;
     }
 
-    public void setPowerMax()
+    public void setPowerMax(int value)
     {
-        
+        Instance.powerMax = value;
+    }
+
+    public int getLucci()
+    {
+        return Instance.lucci;
     }
 
     public void setLucci(int value)

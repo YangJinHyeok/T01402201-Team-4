@@ -18,10 +18,6 @@ public class Sound : MonoBehaviour
         {
             MySfx2.Stop();
         }
-        if (GameManager.instance.statusGame == 21)
-        {
-            MySfx3.Play();
-        }
     }
     
 }

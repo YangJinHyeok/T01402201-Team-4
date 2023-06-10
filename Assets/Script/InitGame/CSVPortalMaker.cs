@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
@@ -12,6 +11,7 @@ public class CSVPortalMaker : MonoBehaviour
     [SerializeField] private float placementDelay = 1.0f; 
     [SerializeField] private GameObject GameController;
     [SerializeField] private string fileName;
+    [SerializeField] private GameObject portalParticlePrefab;
     
     private string prefabName;
     private float positionX;
@@ -35,9 +35,8 @@ public class CSVPortalMaker : MonoBehaviour
             
             if (prefabName.Equals("Solid5"))
             {
-                portalInstance = Instantiate(prefab, new Vector3(positionX, positionY, 0),
-                    Quaternion.identity, portalParent.transform);
-                gameEffects.portals.Add(portalInstance);
+                gameEffects.portals.Add(Instantiate(portalParticlePrefab,
+                    new Vector3(positionX, positionY, 0), Quaternion.identity, portalParent.transform));
             }
 
         }
@@ -61,8 +60,6 @@ public class CSVPortalMaker : MonoBehaviour
 
         gameEffects = GameController.GetComponent<GameEffects>();
         portalParent = GameObject.Find("Portal");
-        prefab = AssetDatabase.
-            LoadAssetAtPath("Assets/Prefabs/Solid/PortalParticle.prefab",typeof(GameObject)).GameObject();
     }
 
     private void Update()

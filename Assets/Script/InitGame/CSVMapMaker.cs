@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Random = UnityEngine.Random;
@@ -11,6 +10,9 @@ using Vector3 = UnityEngine.Vector3;
 public class CSVMapMaker : MonoBehaviour
 {
     [SerializeField] private string fileName;
+    [SerializeField] private GameObject[] boxPrefabs;
+    [SerializeField] private GameObject[] solidPrefabs;
+    [SerializeField] private GameObject[] itemPrefabs;
     private string prefabName;
     private string prefabFolder;
     private float positionX;
@@ -19,13 +21,12 @@ public class CSVMapMaker : MonoBehaviour
 
     private GameObject prefab;
     private GameObject parent;
+    private GameObject boxParent;
+    private GameObject solidParent;
     private Coroutine routine;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
-    string[] itemName = new[] {"ItemCount", "ItemPower", "ItemSpeed", "ItemSuperPower", "Lucci" };
     int[] probability = new[] { 0, 0, 0, 0, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 5, 5, 5, 5, 5, 5 };
 
-    
-    
     private IEnumerator LoadCSVMap(int length)
     {
         while (GameManager.instance.statusGame != 1)
@@ -48,19 +49,17 @@ public class CSVMapMaker : MonoBehaviour
             if (prefabName.Contains("Box"))
             {
                 prefabFolder = "Box/";
-                parent = GameObject.FindWithTag("Box");
+                parent = boxParent;
+                inputItem(Instantiate(boxPrefabs[int.Parse(prefabName.Remove(0, 3))-1],
+                    new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform));
             }
             else if (prefabName.Contains("Solid"))
             {
                 prefabFolder = "Solid/";
-                parent = GameObject.FindWithTag("Solid");
+                parent = solidParent;
+                inputItem(Instantiate(solidPrefabs[int.Parse(prefabName.Remove(0, 5))-1],
+                    new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform));
             }
-            string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-            prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-
-            GameObject nowSpawn = Instantiate(prefab,
-                new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
-            inputItem(nowSpawn);
         }
         if (GameManager.instance.statusGame == 2)
         {
@@ -75,11 +74,11 @@ public class CSVMapMaker : MonoBehaviour
 
     private void Start()
     {
-        List<Vector3> positions = new List<Vector3>();
-        List<String> prefaps = new List<string>();
         dicList.Clear();
-
         dicList = CSVReader.Read(fileName);
+        
+        boxParent = GameObject.FindWithTag("Box");
+        solidParent = GameObject.FindWithTag("Solid");
         if (GameManager.instance.statusGame == 12)
         {
             Destroy(transform.gameObject);
@@ -99,10 +98,7 @@ public class CSVMapMaker : MonoBehaviour
         int index = probability[Random.Range(0, probability.Length)];
         if (parent.gameObject.CompareTag("Box") && index < 5)
         {
-            string nowSpawnName = itemName[index];
-            string path = "Assets/Prefabs/Item/" + nowSpawnName + ".prefab";
-            GameObject nowSpawn = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-            Instantiate(nowSpawn, Vector3.zero, Quaternion.identity, parent.transform).SetActive(false);
+            Instantiate(itemPrefabs[index], Vector3.zero, Quaternion.identity, parent.transform).SetActive(false);
         }
     }
 }

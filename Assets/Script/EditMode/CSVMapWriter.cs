@@ -11,16 +11,18 @@ using Vector3 = UnityEngine.Vector3;
 
 public class CSVMapWriter : MonoBehaviour
 {
+    [SerializeField] private GameObject[] Prefabs;
     private string fileName = "UserMap.csv";
     private string prefabName;
-    private string prefabFolder;
+    private int indexToSpawn;
     private float positionX;
     private float positionY;
+    
     private GameObject player;
     private EditorUIController editorUIController;
     private List<string[]> data = new List<string[]>();
     private string[] tempData;
-    private GameObject latestInstance;
+    private List<GameObject> instances = new List<GameObject>();
 
     private StringBuilder sb;
     void Awake()
@@ -47,61 +49,64 @@ public class CSVMapWriter : MonoBehaviour
             switch (input)
             {
                 case "q":
-                    prefabFolder = "Box/";
+                    indexToSpawn = 0;
                     prefabName = "Box1";
                     inputData = true;
                     break;
                 case "w":
-                    prefabFolder = "Box/";
+                    indexToSpawn = 1;
                     prefabName = "Box2";
                     inputData = true;
                     break;
                 case "e":
-                    prefabFolder = "Box/";
+                    indexToSpawn = 2;
                     prefabName = "Box3";
                     inputData = true;
                     break;
                 case "r":
-                    prefabFolder = "Box/";
+                    indexToSpawn = 3;
                     prefabName = "Box4";
                     inputData = true;
                     break;
                 case "t":
-                    prefabFolder = "Box/";
+                    indexToSpawn = 4;
                     prefabName = "Box5";
                     inputData = true;
                     break;
                 case "z":
-                    prefabFolder = "Solid/";
+                    indexToSpawn = 5;
                     prefabName = "Solid1";
                     inputData = true;
                     break;
                 case "x":
-                    prefabFolder = "Solid/";
+                    indexToSpawn = 6;
                     prefabName = "Solid2";
                     inputData = true;
                     break;
                 case "c":
-                    prefabFolder = "Solid/";
+                    indexToSpawn = 7;
                     prefabName = "Solid3";
                     inputData = true;
                     break;
                 case "v":
-                    prefabFolder = "Solid/";
+                    indexToSpawn = 8;
                     prefabName = "Solid4";
                     inputData = true;
                     break;
                 case "b":
-                    prefabFolder = "Solid/";
+                    indexToSpawn = 9;
                     prefabName = "Solid5";
                     inputData = true;
                     break;
                 case "/":
-                    Destroy(latestInstance);
-                    data.Remove(tempData);
+                    if (instances.Count > 0)
+                    {
+                        Destroy(instances[^1]);
+                        instances.RemoveAt(instances.Count - 1);
+                        data.Remove(tempData);
+                    }
                     break;
                 case "p":
-                    Debug.Log("now Saving");
                     writeOnCSV();
                     saveCSVFile();
                     transform.GetComponent<CSVSpawnWriter>().enabled = true;
@@ -124,12 +129,8 @@ public class CSVMapWriter : MonoBehaviour
                     Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX, positionY), 0.1f);
                     if (colliders.Length < 2)
                     {
-                        GameObject prefab = new GameObject();
-                        string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-                        prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-                        Debug.Log("current prefab : " + prefab.name);
-                        latestInstance = Instantiate(prefab,
-                            new Vector3(positionX, positionY, 0), Quaternion.identity);
+                        instances.Add(Instantiate(Prefabs[indexToSpawn],
+                            new Vector3(positionX, positionY, 0), Quaternion.identity));
 
                         tempData = new string[4];
                         tempData[0] = prefabName;

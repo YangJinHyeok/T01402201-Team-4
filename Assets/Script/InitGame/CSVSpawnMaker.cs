@@ -1,24 +1,21 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
-using Random = UnityEngine.Random;
 using Vector3 = UnityEngine.Vector3;
 
 public class CSVSpawnMaker : MonoBehaviour
 {
     [SerializeField] private string fileName;
+    [SerializeField] private GameObject mob1Prefab;
+    [SerializeField] private GameObject mob2Prefab;
     private string prefabName;
     private string prefabFolder;
     private float positionX;
     private float positionY;
     private float placementDelay = 0.1f;
     private Camera main;
-    private GameObject prefab;
     private GameObject parent;
     private GameEffects gameEffects;
     List<Dictionary<string, object>> dicList = new List<Dictionary<string, object>>();
@@ -53,11 +50,8 @@ public class CSVSpawnMaker : MonoBehaviour
             prefabName = mob1[i]["prefapName"].ToString();
             positionX = float.Parse(mob1[i]["positionX"].ToString());
             positionY = float.Parse(mob1[i]["positionY"].ToString());
-
-            string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-            prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
             
-            Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
+            Instantiate(mob1Prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
             
             yield return new WaitForSeconds(placementDelay);
         }
@@ -67,10 +61,7 @@ public class CSVSpawnMaker : MonoBehaviour
             positionX = float.Parse(mob2[i]["positionX"].ToString());
             positionY = float.Parse(mob2[i]["positionY"].ToString());
 
-            string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-            prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-            
-            Instantiate(prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
+            Instantiate(mob2Prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
             
             yield return new WaitForSeconds(placementDelay);
         }

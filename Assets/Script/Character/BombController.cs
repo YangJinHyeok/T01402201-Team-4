@@ -10,6 +10,7 @@ using UnityEngine.UIElements;
 
 public class BombController : MonoBehaviour
 {
+    [SerializeField] private GameObject bombPrefab;
     private int playerCount;
     private int playerRemaining;
     private int playerCountMax;
@@ -53,10 +54,8 @@ public class BombController : MonoBehaviour
 
                 if (!isBombPresent)
                 {
-                    string path = "Assets/Prefabs/Bomb/" + "Bomb" + ".prefab";
-                    GameObject prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
                     playerRemaining--;
-                    Instantiate(prefab, position, Quaternion.identity);
+                    Instantiate(bombPrefab, position, Quaternion.identity);
                     setSound();
                 }
 

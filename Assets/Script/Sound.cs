@@ -6,7 +6,6 @@ using UnityEngine;
 public class Sound : MonoBehaviour
 {
     public AudioSource MySfx2;
-    public AudioSource MySfx3;
 
     private void Update()
     {

@@ -3,24 +3,23 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using Quaternion = UnityEngine.Quaternion;
 using Vector3 = UnityEngine.Vector3;
 
 public class CSVSpawnWriter : MonoBehaviour
 {
+    [SerializeField] private GameObject[] mobPrefabs;
     private string fileName = "UserSpawn.csv";
+    private int indexToSpawn;
     private string prefabName;
-    private string prefabFolder;
     private float positionX;
     private float positionY;
     private GameObject player;
     private EditorUIController editorUIController;
     private List<string[]> data = new List<string[]>();
     private string[] tempData;
-    private GameObject latestInstance;
+    private List<GameObject> instances = new List<GameObject>();
 
     private StringBuilder sb;
     void Awake()
@@ -50,21 +49,24 @@ public class CSVSpawnWriter : MonoBehaviour
         switch (input)
         {
             case "a":
-                prefabFolder = "Mob/";
                 prefabName = "Mob1";
+                indexToSpawn = 0;
                 inputData = true;
                 break;
             case "s":
-                prefabFolder = "Mob/";
                 prefabName = "Mob2";
+                indexToSpawn = 1;
                 inputData = true;
                 break;
-            case "z":
-                Destroy(latestInstance);
-                data.Remove(tempData);
+            case "/":
+                if (instances.Count > 0)
+                {
+                    Destroy(instances[^1]);
+                    instances.RemoveAt(instances.Count - 1);
+                    data.Remove(tempData);
+                }
                 break;
             case "p":
-                Debug.Log("now Saving");
                 writeOnCSV();
                 editorUIController.NextStep();
                 saveCSVFile();
@@ -86,12 +88,8 @@ public class CSVSpawnWriter : MonoBehaviour
                 Collider2D[] colliders = Physics2D.OverlapCircleAll(new Vector2(positionX, positionY), 0.1f);
                 if (colliders.Length < 2)
                 {
-                    GameObject prefab = new GameObject();
-                    string path = "Assets/Prefabs/" + prefabFolder + prefabName + ".prefab";
-                    prefab = AssetDatabase.LoadAssetAtPath(path, typeof(GameObject)).GameObject();
-                    Debug.Log("current prefab : " + prefab.name);
-                    latestInstance = Instantiate(prefab,
-                        new Vector3(positionX, positionY, 0), Quaternion.identity);
+                     instances.Add(Instantiate(mobPrefabs[indexToSpawn],
+                        new Vector3(positionX, positionY, 0), Quaternion.identity));
 
                     tempData = new string[4];
                     tempData[0] = prefabName;
@@ -135,6 +133,5 @@ public class CSVSpawnWriter : MonoBehaviour
         StreamWriter outStream = System.IO.File.CreateText(filepath + fileName);
         outStream.Write(sb);
         outStream.Close();
-        Debug.Log("Save End");
     }
 }

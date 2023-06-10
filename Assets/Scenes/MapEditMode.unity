@@ -1686,6 +1686,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d4f1dd6094f72a4fb31a0c24c304ba6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bombPrefab: {fileID: 0}
   mySfx3: {fileID: 0}
   setsFx: {fileID: 0}
 --- !u!58 &697333408
@@ -2955,6 +2956,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2cfa1873f08c9242a16fa8a199a9279, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mobPrefabs:
+  - {fileID: 1244518154885578260, guid: 3e7e16374994015448056b0c50f53500, type: 3}
+  - {fileID: 8808617397010459094, guid: ec5b8a1a30ea4af4fa4a6ac09378b6fb, type: 3}
 --- !u!114 &1242711280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2967,6 +2971,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eed61a7a9f535544da3cfc589fe8562e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Prefabs:
+  - {fileID: 7434927907382239038, guid: 33d1f444b336e0f44a90cdc871f213a7, type: 3}
+  - {fileID: 8985033600322124987, guid: 78a6830ecbfe55047863a55842df714f, type: 3}
+  - {fileID: 3760869803185447495, guid: 71a7b9a414c9167489de383cd55d35bb, type: 3}
+  - {fileID: 6918187345261093947, guid: 95a4474e43b18ba4ea0987a7bae5e430, type: 3}
+  - {fileID: 8077520103190451278, guid: 14ca34de8a740364eacd7d40f0bbbda5, type: 3}
+  - {fileID: 3803370938603271019, guid: 1997220534131124ab372ea55d5bf07b, type: 3}
+  - {fileID: 993561776475689794, guid: 08b15d67f7c1a7543ba6f8871d6ddb08, type: 3}
+  - {fileID: 3874533068491365506, guid: 5aeab50482d8c564ebcb2331141c6718, type: 3}
+  - {fileID: 1717076460490398673, guid: 329807038d9b7a44b8eb3a380e17f78a, type: 3}
+  - {fileID: 6600665760876756521, guid: 8d54c3ef64c08dc43a0cd5e7ebf541c7, type: 3}
 --- !u!4 &1242711281
 Transform:
   m_ObjectHideFlags: 0

@@ -1,24 +1,22 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 public class GameEffects : MonoBehaviour
 {
     [SerializeField] private GameObject UIController;
+    [SerializeField] private GameObject portalUse;
+    [SerializeField] private GameObject dust;
+    
     public static float portalCooltime = 3.0f;
     public List<GameObject> portals = new List<GameObject>();
     
     private List<int> path = new List<int>();
     private GameUIController gameUIController;
-    private GameObject portalUse;
     private GameObject player;
-    private GameObject dust;
     private int mobCount;
-
     private MobMovement mobMovement;
 
     private void Awake()
@@ -27,12 +25,6 @@ public class GameEffects : MonoBehaviour
         path.Clear();
         gameUIController = UIController.GetComponent<GameUIController>();
         portalCooltime = 3.0f;
-        portalUse = AssetDatabase
-            .LoadAssetAtPath("Assets/Prefabs/Solid/PortalUse.prefab", typeof(GameObject))
-            .GameObject();
-        dust = AssetDatabase
-            .LoadAssetAtPath("Assets/Prefabs/dust.prefab", typeof(GameObject))
-            .GameObject();
     }
 
     private void Start()

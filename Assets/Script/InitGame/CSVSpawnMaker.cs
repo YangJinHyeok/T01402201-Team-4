@@ -13,7 +13,6 @@ public class CSVSpawnMaker : MonoBehaviour
     private string prefabName;
     private float positionX;
     private float positionY;
-    private float placementDelay = 0.1f;
     private Camera main;
     private GameObject parent;
     private GameEffects gameEffects;
@@ -51,7 +50,7 @@ public class CSVSpawnMaker : MonoBehaviour
             
             Instantiate(mob1Prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
             
-            yield return new WaitForSeconds(placementDelay);
+            yield return new WaitForSeconds(0.06f);
         }
         for (int i = 0; i < mob2.Count; i++)
         {
@@ -61,7 +60,7 @@ public class CSVSpawnMaker : MonoBehaviour
 
             Instantiate(mob2Prefab, new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform);
             
-            yield return new WaitForSeconds(placementDelay);
+            yield return new WaitForSeconds(0.06f);
         }
         gameEffects.setMobCount(mob1.Count + mob2.Count);
         GameManager.instance.statusGame = 5;

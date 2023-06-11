@@ -10,16 +10,14 @@ public class GameUIController : MonoBehaviour
     [SerializeField] private Image volume;
     [SerializeField] private GameObject boardPage;
     [SerializeField] private GameObject endImage;
-    public static int times = 300;
-    public Text timeText;
+    [SerializeField] private Text timeText;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private AudioSource winSound;
+    [SerializeField] private Text coinText;
     
-    public static int score = 30000;
-    public Text scoreText;
-
-    public static int coin = 0;
-    public Text coinText;
-    public AudioSource winSound;
-
+    private int times = 300;
+    private int score = 30000;
+    private int coin = 0;
     private CanvasGroup canvasGroup;
     private BoardScript boardScript;
     private Coroutine timerControl;

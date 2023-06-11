@@ -31,7 +31,7 @@ public class InitSequence : MonoBehaviour
         for (int i = 6; i <= 20; i++)
         {
             main.orthographicSize = i;
-            yield return new WaitForSeconds(0.06f);
+            yield return null;
         }
 
         GameManager.instance.statusGame = 1;
@@ -49,7 +49,7 @@ public class InitSequence : MonoBehaviour
         for (int i = 20; i >= 6; i--)
         {
             main.orthographicSize = i;
-            yield return new WaitForSeconds(0.06f);
+            yield return new WaitForSeconds(0.04f);
         }
 
         UIController.alpha = 1;

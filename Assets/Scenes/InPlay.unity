@@ -20768,8 +20768,8 @@ MonoBehaviour:
   endImage: {fileID: 1073774114}
   timeText: {fileID: 559817552}
   scoreText: {fileID: 1077810033}
-  coinText: {fileID: 1195855289}
   winSound: {fileID: 1500677141}
+  coinText: {fileID: 1195855289}
 --- !u!225 &1500677140
 CanvasGroup:
   m_ObjectHideFlags: 0

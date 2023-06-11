@@ -16,7 +16,6 @@ public class CSVMapMaker : MonoBehaviour
     private string prefabName;
     private float positionX;
     private float positionY;
-    private float placementDelay = 0.1f;
 
     private GameObject prefab;
     private GameObject parent;
@@ -42,7 +41,7 @@ public class CSVMapMaker : MonoBehaviour
             if (currentX < positionX)
             {
                 currentX = positionX;
-                yield return new WaitForSeconds(placementDelay);
+                yield return new WaitForSeconds(0.04f);
             }
             
             if (prefabName.Contains("Box"))

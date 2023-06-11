@@ -11,7 +11,6 @@ public class CSVSpawnMaker : MonoBehaviour
     [SerializeField] private GameObject mob1Prefab;
     [SerializeField] private GameObject mob2Prefab;
     private string prefabName;
-    private string prefabFolder;
     private float positionX;
     private float positionY;
     private float placementDelay = 0.1f;
@@ -44,7 +43,6 @@ public class CSVSpawnMaker : MonoBehaviour
             }
         }
         parent = GameObject.FindWithTag("Mob");
-        prefabFolder = "Mob/";
         for (int i = 0; i < mob1.Count; i++)
         {
             prefabName = mob1[i]["prefapName"].ToString();

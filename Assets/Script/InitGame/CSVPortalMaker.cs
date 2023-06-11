@@ -26,7 +26,6 @@ public class CSVPortalMaker : MonoBehaviour
     
     private IEnumerator LoadCSVMap(int length)
     {
-        GameObject portalInstance;
         for (int i = 0; i < length; i++)
         {
             prefabName = dicList[i]["prefapName"].ToString();

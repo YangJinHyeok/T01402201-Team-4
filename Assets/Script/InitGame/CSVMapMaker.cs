@@ -14,7 +14,6 @@ public class CSVMapMaker : MonoBehaviour
     [SerializeField] private GameObject[] solidPrefabs;
     [SerializeField] private GameObject[] itemPrefabs;
     private string prefabName;
-    private string prefabFolder;
     private float positionX;
     private float positionY;
     private float placementDelay = 0.1f;
@@ -48,14 +47,12 @@ public class CSVMapMaker : MonoBehaviour
             
             if (prefabName.Contains("Box"))
             {
-                prefabFolder = "Box/";
                 parent = boxParent;
                 inputItem(Instantiate(boxPrefabs[int.Parse(prefabName.Remove(0, 3))-1],
                     new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform));
             }
             else if (prefabName.Contains("Solid"))
             {
-                prefabFolder = "Solid/";
                 parent = solidParent;
                 inputItem(Instantiate(solidPrefabs[int.Parse(prefabName.Remove(0, 5))-1],
                     new Vector3(positionX, positionY, 0), Quaternion.identity, parent.transform));
